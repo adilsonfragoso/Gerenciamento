@@ -134,21 +134,21 @@
         <div class="data-input-container">
             <div class="data-input-wrapper">
                 <label for="novaData">Nova data:</label>
-                <input type="date" id="novaData">
-            </div>
-            <div class="dia-semana-display">
-                <span id="diaSemanaDisplay">-</span>
+                <div class="data-flex-row">
+                    <input type="date" id="novaData">
+                    <span class="dia-semana-display" id="diaSemanaDisplay">-</span>
+                </div>
             </div>
         </div>
         
         <div>
-            <label for="siglasDropdown">Siglas do mesmo grupo (últimos 3 registros):</label>
+            <label for="siglasDropdown">Siglas - (últimos 3 registros):</label>
             <select id="siglasDropdown">
                 <option value="">Selecione uma data para carregar as siglas...</option>
             </select>
         </div>
         
-        <div style="text-align: center; margin: 20px 0;">
+        <div style="text-align: center; margin: 1px 0;">
             <button id="btnCadastrarSiglas" class="btn-cadastrar-secao">
                 Cadastrar Siglas
             </button>
@@ -163,7 +163,7 @@
                 </select>
             </div>
             
-            <div style="text-align: center; margin: 20px 0;">
+            <div style="text-align: center; margin: 1px 0;">
                 <button id="btnCadastrarSiglaAvulsa" class="btn-cadastrar-secao sigla-avulsa">
                     Cadastrar Sigla Avulsa
                 </button>

@@ -89,18 +89,20 @@
     text-align: center;
 }
 
-.nova-data-section .data-input-container {
+/* Garantir que o container use flexbox para alinhar lado a lado */
+.data-input-container {
     display: flex;
     align-items: center;
-    gap: 20px;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
 }
 
-.nova-data-section .data-input-wrapper {
-    flex: 0 0 auto;
-    min-width: 140px;
-    text-align: center;
+/* Ajustar os filhos para não ocuparem 100% da largura */
+.data-input-wrapper {
+    flex: 0 0 40%;
+    min-width: 120px;
+    max-width: 200px;
+    text-align: left;
 }
 
 .nova-data-section label {
@@ -111,18 +113,32 @@
     text-align: center;
 }
 
+/* Remover largura 100% do input de data se existir */
 .nova-data-section input[type="date"] {
     width: 100%;
-    max-width: 140px;
+    max-width: 100%;
+    box-sizing: border-box;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
+    color:blue;
+    font-weight: 500;
 }
 
-.nova-data-section .dia-semana-display {
-    flex: 1;
-    min-width: 120px;
+.dia-semana-display {
+    flex: 1 1 0;
+    min-width: 80px;
+    text-align: center;
+    font-weight: 500;
+    color: #666;
+    font-size: 16px;
+    background: #e3f2fd;
+    border: 1px solid #bbdefb;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-top: 0;
+    margin-left: 0;
 }
 
 #diaSemanaDisplay {
@@ -142,7 +158,7 @@
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 16px;
     background: white;
     margin-bottom: 10px;
 }
@@ -339,6 +355,7 @@
     background: #e9ecef;
     border-radius: 4px;
     font-size: 13px;
+    text-align: center;
 }
 
 .script-info.pendentes {
@@ -382,29 +399,31 @@
 
 .logs-section {
     background: white;
-    padding: 20px;
+    padding: 1px;
     border-radius: 8px;
     margin-top: 20px;
     border: 1px solid #e9ecef;
+    text-align: center;
 }
 
 .logs-section h4 {
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 3px;
     color: #333;
 }
 
 #logsExecucao {
-    background: #f8f9fa;
+    background: #e5ffc7;
     border: 1px solid #e9ecef;
     border-radius: 4px;
-    padding: 15px;
+    padding: 1px;
     min-height: 150px;
     max-height: 300px;
     overflow-y: auto;
     font-family: 'Courier New', monospace;
     font-size: 13px;
     line-height: 1.4;
+    font-weight: 800;
     white-space: pre-wrap;
 }
 
@@ -422,6 +441,7 @@
 
 .btn-limpar-logs:hover {
     background: #5a6268;
+    
 }
 
 /* ========================================
@@ -813,4 +833,142 @@
         min-height: 100px;
         font-size: 12px;
     }
+
+    .data-input-container {
+        flex-direction: row;
+        gap: 8px;
+        justify-content: center;
+    }
+    .data-input-wrapper {
+        flex: 0 0 40%;
+        min-width: 100px;
+        max-width: 160px;
+    }
+    .dia-semana-display {
+        flex: 1 1 0;
+        min-width: 70px;
+        font-size: 15px;
+        padding: 7px 8px;
+    }
+} 
+
+/* Forçar layout lado a lado no mobile com !important */
+@media (max-width: 700px) {
+  .nova-data-section .data-input-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  .nova-data-section .data-input-wrapper {
+    flex: 0 0 40% !important;
+    min-width: 90px !important;
+    max-width: 160px !important;
+    text-align: left !important;
+  }
+  .nova-data-section .dia-semana-display {
+    flex: 1 1 0 !important;
+    min-width: 70px !important;
+    text-align: left !important;
+    font-size: 16px !important;
+    padding: 0 0 0 12px !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    color: #333 !important;
+    font-weight: 500 !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    height: 38px !important;
+  }
+  .nova-data-section input[type="date"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    height: 38px !important;
+  }
+} 
+
+/* Ajuste principal para o layout do campo de data e dia da semana */
+.data-flex-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px; /* Espaço extra para separar do próximo bloco */
+}
+
+.data-flex-row input[type="date"] {
+    width: 65%;
+    min-width: 160px;
+    max-width: 450px;
+    height: 38px;
+}
+
+.data-flex-row .dia-semana-display {
+    width: 35%;
+    min-width: 70px;
+    max-width: 160px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    padding: 8px 0;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e3f2fd;
+    border: 1px solid #bbdefb;
+    border-radius: 4px;
+    margin-left: 0;
+}
+
+/* Espaçamento extra abaixo do bloco de data */
+.data-input-container {
+    margin-bottom: 18px;
+}
+
+/* Ajuste do label para não ficar colado ao bloco de data */
+.nova-data-section label[for="siglasDropdown"] {
+    margin-top: 10px;
+    display: block;
+}
+
+/* Responsividade: manter proporção e alinhamento no mobile */
+@media (max-width: 700px) {
+  .data-flex-row {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 16px !important;
+  }
+  .data-flex-row input[type="date"] {
+    width: 65% !important;
+    min-width: 120px !important;
+    max-width: 100% !important;
+    height: 36px !important;
+  }
+  .data-flex-row .dia-semana-display {
+    width: 35% !important;
+    min-width: 60px !important;
+    max-width: 100% !important;
+    font-size: 15px !important;
+    padding: 7px 0 !important;
+    height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #e3f2fd !important;
+    border: 1px solid #bbdefb !important;
+    border-radius: 4px !important;
+    color: #333 !important;
+    font-weight: 500 !important;
+    margin-left: 0 !important;
+  }
+  .data-input-container {
+    margin-bottom: 16px !important;
+  }
 } 
