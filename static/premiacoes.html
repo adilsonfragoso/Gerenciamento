@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciamento de Premiações</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <style>
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        /* Estilos para o menu */
+        .menu-container {
+            background: #1976d2;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .menu {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+        }
+        
+        .menu-title {
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0;
+            flex-shrink: 0;
+        }
+        
+        .menu-nav {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .menu-item {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        
+        .menu-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-1px);
+        }
+        
+        .menu-item.active {
+            background: rgba(255,255,255,0.3);
+            font-weight: 600;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .menu-title {
+                font-size: 1em;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .menu-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #1976d2;
+                flex-direction: column;
+                gap: 0;
+                padding: 10px 0;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+                z-index: 1000;
+            }
+            
+            .menu-nav.active {
+                display: flex;
+            }
+            
+            .menu-container {
+                position: relative;
+            }
+            
+            .menu-item {
+                width: 100%;
+                text-align: center;
+                padding: 12px 15px;
+                border-radius: 0;
+                font-size: 0.95em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .menu {
+                padding: 0 10px;
+            }
+            
+            .menu-title {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Menu de navegação -->
+<div class="menu-container">
+    <div class="menu">
+        <h1 class="menu-title">Sistema de Gerenciamento</h1>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav class="menu-nav" id="menuNav">
+            <a href="/" class="menu-item">Início</a>
+            <a href="/dashboard" class="menu-item">Dashboard</a>
+            <a href="/premiacoes" class="menu-item active">Premiações</a>
+            <a href="/edicoes" class="menu-item">Edições</a>
+        </nav>
+    </div>
+</div>
+
+<div class="container" id="main-container">
+    <h2>Consulta siglas</h2>
+    <button class="btn" onclick="abrirFormularioNovo()">Criar novo registro</button>
+    <table id="siglas-table">
+        <thead>
+            <tr><th>Sigla</th></tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<script src="/static/js/index.js"></script>
+<script>
+    // Função do menu
+    function toggleMenu() {
+        const menuNav = document.getElementById('menuNav');
+        menuNav.classList.toggle('active');
+    }
+
+    // Event listeners para o menu mobile
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuItems = document.querySelectorAll('.menu-item');
+        const menuNav = document.getElementById('menuNav');
+        
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    menuNav.classList.remove('active');
+                }
+            });
+        });
+        
+        // Fechar menu ao redimensionar para desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                menuNav.classList.remove('active');
+            }
+        });
+    });
+</script>
+</body>
+</html> 

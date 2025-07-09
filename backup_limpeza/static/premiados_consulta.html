@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta de Premiados</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <style>
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #1976d2, #1565c0);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .search-section {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .search-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 20px;
+            align-items: end;
+        }
+
+        .autocomplete-container {
+            position: relative;
+        }
+
+        .autocomplete-container label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .autocomplete-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .autocomplete-input:focus {
+            outline: none;
+            border-color: #1976d2;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+        }
+
+        .autocomplete-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .suggestion-item {
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .suggestion-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .suggestion-item:last-child {
+            border-bottom: none;
+        }
+
+        .suggestion-item.highlighted {
+            background-color: #e3f2fd;
+        }
+
+        .search-btn {
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #1976d2, #2196f3);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 8px rgba(25, 118, 210, 0.3);
+        }
+
+        .search-btn:hover {
+            background: linear-gradient(45deg, #1565c0, #1976d2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(25, 118, 210, 0.4);
+        }
+
+        .dashboard-section {
+            display: none;
+            margin-bottom: 30px;
+        }
+
+        .person-info {
+            background: linear-gradient(135deg, #4caf50, #66bb6a);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+
+        .person-name {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .person-details {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .stats-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--card-color);
+        }
+
+        .stat-card.total-received {
+            --card-color: linear-gradient(135deg, #ff6b6b, #ee5a24);
+        }
+
+        .stat-card.total-times {
+            --card-color: linear-gradient(135deg, #4ecdc4, #44a08d);
+        }
+
+        .stat-card.first-prize {
+            --card-color: linear-gradient(135deg, #feca57, #ff9ff3);
+        }
+
+        .stat-card.last-prize {
+            --card-color: linear-gradient(135deg, #48dbfb, #0abde3);
+        }
+
+        .stat-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            background: var(--card-color);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            background: var(--card-color);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .menu-container {
+            background: #1976d2;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .menu {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+        }
+        
+        .menu-title {
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .menu-nav {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .menu-item {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .menu-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-1px);
+        }
+        
+        .menu-item.active {
+            background: rgba(255,255,255,0.3);
+            font-weight: 600;
+        }
+
+        .loading {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #1976d2;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .search-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .stats-dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-card {
+                padding: 20px;
+            }
+            
+            .stat-number {
+                font-size: 2em;
+            }
+            
+            .stat-icon {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu de navegação -->
+    <div class="menu-container">
+        <div class="menu">
+            <h1 class="menu-title">Consulta de Premiados</h1>
+            <nav class="menu-nav">
+                <a href="/" class="menu-item">Início</a>
+                <a href="/dashboard" class="menu-item">Dashboard</a>
+                <a href="/premiacoes" class="menu-item">Premiações</a>
+                <a href="/edicoes" class="menu-item">Edições</a>
+                <a href="/premiados_consulta" class="menu-item active">Premiados</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Seção de Busca -->
+        <div class="search-section">
+            <h2 style="margin-bottom: 20px; color: #333;">🔍 Buscar Premiado</h2>
+            <div class="search-grid">
+                <div class="autocomplete-container">
+                    <label for="nomeInput">Nome do Premiado:</label>
+                    <input type="text" id="nomeInput" class="autocomplete-input" placeholder="Digite o nome...">
+                    <div id="nomeSuggestions" class="autocomplete-suggestions"></div>
+                </div>
+                <div class="autocomplete-container">
+                    <label for="telefoneInput">Telefone:</label>
+                    <input type="text" id="telefoneInput" class="autocomplete-input" placeholder="Digite o telefone...">
+                    <div id="telefoneSuggestions" class="autocomplete-suggestions"></div>
+                </div>
+                <button class="search-btn" onclick="buscarPessoa()">
+                    <span id="searchBtnText">Buscar</span>
+                    <div id="searchBtnLoading" class="loading" style="display: none;">
+                        <div class="spinner"></div>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loadingIndicator" class="loading">
+            <div class="spinner"></div>
+            Carregando dados da pessoa...
+        </div>
+
+        <!-- Sem resultados -->
+        <div id="noResults" class="no-results">
+            <h3>🔍 Pessoa não encontrada</h3>
+            <p>Verifique se o nome está correto e tente novamente</p>
+        </div>
+
+        <!-- Dashboard da Pessoa -->
+        <div id="dashboardSection" class="dashboard-section">
+            <!-- Info da pessoa -->
+            <div class="person-info">
+                <div class="person-name" id="personName">Nome da Pessoa</div>
+                <div class="person-details" id="personDetails">Detalhes da pessoa</div>
+            </div>
+
+            <!-- Cards de estatísticas -->
+            <div class="stats-dashboard">
+                <div class="stat-card total-received">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-number" id="totalRecebido">R$ 0,00</div>
+                    <div class="stat-label">Total de prêmios<br>Recebidos</div>
+                </div>
+
+                <div class="stat-card total-times">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-number" id="totalVezes">0 vezes</div>
+                    <div class="stat-label">Total de vezes que<br>foi premiado</div>
+                </div>
+
+                <div class="stat-card first-prize">
+                    <div class="stat-icon">🥇</div>
+                    <div class="stat-number" id="primeiraEdicao">-</div>
+                    <div class="stat-label">Primeira<br>premiação</div>
+                </div>
+
+                <div class="stat-card last-prize">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-number" id="ultimaEdicao">-</div>
+                    <div class="stat-label">Última<br>premiação</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variáveis globais
+        let currentPerson = null;
+        let nomeTimeout = null;
+        let telefoneTimeout = null;
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            setupAutocomplete();
+        });
+
+        // Configurar autocomplete
+        function setupAutocomplete() {
+            const nomeInput = document.getElementById('nomeInput');
+            const telefoneInput = document.getElementById('telefoneInput');
+
+            // Autocomplete para nome
+            nomeInput.addEventListener('input', function() {
+                clearTimeout(nomeTimeout);
+                const query = this.value.trim();
+                
+                if (query.length < 2) {
+                    hideNomeSuggestions();
+                    return;
+                }
+
+                nomeTimeout = setTimeout(() => {
+                    buscarNomes(query);
+                }, 300);
+            });
+
+            // Autocomplete para telefone
+            telefoneInput.addEventListener('input', function() {
+                clearTimeout(telefoneTimeout);
+                const query = this.value.trim();
+                
+                if (query.length < 2) {
+                    hideTelefoneSuggestions();
+                    return;
+                }
+
+                telefoneTimeout = setTimeout(() => {
+                    buscarTelefones(query);
+                }, 300);
+            });
+
+            // Fechar sugestões ao clicar fora
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.autocomplete-container')) {
+                    hideNomeSuggestions();
+                    hideTelefoneSuggestions();
+                }
+            });
+
+            // Enter para buscar
+            nomeInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    hideNomeSuggestions();
+                    buscarPessoa();
+                }
+            });
+
+            telefoneInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    hideTelefoneSuggestions();
+                    buscarPessoa();
+                }
+            });
+        }
+
+        // Buscar nomes para autocomplete
+        async function buscarNomes(query) {
+            try {
+                const response = await fetch(`/api/premiados/nomes?q=${encodeURIComponent(query)}`);
+                const data = await response.json();
+                
+                mostrarNomeSuggestions(data.nomes);
+            } catch (error) {
+                console.error('Erro ao buscar nomes:', error);
+            }
+        }
+
+        // Buscar telefones para autocomplete
+        async function buscarTelefones(query) {
+            try {
+                const response = await fetch(`/api/premiados/telefones?q=${encodeURIComponent(query)}`);
+                const data = await response.json();
+                
+                mostrarTelefoneSuggestions(data.telefones);
+            } catch (error) {
+                console.error('Erro ao buscar telefones:', error);
+            }
+        }
+
+        // Mostrar sugestões de nomes
+        function mostrarNomeSuggestions(nomes) {
+            const container = document.getElementById('nomeSuggestions');
+            container.innerHTML = '';
+            
+            if (nomes.length === 0) {
+                hideNomeSuggestions();
+                return;
+            }
+
+            nomes.forEach(nome => {
+                const item = document.createElement('div');
+                item.className = 'suggestion-item';
+                item.textContent = nome;
+                item.onclick = () => selecionarNome(nome);
+                container.appendChild(item);
+            });
+
+            container.style.display = 'block';
+        }
+
+        // Mostrar sugestões de telefones
+        function mostrarTelefoneSuggestions(telefones) {
+            const container = document.getElementById('telefoneSuggestions');
+            container.innerHTML = '';
+            
+            if (telefones.length === 0) {
+                hideTelefoneSuggestions();
+                return;
+            }
+
+            telefones.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'suggestion-item';
+                div.innerHTML = `<strong>${item.telefone}</strong><br><small>${item.nome}</small>`;
+                div.onclick = () => selecionarTelefone(item.telefone, item.nome);
+                container.appendChild(div);
+            });
+
+            container.style.display = 'block';
+        }
+
+        // Selecionar nome
+        function selecionarNome(nome) {
+            document.getElementById('nomeInput').value = nome;
+            hideNomeSuggestions();
+        }
+
+        // Selecionar telefone
+        function selecionarTelefone(telefone, nome) {
+            document.getElementById('telefoneInput').value = telefone;
+            document.getElementById('nomeInput').value = nome;
+            hideTelefoneSuggestions();
+        }
+
+        // Esconder sugestões
+        function hideNomeSuggestions() {
+            document.getElementById('nomeSuggestions').style.display = 'none';
+        }
+
+        function hideTelefoneSuggestions() {
+            document.getElementById('telefoneSuggestions').style.display = 'none';
+        }
+
+        // Buscar pessoa
+        async function buscarPessoa() {
+            const nome = document.getElementById('nomeInput').value.trim();
+            
+            if (!nome) {
+                alert('Por favor, digite um nome para buscar');
+                return;
+            }
+
+            mostrarLoading(true);
+            ocultarDashboard();
+            ocultarSemResultados();
+
+            try {
+                const response = await fetch(`/api/premiados/pessoa/${encodeURIComponent(nome)}`);
+                const data = await response.json();
+                
+                if (data.existe) {
+                    currentPerson = data;
+                    preencherDashboard(data);
+                    mostrarDashboard();
+                } else {
+                    mostrarSemResultados();
+                }
+                
+            } catch (error) {
+                console.error('Erro ao buscar pessoa:', error);
+                alert('Erro ao buscar dados. Tente novamente.');
+            } finally {
+                mostrarLoading(false);
+            }
+        }
+
+        // Preencher dashboard
+        function preencherDashboard(data) {
+            // Info da pessoa
+            document.getElementById('personName').textContent = data.nome;
+            document.getElementById('personDetails').innerHTML = `
+                📊 ${data.total_premiacoes} premiações registradas
+                ${data.telefones.length > 0 ? `📞 ${data.telefones.join(', ')}` : ''}
+            `;
+
+            // Cards de estatísticas
+            document.getElementById('totalRecebido').textContent = 
+                'R$ ' + data.total_recebido.toLocaleString('pt-BR', {minimumFractionDigits: 2});
+            
+            document.getElementById('totalVezes').textContent = 
+                data.total_premiacoes + ' vezes';
+            
+            document.getElementById('primeiraEdicao').textContent = 
+                'Edição ' + data.primeira_edicao;
+            
+            document.getElementById('ultimaEdicao').textContent = 
+                'Edição ' + data.ultima_edicao;
+        }
+
+        // Funções auxiliares
+        function mostrarLoading(show) {
+            document.getElementById('loadingIndicator').style.display = show ? 'flex' : 'none';
+        }
+
+        function mostrarDashboard() {
+            document.getElementById('dashboardSection').style.display = 'block';
+        }
+
+        function ocultarDashboard() {
+            document.getElementById('dashboardSection').style.display = 'none';
+        }
+
+        function mostrarSemResultados() {
+            document.getElementById('noResults').style.display = 'block';
+        }
+
+        function ocultarSemResultados() {
+            document.getElementById('noResults').style.display = 'none';
+        }
+    </script>
+</body>
+</html> 

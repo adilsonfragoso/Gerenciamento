@@ -1,0 +1,546 @@
+/* ========================================
+   COMMON.CSS - Estilos Comuns
+   ======================================== */
+
+/* Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f9;
+}
+
+/* Container principal */
+.container, #main-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Animação de loading */
+@keyframes spin { 
+    0% { transform: rotate(0deg); } 
+    100% { transform: rotate(360deg); } 
+}
+
+/* ========================================
+   MENU DE NAVEGAÇÃO
+   ======================================== */
+
+.top-menu {
+    background: #1976d2;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.menu-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 60px;
+}
+
+.menu-left .menu-title {
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.menu-right {
+    display: flex;
+    align-items: center;
+}
+
+.desktop-nav {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.nav-link.active {
+    background: rgba(255,255,255,0.3);
+    font-weight: 600;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.mobile-nav {
+    display: none;
+    background: #1976d2;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.mobile-nav.show {
+    display: block;
+}
+
+.mobile-link {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.mobile-link:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.mobile-link.active {
+    background: rgba(255,255,255,0.2);
+    font-weight: 600;
+}
+
+.mobile-link:last-child {
+    border-bottom: none;
+}
+
+/* ========================================
+   MODAIS
+   ======================================== */
+
+/* Modal de confirmação */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #1976d2;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-info {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border-left: 4px solid #1976d2;
+}
+
+.modal-info-item {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+.modal-info-label {
+    font-weight: 500;
+    color: #333;
+    display: inline-block;
+    width: 80px;
+}
+
+.modal-info-value {
+    color: #1976d2;
+    font-weight: 500;
+}
+
+.modal-edit-section {
+    margin: 20px 0;
+    padding: 15px;
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 6px;
+}
+
+.modal-edit-section h5 {
+    margin: 0 0 10px 0;
+    color: #856404;
+    font-size: 1em;
+}
+
+.modal-edit-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: monospace;
+    box-sizing: border-box;
+}
+
+.modal-edit-input:focus {
+    outline: none;
+    border-color: #1976d2;
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.modal-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.modal-btn-cancel {
+    background: #6c757d;
+    color: white;
+}
+
+.modal-btn-cancel:hover {
+    background: #5a6268;
+}
+
+.modal-btn-edit {
+    background: #ffc107;
+    color: #212529;
+}
+
+.modal-btn-edit:hover {
+    background: #e0a800;
+}
+
+.modal-btn-confirm {
+    background: #28a745;
+    color: white;
+}
+
+.modal-btn-confirm:hover {
+    background: #218838;
+}
+
+.modal-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Modal de confirmação do script */
+.modal-script-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-script-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-script-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #dc3545;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-script-warning {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.modal-script-warning h5 {
+    margin: 0 0 10px 0;
+    color: #856404;
+    font-size: 1em;
+}
+
+.modal-script-info {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border-left: 4px solid #dc3545;
+}
+
+.modal-script-info-item {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+.modal-script-info-label {
+    font-weight: 500;
+    color: #333;
+    display: inline-block;
+    width: 100px;
+}
+
+.modal-script-info-value {
+    color: #dc3545;
+    font-weight: 500;
+}
+
+.modal-script-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.modal-script-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.modal-script-btn-cancel {
+    background: #6c757d;
+    color: white;
+}
+
+.modal-script-btn-cancel:hover {
+    background: #5a6268;
+}
+
+.modal-script-btn-execute {
+    background: #dc3545;
+    color: white;
+}
+
+.modal-script-btn-execute:hover {
+    background: #c82333;
+}
+
+.modal-script-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Modal de erro customizado para scripts */
+.modal-erro-script {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.4);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-erro-script .modal-content {
+    background: #fff;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 90vw;
+    padding: 24px;
+    box-shadow: 0 2px 16px #0002;
+    position: relative;
+}
+
+.modal-erro-script h3 {
+    color: #c00;
+    margin-top: 0;
+}
+
+.modal-erro-script pre {
+    max-height: 300px;
+    overflow: auto;
+    background: #f8f8f8;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 4px;
+    white-space: pre-wrap;
+}
+
+.modal-erro-script .modal-buttons {
+    margin-top: 16px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+/* ========================================
+   ESTADOS E MENSAGENS
+   ======================================== */
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+.error {
+    color: #d32f2f;
+    text-align: center;
+    padding: 20px;
+    background: #ffebee;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.no-data {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-style: italic;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .menu-left .menu-title {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-wrapper {
+        padding: 0 10px;
+    }
+    
+    .menu-left .menu-title {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 600px) {
+    .modal-content {
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    .modal-buttons {
+        flex-direction: column;
+    }
+    
+    .modal-btn {
+        width: 100%;
+    }
+    
+    .modal-script-content {
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    .modal-script-buttons {
+        flex-direction: column;
+    }
+    
+    .modal-script-btn {
+        width: 100%;
+    }
+}
+
+/* ========================================
+   UTILITÁRIOS
+   ======================================== */
+
+html, body {
+    overflow-x: hidden;
+}
+
+@media (max-width: 600px) {
+    .menu-container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        overflow-x: hidden !important;
+    }
+    .menu {
+        max-width: 100vw !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+} 

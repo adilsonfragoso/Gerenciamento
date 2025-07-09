@@ -1,0 +1,22 @@
+2025-07-07 13:03:50,305 - INFO - ==================================================
+2025-07-09 11:07:02,811 - INFO - ==================================================
+2025-07-09 11:07:13,267 - INFO - ==================================================
+2025-07-09 11:08:50,502 - INFO - Iniciando Agendador Principal
+2025-07-09 11:08:50,502 - INFO - ==================================================
+2025-07-09 11:08:50,502 - INFO - Configurando agendamentos...
+2025-07-09 11:08:50,502 - INFO - Configurando agendamentos para monday
+2025-07-09 11:08:50,506 - INFO - Configurando agendamentos para tuesday
+2025-07-09 11:08:50,507 - INFO - Configurando agendamentos para wednesday
+2025-07-09 11:08:50,507 - INFO - Configurando agendamentos para thursday
+2025-07-09 11:08:50,508 - INFO - Configurando agendamentos para friday
+2025-07-09 11:08:50,508 - INFO - Configurando agendamentos para saturday
+2025-07-09 11:08:50,509 - INFO - Configurando agendamentos para sunday
+2025-07-09 11:08:50,509 - INFO - Total de 94 agendamentos configurados
+2025-07-09 11:08:50,509 - INFO - Total de 94 agendamentos ativos
+2025-07-09 11:08:50,509 - INFO - Exemplo de agendamento: Job(interval=1, unit=weeks, do=rodar_desativa_concluidas_v4, args=(), kwargs={}) às 2025-07-14 10:00:00
+2025-07-09 11:08:50,509 - INFO - Agendador iniciado. Aguardando execução dos agendamentos...
+2025-07-09 11:08:50,509 - INFO - Pressione Ctrl+C para parar o agendador
+2025-07-09 11:50:00,625 - INFO - Iniciando execução: alimenta_premiados.py
+2025-07-09 11:50:00,625 - ERROR - Script não encontrado: alimenta_premiados.py
+2025-07-09 12:00:00,881 - INFO - Iniciando execução: desativa_concluidas_v4.py
+2025-07-09 12:02:16,665 - INFO - desativa_concluidas_v4.py executado com sucesso

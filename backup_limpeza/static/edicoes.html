@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciamento de Edições</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <!-- CSS Separado -->
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/edicoes.css">
+</head>
+<body>
+<!-- Menu de navegação - NOVO ISOLADO -->
+<header class="top-menu">
+    <div class="menu-wrapper">
+        <div class="menu-left">
+            <span class="menu-title">Sistema de Gerenciamento</span>
+        </div>
+        <div class="menu-right">
+            <!-- Menu Desktop -->
+            <nav class="desktop-nav">
+                <a href="/" class="nav-link">Início</a>
+                <a href="/dashboard" class="nav-link">Dashboard</a>
+                <a href="/premiacoes" class="nav-link">Premiações</a>
+                <a href="/edicoes" class="nav-link active">Edições</a>
+            </nav>
+            <!-- Botão Mobile -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </div>
+    <!-- Menu Mobile Dropdown -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="/" class="mobile-link">Início</a>
+        <a href="/dashboard" class="mobile-link">Dashboard</a>
+        <a href="/premiacoes" class="mobile-link">Premiações</a>
+        <a href="/edicoes" class="mobile-link active">Edições</a>
+    </div>
+</header>
+
+<!-- Modal de confirmação -->
+<div id="modalOverlay" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-title">Confirmar Cadastro de Siglas</div>
+        
+        <div class="modal-info">
+            <div class="modal-info-item">
+                <span class="modal-info-label">Data:</span>
+                <span class="modal-info-value" id="modalData"></span>
+            </div>
+            <div class="modal-info-item">
+                <span class="modal-info-label">Dia:</span>
+                <span class="modal-info-value" id="modalDia"></span>
+            </div>
+            <div class="modal-info-item">
+                <span class="modal-info-label">Siglas:</span>
+                <span class="modal-info-value" id="modalSiglas"></span>
+            </div>
+        </div>
+        
+        <div id="modalEditSection" class="modal-edit-section" style="display: none;">
+            <h5>📝 Editar Siglas:</h5>
+            <textarea id="modalEditInput" class="modal-edit-input" rows="4" placeholder="Digite as siglas separadas por vírgula..."></textarea>
+        </div>
+        
+        <div class="modal-buttons">
+            <button id="modalBtnCancel" class="modal-btn modal-btn-cancel">❌ Cancelar</button>
+            <button id="modalBtnEdit" class="modal-btn modal-btn-edit">✏️ Editar</button>
+            <button id="modalBtnConfirm" class="modal-btn modal-btn-confirm">✅ Confirmar</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de confirmação do script -->
+<div id="modalScriptOverlay" class="modal-script-overlay">
+    <div class="modal-script-content">
+        <div class="modal-script-title">⚠️ Confirmar Execução do Script</div>
+        
+        <div class="modal-script-warning">
+            <h5>⚠️ ATENÇÃO!</h5>
+            <p>Você está prestes a executar o script <strong>cadRifas_litoral_latest</strong> que irá:</p>
+            <ul>
+                <li>Fazer login no sistema Litoral da Sorte</li>
+                <li>Preencher formulários automaticamente</li>
+                <li>Carregar imagens das siglas</li>
+                <li>Salvar os sorteios no sistema</li>
+                <li>Gerar links e gravar no banco de dados</li>
+            </ul>
+            <p><strong>Esta ação não pode ser desfeita!</strong></p>
+        </div>
+        
+        <div class="modal-script-info">
+            <div class="modal-script-info-item">
+                <span class="modal-script-info-label">Data:</span>
+                <span class="modal-script-info-value" id="modalScriptData"></span>
+            </div>
+            <div class="modal-script-info-item">
+                <span class="modal-script-info-label">Dia:</span>
+                <span class="modal-script-info-value" id="modalScriptDia"></span>
+            </div>
+            <div class="modal-script-info-item">
+                <span class="modal-script-info-label">Siglas:</span>
+                <span class="modal-script-info-value" id="modalScriptSiglas"></span>
+            </div>
+        </div>
+        
+        <div class="modal-script-buttons">
+            <button id="modalScriptBtnCancel" class="modal-script-btn modal-script-btn-cancel">❌ Cancelar</button>
+            <button id="modalScriptBtnExecute" class="modal-script-btn modal-script-btn-execute">🚀 Executar Script</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de erro customizado para scripts -->
+<div id="modalErroScript" class="modal-erro-script">
+  <div class="modal-content">
+    <h3>❌ Erro ao executar script</h3>
+    <pre id="erroScriptDetalhe"></pre>
+    <div class="modal-buttons">
+      <button onclick="copiarErroScript()" class="modal-btn" style="background:#1976d2; color:#fff;">Copiar erro</button>
+      <button onclick="fecharModalErroScript()" class="modal-btn" style="background:#888; color:#fff;">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="main-container">
+    
+   
+    
+    
+    <!-- Seção de Nova Data e Siglas -->
+    <div class="nova-data-section">
+        <h4>Novas Siglas</h4>
+        
+        <div class="data-input-container">
+            <div class="data-input-wrapper">
+                <label for="novaData">Nova data:</label>
+                <input type="date" id="novaData">
+            </div>
+            <div class="dia-semana-display">
+                <span id="diaSemanaDisplay">-</span>
+            </div>
+        </div>
+        
+        <div>
+            <label for="siglasDropdown">Siglas do mesmo grupo (últimos 3 registros):</label>
+            <select id="siglasDropdown">
+                <option value="">Selecione uma data para carregar as siglas...</option>
+            </select>
+        </div>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <button id="btnCadastrarSiglas" class="btn-cadastrar-secao">
+                Cadastrar Siglas
+            </button>
+        </div>
+        
+        <div class="sigla-avulsa-section">
+            <h4>Sigla Avulsa</h4>
+            
+            <div>
+                <select id="premiacoesDropdown">
+                    <option value="">Carregando siglas...</option>
+                </select>
+            </div>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <button id="btnCadastrarSiglaAvulsa" class="btn-cadastrar-secao sigla-avulsa">
+                    Cadastrar Sigla Avulsa
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Carregando edições...</p>
+    </div>
+    
+    <div id="error" class="error" style="display: none;">
+        <p>Erro ao carregar as edições. Tente novamente.</p>
+    </div>
+    
+    <div id="no-data" class="no-data" style="display: none;">
+        <p>Nenhuma edição encontrada.</p>
+    </div>
+
+    <!-- Nova seção de Scripts -->
+    <div class="scripts-section">
+        <h3>🛠️ Scripts de Automação</h3>
+        
+        <div class="scripts-grid">
+            <!-- Script de Verificação de Links -->
+            <div class="script-card">
+                <h4>🔍 Verificar Links</h4>
+                <p>
+                    Executa o script de verificação de links para testar se todos os links estão funcionando corretamente.
+                </p>
+                <button id="btnVerificarLinks" class="btn-script-secao btn-verificar-links">
+                    🔍 Verificar Links
+                </button>
+                <div id="statusVerificarLinks" class="script-status"></div>
+                <div id="edicoesComProblemas" class="script-info">
+                    <span id="listaEdicoesComProblemas">Carregando...</span>
+                </div>
+            </div>
+
+            <!-- Script de Envio de Links Pendentes -->
+            <div class="script-card">
+                <h4>📱 Enviar Links Pendentes</h4>
+                <p>
+                    Envia automaticamente todos os links com status "pendente" para o WhatsApp.
+                </p>
+                <button id="btnEnviarLinksPendentes" class="btn-script-secao btn-enviar-pendentes">
+                    📱 Enviar Pendentes
+                </button>
+                <div id="statusEnviarPendentes" class="script-status"></div>
+                <div id="edicoesPendentes" class="script-info pendentes">
+                    <span id="listaEdicoesPendentes">Carregando...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Script de Envio de Edições Específicas -->
+        <div class="script-card">
+            <h4>🎯 Enviar Edições Específicas</h4>
+            <p>
+                Envia links de edições específicas para o WhatsApp (independente do status).
+            </p>
+            <div class="edicoes-especificas-container">
+                <input type="text" id="inputEdicoesEspecificas" placeholder="Ex: 6143 6144 6145">
+                <button id="btnEnviarEdicoesEspecificas" class="btn-script-secao btn-enviar-especificas">
+                    🚀 Enviar
+                </button>
+            </div>
+            <div id="statusEnviarEspecificas" class="script-status"></div>
+        </div>
+
+        <!-- Logs de Execução -->
+        <div class="logs-section">
+            <h4>📋 Logs de Execução</h4>
+            <div id="logsExecucao">
+                <div style="color: #6c757d; font-style: italic;">Aguardando execução de scripts...</div>
+            </div>
+            <button id="btnLimparLogs" class="btn-limpar-logs">
+                🗑️ Limpar Logs
+            </button>
+        </div>
+    </div>
+
+    <!-- Seção Siglas Cadastradas (movida para o final) -->
+    <div style="margin-top: 40px;">
+        <table id="edicoes-table" class="edicoes-table" style="display: none;">
+            <h3><center>Siglas cadastradas</center></h3>
+            <thead>
+                <tr>
+                    <th>Sorteio</th>
+                    <th>Siglas</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="edicoes-tbody">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- JavaScript Separado -->
+<script src="/static/js/edicoes.js"></script>
+</body>
+</html>

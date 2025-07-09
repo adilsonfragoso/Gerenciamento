@@ -1,0 +1,356 @@
+2025-07-03 22:09:28,790 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-03 22:09:28,928 - INFO - Nenhuma rifa com PDF pendente para envio
+2025-07-03 22:15:13,020 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-03 22:15:13,158 - INFO - Nenhuma rifa com PDF pendente para envio
+2025-07-03 22:20:53,614 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-03 22:20:53,763 - INFO - Nenhuma rifa com PDF pendente para envio
+2025-07-04 09:18:26,010 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-04 09:18:26,225 - INFO - Nenhuma rifa com PDF pendente para envio
+2025-07-04 11:16:09,309 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-04 11:16:09,800 - INFO - Encontradas 2 rifas com PDF para enviar
+2025-07-04 11:16:09,800 - INFO - 
+Processando edição 6260 - PTM
+2025-07-04 11:16:10,082 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6260
+2025-07-04 11:16:10,082 - INFO - Iniciando envio do PDF para edição 6260 - PTM
+2025-07-04 11:16:10,111 - ERROR - Erro ao enviar texto para edição 6260: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-04 11:16:10,111 - ERROR - Falha ao enviar texto informativo para edição 6260
+2025-07-04 11:16:10,470 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6260
+2025-07-04 11:16:10,471 - ERROR - ❌ Falha ao enviar PDF da edição 6260
+2025-07-04 11:16:15,473 - INFO - 
+Processando edição 6259 - PPT
+2025-07-04 11:16:15,779 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6259
+2025-07-04 11:16:15,779 - INFO - Iniciando envio do PDF para edição 6259 - PPT
+2025-07-04 11:16:15,800 - ERROR - Erro ao enviar texto para edição 6259: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-04 11:16:15,800 - ERROR - Falha ao enviar texto informativo para edição 6259
+2025-07-04 11:16:16,056 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6259
+2025-07-04 11:16:16,056 - ERROR - ❌ Falha ao enviar PDF da edição 6259
+2025-07-04 11:16:21,058 - INFO - 
+=== RESUMO FINAL ===
+2025-07-04 11:16:21,058 - INFO - Total de PDFs processados: 2
+2025-07-04 11:16:21,058 - INFO - PDFs enviados com sucesso: 0
+2025-07-04 11:16:21,058 - INFO - Falhas: 2
+2025-07-04 14:15:46,736 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-04 14:15:47,312 - INFO - Nenhuma rifa com PDF pendente para envio
+2025-07-04 16:16:59,384 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-04 16:16:59,917 - INFO - Encontradas 1 rifas com PDF para enviar
+2025-07-04 16:16:59,917 - INFO - 
+Processando edição 6261 - PT
+2025-07-04 16:17:00,358 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6261
+2025-07-04 16:17:00,358 - INFO - Iniciando envio do PDF para edição 6261 - PT
+2025-07-04 16:17:00,638 - ERROR - Erro ao enviar texto para edição 6261: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-04 16:17:00,638 - ERROR - Falha ao enviar texto informativo para edição 6261
+2025-07-04 16:17:00,883 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6261
+2025-07-04 16:17:00,883 - ERROR - ❌ Falha ao enviar PDF da edição 6261
+2025-07-04 16:17:00,885 - INFO - 
+=== RESUMO FINAL ===
+2025-07-04 16:17:00,885 - INFO - Total de PDFs processados: 1
+2025-07-04 16:17:00,885 - INFO - PDFs enviados com sucesso: 0
+2025-07-04 16:17:00,885 - INFO - Falhas: 1
+2025-07-04 18:12:54,508 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-04 18:12:55,010 - INFO - Encontradas 1 rifas com PDF para enviar
+2025-07-04 18:12:55,010 - INFO - 
+Processando edição 6262 - PTV
+2025-07-04 18:12:55,294 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6262
+2025-07-04 18:12:55,294 - INFO - Iniciando envio do PDF para edição 6262 - PTV
+2025-07-04 18:12:55,323 - ERROR - Erro ao enviar texto para edição 6262: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-04 18:12:55,323 - ERROR - Falha ao enviar texto informativo para edição 6262
+2025-07-04 18:12:55,565 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6262
+2025-07-04 18:12:55,565 - ERROR - ❌ Falha ao enviar PDF da edição 6262
+2025-07-04 18:12:55,567 - INFO - 
+=== RESUMO FINAL ===
+2025-07-04 18:12:55,567 - INFO - Total de PDFs processados: 1
+2025-07-04 18:12:55,567 - INFO - PDFs enviados com sucesso: 0
+2025-07-04 18:12:55,567 - INFO - Falhas: 1
+2025-07-04 21:24:42,154 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-04 21:24:42,319 - INFO - Encontradas 2 rifas com PDF para enviar
+2025-07-04 21:24:42,319 - INFO - 
+Processando edição 6264 - CORUJINHA
+2025-07-04 21:24:42,389 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6264
+2025-07-04 21:24:42,389 - INFO - Iniciando envio do PDF para edição 6264 - CORUJINHA
+2025-07-04 21:24:42,422 - ERROR - Erro ao enviar texto para edição 6264: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-04 21:24:42,422 - ERROR - Falha ao enviar texto informativo para edição 6264
+2025-07-04 21:24:42,497 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6264
+2025-07-04 21:24:42,497 - ERROR - ❌ Falha ao enviar PDF da edição 6264
+2025-07-04 21:24:47,501 - INFO - 
+Processando edição 6263 - PTN
+2025-07-04 21:24:47,577 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6263
+2025-07-04 21:24:47,577 - INFO - Iniciando envio do PDF para edição 6263 - PTN
+2025-07-04 21:24:47,600 - ERROR - Erro ao enviar texto para edição 6263: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-04 21:24:47,600 - ERROR - Falha ao enviar texto informativo para edição 6263
+2025-07-04 21:24:47,681 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6263
+2025-07-04 21:24:47,681 - ERROR - ❌ Falha ao enviar PDF da edição 6263
+2025-07-04 21:24:52,682 - INFO - 
+=== RESUMO FINAL ===
+2025-07-04 21:24:52,682 - INFO - Total de PDFs processados: 2
+2025-07-04 21:24:52,682 - INFO - PDFs enviados com sucesso: 0
+2025-07-04 21:24:52,682 - INFO - Falhas: 2
+2025-07-05 08:53:42,229 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-05 08:53:42,414 - INFO - Encontradas 1 rifas com PDF para enviar
+2025-07-05 08:53:42,414 - INFO - 
+Processando edição 6265 - PPT
+2025-07-05 08:53:42,501 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6265
+2025-07-05 08:53:42,501 - INFO - Iniciando envio do PDF para edição 6265 - PPT
+2025-07-05 08:53:42,560 - ERROR - Erro ao enviar texto para edição 6265: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-05 08:53:42,560 - ERROR - Falha ao enviar texto informativo para edição 6265
+2025-07-05 08:53:42,653 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6265
+2025-07-05 08:53:42,653 - ERROR - ❌ Falha ao enviar PDF da edição 6265
+2025-07-05 08:53:42,656 - INFO - 
+=== RESUMO FINAL ===
+2025-07-05 08:53:42,656 - INFO - Total de PDFs processados: 1
+2025-07-05 08:53:42,657 - INFO - PDFs enviados com sucesso: 0
+2025-07-05 08:53:42,657 - INFO - Falhas: 1
+2025-07-05 11:15:27,906 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-05 11:15:28,054 - INFO - Nenhuma rifa com PDF pendente para envio
+2025-07-05 14:16:25,147 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-05 14:16:25,286 - INFO - Encontradas 2 rifas com PDF para enviar
+2025-07-05 14:16:25,286 - INFO - 
+Processando edição 6267 - PT
+2025-07-05 14:16:25,378 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6267
+2025-07-05 14:16:25,378 - INFO - Iniciando envio do PDF para edição 6267 - PT
+2025-07-05 14:16:25,409 - ERROR - Erro ao enviar texto para edição 6267: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-05 14:16:25,409 - ERROR - Falha ao enviar texto informativo para edição 6267
+2025-07-05 14:16:25,497 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6267
+2025-07-05 14:16:25,497 - ERROR - ❌ Falha ao enviar PDF da edição 6267
+2025-07-05 14:16:30,502 - INFO - 
+Processando edição 6266 - PTM
+2025-07-05 14:16:30,573 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6266
+2025-07-05 14:16:30,573 - INFO - Iniciando envio do PDF para edição 6266 - PTM
+2025-07-05 14:16:30,597 - ERROR - Erro ao enviar texto para edição 6266: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-05 14:16:30,597 - ERROR - Falha ao enviar texto informativo para edição 6266
+2025-07-05 14:16:30,676 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6266
+2025-07-05 14:16:30,676 - ERROR - ❌ Falha ao enviar PDF da edição 6266
+2025-07-05 14:16:35,677 - INFO - 
+=== RESUMO FINAL ===
+2025-07-05 14:16:35,677 - INFO - Total de PDFs processados: 2
+2025-07-05 14:16:35,677 - INFO - PDFs enviados com sucesso: 0
+2025-07-05 14:16:35,677 - INFO - Falhas: 2
+2025-07-05 18:18:25,045 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-05 18:18:25,205 - INFO - Nenhuma rifa com PDF pendente para envio
+2025-07-05 21:43:19,714 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-05 21:43:19,930 - INFO - Encontradas 2 rifas com PDF para enviar
+2025-07-05 21:43:19,930 - INFO - 
+Processando edição 6269 - CORUJINHA
+2025-07-05 21:43:20,033 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6269
+2025-07-05 21:43:20,033 - INFO - Iniciando envio do PDF para edição 6269 - CORUJINHA
+2025-07-05 21:43:20,285 - ERROR - Erro ao enviar texto para edição 6269: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-05 21:43:20,285 - ERROR - Falha ao enviar texto informativo para edição 6269
+2025-07-05 21:43:20,360 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6269
+2025-07-05 21:43:20,361 - ERROR - ❌ Falha ao enviar PDF da edição 6269
+2025-07-05 21:43:25,365 - INFO - 
+Processando edição 6268 - FEDERAL
+2025-07-05 21:43:25,453 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6268
+2025-07-05 21:43:25,453 - INFO - Iniciando envio do PDF para edição 6268 - FEDERAL
+2025-07-05 21:43:25,480 - ERROR - Erro ao enviar texto para edição 6268: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-05 21:43:25,480 - ERROR - Falha ao enviar texto informativo para edição 6268
+2025-07-05 21:43:25,554 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6268
+2025-07-05 21:43:25,554 - ERROR - ❌ Falha ao enviar PDF da edição 6268
+2025-07-05 21:43:30,555 - INFO - 
+=== RESUMO FINAL ===
+2025-07-05 21:43:30,555 - INFO - Total de PDFs processados: 2
+2025-07-05 21:43:30,555 - INFO - PDFs enviados com sucesso: 0
+2025-07-05 21:43:30,555 - INFO - Falhas: 2
+2025-07-06 09:04:41,097 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-06 09:04:41,289 - INFO - Nenhuma rifa com PDF pendente para envio
+2025-07-06 14:18:41,335 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-06 14:18:41,524 - INFO - Encontradas 1 rifas com PDF para enviar
+2025-07-06 14:18:41,524 - INFO - 
+Processando edição 6270 - PPT
+2025-07-06 14:18:41,614 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6270
+2025-07-06 14:18:41,614 - INFO - Iniciando envio do PDF para edição 6270 - PPT
+2025-07-06 14:18:41,640 - ERROR - Erro ao enviar texto para edição 6270: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-06 14:18:41,640 - ERROR - Falha ao enviar texto informativo para edição 6270
+2025-07-06 14:18:41,710 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6270
+2025-07-06 14:18:41,711 - ERROR - ❌ Falha ao enviar PDF da edição 6270
+2025-07-06 14:18:41,715 - INFO - 
+=== RESUMO FINAL ===
+2025-07-06 14:18:41,715 - INFO - Total de PDFs processados: 1
+2025-07-06 14:18:41,715 - INFO - PDFs enviados com sucesso: 0
+2025-07-06 14:18:41,716 - INFO - Falhas: 1
+2025-07-07 12:53:58,361 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-07 12:53:58,606 - INFO - Encontradas 3 rifas com PDF para enviar
+2025-07-07 12:53:58,606 - INFO - 
+Processando edição 6274 - PTM
+2025-07-07 12:53:58,696 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6274
+2025-07-07 12:53:58,697 - INFO - Iniciando envio do PDF para edição 6274 - PTM
+2025-07-07 12:53:58,972 - ERROR - Erro ao enviar texto para edição 6274: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-07 12:53:58,972 - ERROR - Falha ao enviar texto informativo para edição 6274
+2025-07-07 12:53:59,049 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6274
+2025-07-07 12:53:59,049 - ERROR - ❌ Falha ao enviar PDF da edição 6274
+2025-07-07 12:54:04,053 - INFO - 
+Processando edição 6273 - PPT
+2025-07-07 12:54:04,135 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6273
+2025-07-07 12:54:04,136 - INFO - Iniciando envio do PDF para edição 6273 - PPT
+2025-07-07 12:54:04,157 - ERROR - Erro ao enviar texto para edição 6273: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-07 12:54:04,157 - ERROR - Falha ao enviar texto informativo para edição 6273
+2025-07-07 12:54:04,248 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6273
+2025-07-07 12:54:04,249 - ERROR - ❌ Falha ao enviar PDF da edição 6273
+2025-07-07 12:54:09,250 - INFO - 
+Processando edição 6271 - PT ESPECIAL
+2025-07-07 12:54:09,351 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6271
+2025-07-07 12:54:09,351 - INFO - Iniciando envio do PDF para edição 6271 - PT ESPECIAL
+2025-07-07 12:54:09,372 - ERROR - Erro ao enviar texto para edição 6271: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-07 12:54:09,372 - ERROR - Falha ao enviar texto informativo para edição 6271
+2025-07-07 12:54:09,455 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6271
+2025-07-07 12:54:09,455 - ERROR - ❌ Falha ao enviar PDF da edição 6271
+2025-07-07 12:54:14,457 - INFO - 
+=== RESUMO FINAL ===
+2025-07-07 12:54:14,457 - INFO - Total de PDFs processados: 3
+2025-07-07 12:54:14,457 - INFO - PDFs enviados com sucesso: 0
+2025-07-07 12:54:14,457 - INFO - Falhas: 3
+2025-07-07 14:13:23,479 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-07 14:13:23,703 - INFO - Nenhuma rifa com PDF pendente para envio
+2025-07-07 16:16:30,557 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-07 16:16:30,799 - INFO - Encontradas 1 rifas com PDF para enviar
+2025-07-07 16:16:30,799 - INFO - 
+Processando edição 6275 - PT
+2025-07-07 16:16:30,878 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6275
+2025-07-07 16:16:30,878 - INFO - Iniciando envio do PDF para edição 6275 - PT
+2025-07-07 16:16:30,911 - ERROR - Erro ao enviar texto para edição 6275: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-07 16:16:30,911 - ERROR - Falha ao enviar texto informativo para edição 6275
+2025-07-07 16:16:30,991 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6275
+2025-07-07 16:16:30,991 - ERROR - ❌ Falha ao enviar PDF da edição 6275
+2025-07-07 16:16:30,995 - INFO - 
+=== RESUMO FINAL ===
+2025-07-07 16:16:30,995 - INFO - Total de PDFs processados: 1
+2025-07-07 16:16:30,995 - INFO - PDFs enviados com sucesso: 0
+2025-07-07 16:16:30,995 - INFO - Falhas: 1
+2025-07-07 18:13:23,541 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-07 18:13:23,726 - INFO - Encontradas 1 rifas com PDF para enviar
+2025-07-07 18:13:23,726 - INFO - 
+Processando edição 6276 - PTV
+2025-07-07 18:13:23,807 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6276
+2025-07-07 18:13:23,807 - INFO - Iniciando envio do PDF para edição 6276 - PTV
+2025-07-07 18:13:23,832 - ERROR - Erro ao enviar texto para edição 6276: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-07 18:13:23,832 - ERROR - Falha ao enviar texto informativo para edição 6276
+2025-07-07 18:13:23,907 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6276
+2025-07-07 18:13:23,907 - ERROR - ❌ Falha ao enviar PDF da edição 6276
+2025-07-07 18:13:23,911 - INFO - 
+=== RESUMO FINAL ===
+2025-07-07 18:13:23,911 - INFO - Total de PDFs processados: 1
+2025-07-07 18:13:23,911 - INFO - PDFs enviados com sucesso: 0
+2025-07-07 18:13:23,912 - INFO - Falhas: 1
+2025-07-07 21:14:35,303 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-07 21:14:35,506 - INFO - Encontradas 1 rifas com PDF para enviar
+2025-07-07 21:14:35,507 - INFO - 
+Processando edição 6277 - PTN
+2025-07-07 21:14:35,591 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6277
+2025-07-07 21:14:35,591 - INFO - Iniciando envio do PDF para edição 6277 - PTN
+2025-07-07 21:14:35,620 - ERROR - Erro ao enviar texto para edição 6277: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-07 21:14:35,620 - ERROR - Falha ao enviar texto informativo para edição 6277
+2025-07-07 21:14:35,692 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6277
+2025-07-07 21:14:35,692 - ERROR - ❌ Falha ao enviar PDF da edição 6277
+2025-07-07 21:14:35,696 - INFO - 
+=== RESUMO FINAL ===
+2025-07-07 21:14:35,696 - INFO - Total de PDFs processados: 1
+2025-07-07 21:14:35,696 - INFO - PDFs enviados com sucesso: 0
+2025-07-07 21:14:35,696 - INFO - Falhas: 1
+2025-07-08 08:58:06,998 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-08 08:58:07,223 - INFO - Encontradas 1 rifas com PDF para enviar
+2025-07-08 08:58:07,224 - INFO - 
+Processando edição 6278 - CORUJINHA
+2025-07-08 08:58:07,321 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6278
+2025-07-08 08:58:07,321 - INFO - Iniciando envio do PDF para edição 6278 - CORUJINHA
+2025-07-08 08:58:07,347 - ERROR - Erro ao enviar texto para edição 6278: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-08 08:58:07,347 - ERROR - Falha ao enviar texto informativo para edição 6278
+2025-07-08 08:58:07,430 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6278
+2025-07-08 08:58:07,430 - ERROR - ❌ Falha ao enviar PDF da edição 6278
+2025-07-08 08:58:07,433 - INFO - 
+=== RESUMO FINAL ===
+2025-07-08 08:58:07,434 - INFO - Total de PDFs processados: 1
+2025-07-08 08:58:07,434 - INFO - PDFs enviados com sucesso: 0
+2025-07-08 08:58:07,434 - INFO - Falhas: 1
+2025-07-08 11:13:34,150 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-08 11:13:34,353 - INFO - Encontradas 1 rifas com PDF para enviar
+2025-07-08 11:13:34,353 - INFO - 
+Processando edição 6279 - PPT
+2025-07-08 11:13:34,444 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6279
+2025-07-08 11:13:34,445 - INFO - Iniciando envio do PDF para edição 6279 - PPT
+2025-07-08 11:13:34,467 - ERROR - Erro ao enviar texto para edição 6279: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-08 11:13:34,468 - ERROR - Falha ao enviar texto informativo para edição 6279
+2025-07-08 11:13:34,540 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6279
+2025-07-08 11:13:34,540 - ERROR - ❌ Falha ao enviar PDF da edição 6279
+2025-07-08 11:13:34,542 - INFO - 
+=== RESUMO FINAL ===
+2025-07-08 11:13:34,542 - INFO - Total de PDFs processados: 1
+2025-07-08 11:13:34,542 - INFO - PDFs enviados com sucesso: 0
+2025-07-08 11:13:34,542 - INFO - Falhas: 1
+2025-07-08 14:14:29,945 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-08 14:14:30,139 - INFO - Encontradas 2 rifas com PDF para enviar
+2025-07-08 14:14:30,139 - INFO - 
+Processando edição 6281 - PT
+2025-07-08 14:14:30,217 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6281
+2025-07-08 14:14:30,217 - INFO - Iniciando envio do PDF para edição 6281 - PT
+2025-07-08 14:14:30,474 - ERROR - Erro ao enviar texto para edição 6281: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-08 14:14:30,474 - ERROR - Falha ao enviar texto informativo para edição 6281
+2025-07-08 14:14:30,560 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6281
+2025-07-08 14:14:30,560 - ERROR - ❌ Falha ao enviar PDF da edição 6281
+2025-07-08 14:14:35,562 - INFO - 
+Processando edição 6280 - PTM
+2025-07-08 14:14:35,659 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6280
+2025-07-08 14:14:35,659 - INFO - Iniciando envio do PDF para edição 6280 - PTM
+2025-07-08 14:14:35,680 - ERROR - Erro ao enviar texto para edição 6280: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-08 14:14:35,680 - ERROR - Falha ao enviar texto informativo para edição 6280
+2025-07-08 14:14:35,765 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6280
+2025-07-08 14:14:35,765 - ERROR - ❌ Falha ao enviar PDF da edição 6280
+2025-07-08 14:14:40,767 - INFO - 
+=== RESUMO FINAL ===
+2025-07-08 14:14:40,767 - INFO - Total de PDFs processados: 2
+2025-07-08 14:14:40,767 - INFO - PDFs enviados com sucesso: 0
+2025-07-08 14:14:40,767 - INFO - Falhas: 2
+2025-07-08 16:12:11,847 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-08 16:12:12,073 - INFO - Nenhuma rifa com PDF pendente para envio
+2025-07-08 18:10:37,718 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-08 18:10:37,980 - INFO - Encontradas 1 rifas com PDF para enviar
+2025-07-08 18:10:37,980 - INFO - 
+Processando edição 6282 - PTV
+2025-07-08 18:10:38,076 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6282
+2025-07-08 18:10:38,076 - INFO - Iniciando envio do PDF para edição 6282 - PTV
+2025-07-08 18:10:38,097 - ERROR - Erro ao enviar texto para edição 6282: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-08 18:10:38,097 - ERROR - Falha ao enviar texto informativo para edição 6282
+2025-07-08 18:10:38,197 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6282
+2025-07-08 18:10:38,197 - ERROR - ❌ Falha ao enviar PDF da edição 6282
+2025-07-08 18:10:38,200 - INFO - 
+=== RESUMO FINAL ===
+2025-07-08 18:10:38,200 - INFO - Total de PDFs processados: 1
+2025-07-08 18:10:38,200 - INFO - PDFs enviados com sucesso: 0
+2025-07-08 18:10:38,200 - INFO - Falhas: 1
+2025-07-08 21:23:42,119 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-08 21:23:42,312 - INFO - Encontradas 2 rifas com PDF para enviar
+2025-07-08 21:23:42,312 - INFO - 
+Processando edição 6284 - CORUJINHA
+2025-07-08 21:23:42,392 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6284
+2025-07-08 21:23:42,393 - INFO - Iniciando envio do PDF para edição 6284 - CORUJINHA
+2025-07-08 21:23:42,419 - ERROR - Erro ao enviar texto para edição 6284: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-08 21:23:42,420 - ERROR - Falha ao enviar texto informativo para edição 6284
+2025-07-08 21:23:42,503 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6284
+2025-07-08 21:23:42,503 - ERROR - ❌ Falha ao enviar PDF da edição 6284
+2025-07-08 21:23:47,506 - INFO - 
+Processando edição 6283 - PTN
+2025-07-08 21:23:47,611 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6283
+2025-07-08 21:23:47,612 - INFO - Iniciando envio do PDF para edição 6283 - PTN
+2025-07-08 21:23:47,633 - ERROR - Erro ao enviar texto para edição 6283: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-08 21:23:47,633 - ERROR - Falha ao enviar texto informativo para edição 6283
+2025-07-08 21:23:47,712 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6283
+2025-07-08 21:23:47,712 - ERROR - ❌ Falha ao enviar PDF da edição 6283
+2025-07-08 21:23:52,714 - INFO - 
+=== RESUMO FINAL ===
+2025-07-08 21:23:52,714 - INFO - Total de PDFs processados: 2
+2025-07-08 21:23:52,714 - INFO - PDFs enviados com sucesso: 0
+2025-07-08 21:23:52,714 - INFO - Falhas: 2
+2025-07-09 09:35:15,238 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-09 09:35:15,412 - INFO - Encontradas 1 rifas com PDF para enviar
+2025-07-09 09:35:15,412 - INFO - 
+Processando edição 6285 - PPT
+2025-07-09 09:35:15,503 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6285
+2025-07-09 09:35:15,503 - INFO - Iniciando envio do PDF para edição 6285 - PPT
+2025-07-09 09:35:15,527 - ERROR - Erro ao enviar texto para edição 6285: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-09 09:35:15,528 - ERROR - Falha ao enviar texto informativo para edição 6285
+2025-07-09 09:35:15,617 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6285
+2025-07-09 09:35:15,617 - ERROR - ❌ Falha ao enviar PDF da edição 6285
+2025-07-09 09:35:15,619 - INFO - 
+=== RESUMO FINAL ===
+2025-07-09 09:35:15,619 - INFO - Total de PDFs processados: 1
+2025-07-09 09:35:15,619 - INFO - PDFs enviados com sucesso: 0
+2025-07-09 09:35:15,620 - INFO - Falhas: 1
+2025-07-09 11:06:37,944 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-09 11:06:38,225 - INFO - Nenhuma rifa com PDF pendente para envio

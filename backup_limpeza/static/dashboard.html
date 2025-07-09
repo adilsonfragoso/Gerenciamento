@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sistema de Gerenciamento</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .left-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .dashboard-title {
+            color: white;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85em;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 20px;
+            background: rgba(108, 117, 125, 0.1);
+            border: 1px solid rgba(108, 117, 125, 0.2);
+            color: #6c757d;
+            transition: all 0.3s ease;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        .status-checking {
+            background: #ffc107;
+            animation: pulse-dot 2s infinite;
+        }
+        
+        .status-online {
+            background: #28a745;
+            box-shadow: 0 0 6px rgba(40, 167, 69, 0.6);
+        }
+        
+        .status-offline {
+            background: #dc3545;
+            box-shadow: 0 0 6px rgba(220, 53, 69, 0.6);
+        }
+        
+        /* Cores do indicador baseado no status */
+        .status-indicator.online {
+            background: rgba(40, 167, 69, 0.1);
+            border-color: rgba(40, 167, 69, 0.3);
+            color: #155724;
+        }
+        
+        .status-indicator.offline {
+            background: rgba(220, 53, 69, 0.1);
+            border-color: rgba(220, 53, 69, 0.3);
+            color: #721c24;
+        }
+        
+        .status-indicator.checking {
+            background: rgba(255, 193, 7, 0.1);
+            border-color: rgba(255, 193, 7, 0.3);
+            color: #856404;
+        }
+        
+        @keyframes pulse-dot {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .dashboard-date {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            font-size: 0.9em;
+            padding: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.9em;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .dashboard-content {
+            padding: 20px 30px;
+        }
+
+        .rifas-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .rifas-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .rifas-table td {
+            padding: 18px;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .rifas-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .rifas-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Coluna Edição */
+        .edicao-cell, .coluna-edicao {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #667eea;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .edicao-cell:hover, .coluna-edicao:hover {
+            color: #764ba2;
+            transform: scale(1.05);
+        }
+
+        .erro-tag {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-top: 5px;
+            display: inline-block;
+        }
+
+        /* Coluna Status */
+        .status-circle, .status-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.0em;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+            border: 2px solid;
+        }
+
+        /* Classes específicas para status badges */
+        .status-cell {
+            text-align: center;
+        }
+        
+        .pdf-cell {
+            text-align: center;
+        }
+
+        .status-0 {
+            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+            color: #6c757d;
+            border-color: #dee2e6;
+        }
+
+        .status-progresso {
+            background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+            color: #212529;
+            border-color: #ffc107;
+            animation: pulse 2s infinite;
+        }
+
+        .status-100 {
+            background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+            color: white;
+            border-color: #28a745;
+        }
+
+        .status-error {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+            border-color: #dc3545;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Animações para sincronização */
+        @keyframes highlight-new {
+            0% { background: #d4edda; transform: scale(1); }
+            50% { background: #c3e6cb; transform: scale(1.02); }
+            100% { background: #d4edda; transform: scale(1); }
+        }
+
+        @keyframes pdf-ready {
+            0% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.1) rotate(5deg); }
+            50% { transform: scale(1.2) rotate(-5deg); }
+            75% { transform: scale(1.1) rotate(5deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        .linha-destaque {
+            animation: highlight-new 0.8s ease-in-out;
+        }
+
+        .pdf-novo {
+            animation: pdf-ready 0.6s ease-in-out;
+        }
+
+        /* Coluna PDF */
+        .pdf-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            object-fit: contain;
+        }
+
+        .pdf-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estados do PDF */
+        .pdf-loading {
+            width: 54px;
+            height: 54px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+            cursor: default;
+            position: relative;
+        }
+
+        .pdf-loading::before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            border: 3px solid #fff;
+            border-top: 3px solid transparent;
+            border-radius: 50%;
+            animation: spin-pdf 1s linear infinite;
+        }
+
+        .pdf-loading::after {
+            content: '📄';
+            position: absolute;
+            font-size: 12px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        @keyframes spin-pdf {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .pdf-processing {
+            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+            color: white;
+            font-weight: bold;
+            font-size: 0.8em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: default;
+            animation: pulse-processing 2s infinite;
+        }
+
+        @keyframes pulse-processing {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        /* Estilos para separadores de data */
+        .data-separator {
+            background: transparent;
+        }
+
+        .data-header {
+            padding: 10px 10px 8px 15px !important;
+            border: none !important;
+            background: transparent;
+        }
+
+        .data-title {
+            background: transparent;
+            color: #495057;
+            padding: 12px 20px;
+            border-radius: 0;
+            font-weight: 700;
+            font-size: 1.1em;
+            text-align: center;
+            box-shadow: none;
+            margin: 0 auto;
+            max-width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* Exibição da data acima da tabela */
+        .data-display {
+            background: transparent;
+            color: #495057;
+            padding: 15px 20px 10px 20px;
+            font-weight: 700;
+            font-size: 1.1em;
+            text-align: center;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .data-spacer {
+            background: transparent;
+        }
+
+        .data-spacer td {
+            border: none !important;
+        }
+
+        /* Loading Overlay - SEM AFETAR LAYOUT */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            backdrop-filter: blur(2px);
+        }
+
+        .loading-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loading-text {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Loading compacto para atualizações rápidas */
+        .loading-compact {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: none;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            border-left: 4px solid #667eea;
+        }
+
+        .loading-compact .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border-width: 2px;
+        }
+
+        .loading-compact .loading-text {
+            font-size: 0.9em;
+            color: #667eea;
+            margin: 0;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            animation: modalShow 0.3s ease;
+        }
+
+        @keyframes modalShow {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            margin: -30px -30px 20px -30px;
+            border-radius: 20px 20px 0 0;
+            text-align: center;
+        }
+
+        .modal-title {
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .modal-btn {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25d366 0%, #20ba5a 100%);
+        }
+
+        .btn-link {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            opacity: 0.7;
+        }
+
+        /* Mensagens */
+        .message {
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid;
+            display: none;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            border-left-color: #dc3545;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            border-left-color: #28a745;
+        }
+
+        /* Rodapé com histórico de atualizações */
+        .dashboard-footer {
+            background: #f8f9fa;
+            padding: 15px 30px;
+            border-top: 1px solid #e9ecef;
+            margin-top: 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .status-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .ultima-atualizacao {
+            color: #6c757d;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-atualizacao {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .status-atualizado {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-sincronizando {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            color: #856404;
+            border: 1px solid #ffeaa7;
+            animation: pulse-sync 2s infinite;
+        }
+        
+        .status-offline {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        @keyframes pulse-sync {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        /* Responsivo para rodapé */
+        @media (max-width: 768px) {
+            .dashboard-footer {
+                padding: 12px 20px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .status-container {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .ultima-atualizacao {
+                font-size: 0.8em;
+            }
+
+            .status-atualizacao {
+                font-size: 0.8em;
+                padding: 6px 12px;
+            }
+            
+            .status-indicator {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .dashboard-header {
+                padding: 12px 20px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .left-section {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+
+            .dashboard-title {
+                font-size: 1.2em;
+            }
+
+            .dashboard-date {
+                font-size: 0.85em;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .nav-link {
+                font-size: 0.85em;
+                padding: 5px 10px;
+            }
+
+            .dashboard-content {
+                padding: 15px;
+            }
+
+            .rifas-table {
+                font-size: 0.9em;
+            }
+
+            .rifas-table th,
+            .rifas-table td {
+                padding: 12px 8px;
+            }
+
+            .status-circle,
+            .pdf-icon {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .status-circle {
+                font-size: 0.9em;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+
+            .modal-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header Compacto -->
+        <div class="dashboard-header">
+            <div class="header-content">
+                <div class="left-section">
+                    <h1 class="dashboard-title">Gerenciamento de Rifas</h1>
+                    <div class="dashboard-date" id="status-sistema">Sistema Ativo</div>
+                </div>
+               <div></div>  
+                <div class="nav-links">
+                    <a href="/editar" class="nav-link">Editar</a>
+                    <a href="/edicoes" class="nav-link">Edições</a>
+                    <a href="/premiacoes" class="nav-link">Premiações</a>
+                </div>
+                <div></div>
+            </div>
+        </div>
+
+        <!-- Conteúdo -->
+        <div class="dashboard-content">
+            <div id="error" class="message error-message"></div>
+
+            <!-- Data das rifas -->
+            <div id="data-rifas" class="data-display" style="display: none;">
+                <!-- Data será inserida aqui via JavaScript -->
+            </div>
+
+            <table class="rifas-table" id="rifas-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Edição</th>
+                        <th>Status</th>
+                        <th>PDF</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Dados serão inseridos aqui via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Rodapé com histórico de atualizações -->
+        <div class="dashboard-footer">
+            <div class="footer-content">
+                <div class="status-container">
+                    <div class="status-indicator" id="status-agendador" title="Status do Agendador">
+                        <span class="status-dot status-checking"></span>
+                        <span class="status-text">Verificando...</span>
+                    </div>
+                    <div class="status-atualizacao status-atualizado" id="status-atualizacao">
+                        <span>✅</span>
+                        <span id="texto-status-atualizacao">Dados atualizados</span>
+                    </div>
+                </div>
+                <div class="ultima-atualizacao">
+                    <span>⏱️</span>
+                    <span id="texto-ultima-atualizacao">Última atualização: Carregando...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay (não afeta layout) -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Carregando dados...</div>
+        </div>
+    </div>
+
+    <!-- Loading Compacto (para atualizações rápidas) -->
+    <div id="loading-compact" class="loading-compact">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Sincronizando...</div>
+    </div>
+
+    <!-- Modal -->
+    <div id="acoes-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <div class="modal-title" id="modal-title">Rifa</div>
+            </div>
+            <div class="modal-actions">
+                <button class="modal-btn btn-whatsapp" id="btn-whatsapp">
+                    <img src="/img/option3.png" alt="WhatsApp" style="width: 24px; height: 24px; filter: brightness(0) invert(1);">
+                    Enviar WhatsApp
+                </button>
+                <a class="modal-btn btn-link" id="btn-link" href="#" target="_blank">
+                    🔗 Abrir Link
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variáveis globais
+        let rifasData = [];
+        let modalEdicaoAtual = null;
+        let rifasProcessando = new Set(); // Controla quais rifas estão sendo processadas
+        let ultimaAtualizacaoDados = null; // Timestamp da última atualização dos dados
+        let verificandoAtualizacoes = false; // Flag para evitar múltiplas verificações simultâneas
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar rodapé
+            atualizarStatusRodape('sincronizando', 'Carregando dados iniciais...');
+            
+            // Verificar status do agendador inicialmente
+            verificarStatusAgendador();
+            
+            carregarDados(true); // Primeira carga
+            iniciarAtualizacaoAutomatica();
+            iniciarEscutaNotificacoes(); // Nova função para escutar notificações
+            configurarModal();
+        });
+
+        // Configurar modal
+        function configurarModal() {
+            const modal = document.getElementById('acoes-modal');
+            const span = document.getElementsByClassName('close')[0];
+
+            span.onclick = function() {
+                modal.style.display = 'none';
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        }
+
+        // Atualização automática inteligente
+        function iniciarAtualizacaoAutomatica() {
+            // Verificação inteligente de atualizações a cada 15 segundos
+            setInterval(() => {
+                verificarSeHouveMudancas();
+            }, 15000); // 15 segundos - mais frequente para detectar mudanças
+
+            // Verificação do status do agendador a cada 30 segundos
+            setInterval(() => {
+                verificarStatusAgendador();
+            }, 30000); // 30 segundos
+
+            // Atualização completa a cada 1 minuto (fallback)
+            setInterval(() => {
+                console.log('[AUTO] Atualização completa programada...');
+                // Não atualizar rodapé nas atualizações automáticas programadas
+                // O rodapé só será atualizado se houver mudanças detectadas
+                carregarDados(false, false); // Não é primeira carga, sem forçar atualização do rodapé
+            }, 60000); // 1 minuto
+        }
+
+        // NOVA FUNÇÃO: Verificar se houve mudanças nos dados
+        async function verificarSeHouveMudancas() {
+            if (verificandoAtualizacoes) {
+                return; // Evitar múltiplas verificações simultâneas
+            }
+
+            try {
+                verificandoAtualizacoes = true;
+                
+                // Fazer uma verificação rápida apenas dos metadados
+                const response = await fetch('/api/dashboard/extracoes-recentes');
+                const data = await response.json();
+                
+                if (!response.ok) {
+                    // Se não conseguir acessar a API, pode ser que o agendador esteja parado
+                    verificarStatusAgendador();
+                    return; // Ignorar erros na verificação rápida
+                }
+                
+                // Verificar se algo mudou comparando com os dados atuais
+                const mudancaDetectada = detectarMudancasNosDados(data.extracoes);
+                
+                if (mudancaDetectada) {
+                    console.log('[SYNC] 🔄 Mudanças detectadas! Atualizando dashboard...');
+                    atualizarStatusRodape('sincronizando', 'Sincronizando dados...');
+                    
+                    // Atualizar dados imediatamente (sem loading overlay)
+                    await carregarDados(false, true); // Segundo parâmetro indica que houve mudanças
+                    
+                    // Destacar que houve atualização
+                    destacarAtualizacaoGeral();
+                } else {
+                    console.log('[SYNC] ✓ Nenhuma mudança detectada');
+                }
+                
+            } catch (error) {
+                console.log('[SYNC] ⚠️ Erro na verificação de mudanças:', error);
+                verificarStatusAgendador();
+            } finally {
+                verificandoAtualizacoes = false;
+            }
+        }
+      
+        // NOVA FUNÇÃO: Verificar se agendador está funcionando
+        async function verificarStatusAgendador() {
+            try {
+                // Por enquanto, vamos verificar se o arquivo de status existe
+                const response = await fetch('/api/scripts/status-agendador');
+                if (!response.ok) {
+                    // Se não existe o endpoint, assumir que está offline
+                    console.log('[AGENDADOR] Endpoint não encontrado - assumindo offline');
+                    atualizarIndicadorAgendador('offline');
+                    return;
+                }
+                
+                const data = await response.json();
+                if (!data.ativo) {
+                    atualizarIndicadorAgendador('offline');
+                } else {
+                    console.log('[AGENDADOR] Status: Ativo');
+                    atualizarIndicadorAgendador('online');
+                }
+            } catch (error) {
+                console.log('[AGENDADOR] ⚠️ Erro ao verificar status:', error);
+                // Por enquanto, vamos simular o status baseado na atividade dos dados
+                verificarStatusPorAtividade();
+            }
+        }
+
+
+        // FUNÇÃO TEMPORÁRIA: Verificar status baseado na atividade dos dados
+        function verificarStatusPorAtividade() {
+            // Se os dados estão sendo atualizados recentemente, assumir que agendador está ativo
+            const agora = new Date();
+            const ultimaAtualizacao = new Date(document.getElementById('texto-ultima-atualizacao').textContent.replace('Última atualização: ', ''));
+            
+            // Se a última atualização foi há menos de 2 minutos, considerar ativo
+            const diferencaMinutos = (agora - ultimaAtualizacao) / (1000 * 60);
+            
+            if (diferencaMinutos < 2) {
+                atualizarIndicadorAgendador('online');
+            } else {
+                atualizarIndicadorAgendador('offline');
+            }
+        }
+
+        // NOVA FUNÇÃO: Escutar notificações do agendador via polling
+        function iniciarEscutaNotificacoes() {
+            // Verificar notificações a cada 10 segundos
+            setInterval(async () => {
+                try {
+                    const response = await fetch('/api/dashboard/check-updates');
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data.has_updates) {
+                            console.log('[NOTIFICATION] 🔔 Agendador processou dados novos!');
+                            
+                            // Mostrar notificação visual
+                            atualizarStatusRodape('sincronizando', 'Agendador atualizou dados...');
+                            
+                            // Aguardar um momento e então atualizar
+                            setTimeout(async () => {
+                                await carregarDados(false, true); // Forçar atualização do rodapé
+                                destacarAtualizacaoGeral();
+                                console.log('[NOTIFICATION] ✅ Dashboard atualizado automaticamente');
+                            }, 1000);
+                        }
+                    }
+                } catch (error) {
+                    // Silenciosamente ignorar erros de notificação
+                    console.log('[NOTIFICATION] ⚠️ Erro ao verificar notificações:', error);
+                }
+            }, 10000); // 10 segundos
+        }
+
+        // NOVA FUNÇÃO: Atualizar indicador visual do agendador
+        function atualizarIndicadorAgendador(status) {
+            const indicator = document.getElementById('status-agendador');
+            const dot = indicator.querySelector('.status-dot');
+            const text = indicator.querySelector('.status-text');
+            
+            // Remover classes anteriores do dot
+            dot.classList.remove('status-checking', 'status-online', 'status-offline');
+            // Remover classes anteriores do indicator
+            indicator.classList.remove('online', 'offline', 'checking');
+            
+            if (status === 'online') {
+                dot.classList.add('status-online');
+                indicator.classList.add('online');
+                text.textContent = 'Agendador Ativo';
+                indicator.title = 'Agendador funcionando normalmente';
+            } else if (status === 'offline') {
+                dot.classList.add('status-offline');
+                indicator.classList.add('offline');
+                text.textContent = 'Agendador Offline';
+                indicator.title = 'Agendador não está funcionando';
+            } else {
+                dot.classList.add('status-checking');
+                indicator.classList.add('checking');
+                text.textContent = 'Verificando...';
+                indicator.title = 'Verificando status do agendador';
+            }
+        }
+
+        // NOVA FUNÇÃO: Detectar mudanças comparando dados atuais com novos
+        function detectarMudancasNosDados(novosDados) {
+            if (!rifasData || rifasData.length === 0) {
+                return true; // Primeira carga
+            }
+            
+            if (novosDados.length !== rifasData.length) {
+                return true; // Quantidade de rifas mudou
+            }
+            
+            // Comparar andamentos e status de cada rifa
+            for (let i = 0; i < novosDados.length; i++) {
+                const novaRifa = novosDados[i];
+                const rifaAtual = rifasData.find(r => r.edicao === novaRifa.edicao);
+                
+                if (!rifaAtual) {
+                    return true; // Nova rifa
+                }
+                
+                // Verificar mudanças nos campos importantes
+                if (novaRifa.andamento_percentual !== rifaAtual.andamento_percentual ||
+                    novaRifa.andamento_numerico !== rifaAtual.andamento_numerico ||
+                    novaRifa.status_rifa !== rifaAtual.status_rifa ||
+                    novaRifa.tem_pdf !== rifaAtual.tem_pdf ||
+                    novaRifa.tem_erro !== rifaAtual.tem_erro) {
+                    
+                    console.log(`[SYNC] Mudança detectada na edição ${novaRifa.edicao}:`);
+                    console.log(`  Andamento: ${rifaAtual.andamento_percentual} → ${novaRifa.andamento_percentual}`);
+                    console.log(`  Status: ${rifaAtual.status_rifa} → ${novaRifa.status_rifa}`);
+                    console.log(`  PDF: ${rifaAtual.tem_pdf} → ${novaRifa.tem_pdf}`);
+                    
+                    return true;
+                }
+            }
+            
+            return false; // Nenhuma mudança significativa
+        }
+
+        // NOVA FUNÇÃO: Destacar que houve atualização geral
+        function destacarAtualizacaoGeral() {
+            const tabela = document.getElementById('rifas-table');
+            if (tabela) {
+                // Efeito visual de atualização
+                tabela.style.transform = 'scale(0.98)';
+                tabela.style.transition = 'transform 0.3s ease';
+                
+                setTimeout(() => {
+                    tabela.style.transform = 'scale(1)';
+                    
+                    setTimeout(() => {
+                        tabela.style.transform = '';
+                        tabela.style.transition = '';
+                    }, 300);
+                }, 100);
+            }
+        }
+
+        // Carregar dados da API
+        async function carregarDados(isFirstLoad = false, houveMudancas = false) {
+            try {
+                // Mostrar loading apropriado
+                if (isFirstLoad || !rifasData || rifasData.length === 0) {
+                    // Primeira carga - loading overlay completo
+                    mostrarLoadingOverlay('Carregando dados...');
+                } else {
+                    // Atualização - loading compacto
+                    mostrarLoadingCompacto('Sincronizando...');
+                }
+
+                const response = await fetch('/api/dashboard/extracoes-recentes');
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.detail || 'Erro ao carregar dados');
+                }
+
+                // Detectar mudanças reais nos dados
+                const dadosAtuaisMudaram = rifasData ? detectarMudancasNosDados(data.extracoes) : true;
+
+                // Atualizar status do sistema
+                document.getElementById('status-sistema').textContent = `${data.total_ativas} rifas ativas`;
+                rifasData = data.extracoes;
+                
+                preencherTabela(data.extracoes);
+                
+                // Verificar se alguma rifa de 100% precisa gerar relatório
+                await verificarGeracaoAutomatica(data.extracoes);
+                
+                // Atualizar rodapé APENAS se:
+                // 1. É primeira carga (isFirstLoad)
+                // 2. Foi forçado por notificação do agendador (houveMudancas)
+                // 3. Houve mudanças reais nos dados (dadosAtuaisMudaram)
+                if (isFirstLoad || houveMudancas || dadosAtuaisMudaram) {
+                    atualizarUltimaAtualizacao();
+                    atualizarStatusRodape('atualizado', 'Dados atualizados');
+                    console.log('[SYNC] Rodapé atualizado - houve mudanças nos dados');
+                } else {
+                    // Se não houve mudanças, apenas manter o status atual
+                    console.log('[SYNC] Dados carregados sem mudanças - rodapé mantido');
+                }
+                
+                // Ocultar loading
+                ocultarTodosLoadings();
+                document.getElementById('rifas-table').style.display = 'table';
+                
+            } catch (error) {
+                console.error('Erro:', error);
+                ocultarTodosLoadings();
+                mostrarErro(`Erro ao carregar dados: ${error.message}`);
+            }
+        }
+
+        // Preencher tabela agrupada por data
+        function preencherTabela(extracoes) {
+            const tableBody = document.getElementById('table-body');
+            const dataDisplay = document.getElementById('data-rifas');
+            tableBody.innerHTML = '';
+
+            if (extracoes.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="3" style="padding: 30px; color: #666;">
+                            Nenhuma extração encontrada para esta data
+                        </td>
+                    </tr>
+                `;
+                dataDisplay.style.display = 'none';
+                return;
+            }
+
+            // Agrupar extrações por data
+            const extracoesPorData = {};
+            extracoes.forEach(extracao => {
+                const dataKey = extracao.data_sorteio;
+                if (!extracoesPorData[dataKey]) {
+                    extracoesPorData[dataKey] = [];
+                }
+                extracoesPorData[dataKey].push(extracao);
+            });
+
+            // Ordenar as datas
+            const datasOrdenadas = Object.keys(extracoesPorData).sort();
+
+            // Função para formatar data
+            function formatarData(dataString) {
+                const data = new Date(dataString + 'T00:00:00');
+                const diasSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+                const diaSemana = diasSemana[data.getDay()];
+                const dataFormatada = data.toLocaleDateString('pt-BR');
+                return `${diaSemana}, ${dataFormatada}`;
+            }
+
+            // SEMPRE mostrar a data principal acima da tabela
+            if (datasOrdenadas.length === 1) {
+                // Uma única data
+                dataDisplay.innerHTML = `📅 ${formatarData(datasOrdenadas[0])}`;
+            } else {
+                // Múltiplas datas - mostrar a primeira data como principal
+                dataDisplay.innerHTML = `📅 ${formatarData(datasOrdenadas[0])} `;
+            }
+            dataDisplay.style.display = 'flex';
+            
+            // Renderizar todas as extrações com separadores quando há múltiplas datas
+            if (datasOrdenadas.length === 1) {
+                // Uma única data - renderizar sem separadores
+                const todasExtracoes = extracoesPorData[datasOrdenadas[0]];
+                todasExtracoes.forEach(extracao => {
+                    adicionarLinhaExtracao(tableBody, extracao);
+                });
+            } else {
+                // Múltiplas datas - usar separadores dentro da tabela também
+                datasOrdenadas.forEach((dataKey, indexData) => {
+                    const extracoesDaData = extracoesPorData[dataKey];
+                    
+                    // Criar linha separadora com a data (exceto para a primeira, que já está acima)
+                    if (indexData > 0) {
+                        const separadorRow = document.createElement('tr');
+                        separadorRow.className = 'data-separator';
+                        separadorRow.innerHTML = `
+                            <td colspan="3" class="data-header">
+                                <div class="data-title">
+                                    📅 ${formatarData(dataKey)}
+                                </div>
+                            </td>
+                        `;
+                        tableBody.appendChild(separadorRow);
+                    }
+
+                    // Renderizar extrações desta data
+                    extracoesDaData.forEach(extracao => {
+                        adicionarLinhaExtracao(tableBody, extracao);
+                    });
+                });
+            }
+        }
+
+        // Função auxiliar para adicionar linha de extração
+        function adicionarLinhaExtracao(tableBody, extracao) {
+            const row = document.createElement('tr');
+            
+            // Se tem erro, destacar a linha
+            if (extracao.tem_erro) {
+                row.style.background = '#fff3cd';
+                row.style.borderLeft = '5px solid #ffc107';
+            }
+
+            // Determinar classe do status e conteúdo
+            let statusClass = 'status-0';
+            let statusContent = extracao.andamento_percentual;
+            
+            if (extracao.andamento_percentual === 'X') {
+                // Andamento "X" = erro de link - mostrar em vermelho
+                statusClass = 'status-error';
+                statusContent = 'X';
+            } else if (extracao.tem_erro) {
+                statusClass = 'status-error';
+                statusContent = `<img src="/img/naodisponivel.png" alt="Não encontrado" style="width: 32px; height: 32px; object-fit: contain;">`;
+            } else if (extracao.andamento_numerico === 100) {
+                statusClass = 'status-100';
+            } else if (extracao.andamento_numerico > 0) {
+                statusClass = 'status-progresso';
+            }
+
+            row.innerHTML = `
+                <td class="edicao-cell" onclick="abrirModal('${extracao.edicao}', '${extracao.sigla_oficial}', '${extracao.link || ''}')">
+                    ${extracao.edicao} - ${extracao.sigla_oficial}
+                </td>
+                <td class="status-cell">
+                    <div class="status-badge ${statusClass}">
+                        ${statusContent}
+                    </div>
+                </td>
+                <td class="pdf-cell">
+                    ${renderizarIconePDF(extracao)}
+                </td>
+            `;
+
+            tableBody.appendChild(row);
+        }
+
+        // Abrir modal com ações
+        function abrirModal(edicao, sigla, link) {
+            // Validação extra para evitar erro 404
+            console.log('abrirModal chamada com:', { edicao, sigla, link });
+            
+            // Garantir que link não seja undefined como string
+            if (link === 'undefined' || link === 'null' || link === undefined || link === null) {
+                link = '';
+                console.log('Link inválido detectado, definindo como string vazia');
+            }
+            const rifa = rifasData.find(r => r.edicao == edicao);
+            if (!rifa) return;
+
+            modalEdicaoAtual = edicao;
+            
+            // Atualizar título do modal
+            document.getElementById('modal-title').textContent = 
+                `${edicao} - ${sigla}`;
+            
+            // Configurar botão WhatsApp com indicação de status
+            const btnWhatsapp = document.getElementById('btn-whatsapp');
+            btnWhatsapp.onclick = () => enviarWhatsApp(edicao);
+            
+            // Verificar status de envio e atualizar visual do botão
+            const statusEnvio = rifa.status_envio_link || 'pendente';
+            if (statusEnvio === 'enviado') {
+                btnWhatsapp.innerHTML = `
+                    <img src="/img/option3.png" alt="WhatsApp" style="width: 24px; height: 24px; filter: brightness(0) invert(1);">
+                    ✅ Enviado (Reenviar)
+                `;
+                btnWhatsapp.style.background = 'linear-gradient(135deg, #28a745 0%, #1e7e34 100%)';
+                btnWhatsapp.title = 'Link já foi enviado. Clique para reenviar.';
+            } else {
+                btnWhatsapp.innerHTML = `
+                    <img src="/img/option3.png" alt="WhatsApp" style="width: 24px; height: 24px; filter: brightness(0) invert(1);">
+                    Enviar WhatsApp
+                `;
+                btnWhatsapp.style.background = 'linear-gradient(135deg, #25d366 0%, #1ea952 100%)';
+                btnWhatsapp.title = 'Enviar link via WhatsApp';
+            }
+            
+            // Configurar botão Link
+            if (link && link !== 'undefined' && link !== 'null') {
+            document.getElementById('btn-link').href = link;
+                document.getElementById('btn-link').style.display = 'inline-block';
+            } else {
+                document.getElementById('btn-link').href = '#';
+                document.getElementById('btn-link').style.display = 'none';
+                document.getElementById('btn-link').title = 'Link não disponível';
+            }
+            
+            // Mostrar modal
+            document.getElementById('acoes-modal').style.display = 'block';
+        }
+
+        // Enviar WhatsApp
+        async function enviarWhatsApp(edicao) {
+            try {
+                const rifa = rifasData.find(r => r.edicao == edicao);
+                const statusAnterior = rifa ? rifa.status_envio_link || 'pendente' : 'pendente';
+                
+                if (statusAnterior === 'enviado') {
+                    atualizarStatusRodape('sincronizando', `Reenviando link da edição ${edicao}...`);
+                } else {
+                    atualizarStatusRodape('sincronizando', `Enviando link da edição ${edicao}...`);
+                }
+                
+                document.getElementById('acoes-modal').style.display = 'none';
+                
+                const response = await fetch(`/api/dashboard/enviar-link-edicao/${edicao}`, {
+                    method: 'POST'
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    if (statusAnterior === 'enviado') {
+                        atualizarStatusRodape('atualizado', `Link reenviado para edição ${edicao}!`);
+                    } else {
+                        atualizarStatusRodape('atualizado', `Link enviado para edição ${edicao}!`);
+                    }
+                    
+                    // Atualizar dados após envio para refletir mudança no status
+                    setTimeout(() => {
+                        carregarDados();
+                    }, 1000);
+                } else {
+                    mostrarErro(`Erro ao enviar link: ${data.detail}`);
+                }
+                
+            } catch (error) {
+                mostrarErro('Erro de conexão: ' + error.message);
+            }
+        }
+
+        // Baixar PDF (com sincronização inteligente + estados visuais)
+        async function baixarPDF(edicao) {
+            try {
+                console.log(`[PDF] Iniciando download para edição ${edicao}`);
+                
+                // Primeiro verificar se o PDF existe
+                const verificacao = await fetch(`/api/dashboard/verificar-pdf/${edicao}`);
+                const dadosVerificacao = await verificacao.json();
+                
+                console.log(`[PDF] Verificação para edição ${edicao}:`, dadosVerificacao);
+                
+                if (!dadosVerificacao.existe) {
+                    // Se não existe, tentar gerar RAPIDAMENTE
+                    atualizarStatusRodape('sincronizando', `⚡ Gerando relatório para edição ${edicao}...`);
+                    
+                    // MARCAR COMO PROCESSANDO
+                    marcarComoProcessando(edicao);
+                    
+                    const resposta = await fetch(`/api/dashboard/gerar-relatorio/${edicao}`, {
+                        method: 'POST'
+                    });
+                    
+                    if (resposta.ok) {
+                        const dados = await resposta.json();
+                        atualizarStatusRodape('sincronizando', `✅ ${dados.message}. Monitorando...`);
+                        
+                        // NOVA FUNCIONALIDADE: Monitorar pasta downloads em tempo real
+                        await monitorarDisponibilidadePDF(edicao);
+                    } else {
+                        const erro = await resposta.json();
+                        mostrarErro(`❌ Erro ao gerar relatório: ${erro.detail}`);
+                        // DESMARCAR PROCESSAMENTO EM CASO DE ERRO
+                        desmarcarProcessamento(edicao);
+                    }
+                } else {
+                    // PDF existe, fazer download
+                    console.log(`[PDF] Iniciando download via window.open para edição ${edicao}`);
+                    window.open(`/api/dashboard/download-pdf/${edicao}`, '_blank');
+                    atualizarStatusRodape('atualizado', `📄 Download da edição ${edicao} iniciado!`);
+                }
+                
+            } catch (error) {
+                mostrarErro('Erro de conexão: ' + error.message);
+                // DESMARCAR PROCESSAMENTO EM CASO DE ERRO
+                desmarcarProcessamento(edicao);
+            }
+        }
+
+        // NOVA FUNÇÃO: Monitoramento inteligente de PDF (com estados visuais)
+        async function monitorarDisponibilidadePDF(edicao) {
+            console.log(`[SYNC] Iniciando monitoramento para edição ${edicao}`);
+            
+            const maxTentativas = 60; // 60 tentativas = 2 minutos máximo
+            const intervalo = 2000; // Verificar a cada 2 segundos
+            let tentativas = 0;
+            
+            const verificarPDF = async () => {
+                tentativas++;
+                console.log(`[SYNC] Verificação ${tentativas}/${maxTentativas} para edição ${edicao}`);
+                
+                try {
+                    const verificacao = await fetch(`/api/dashboard/verificar-pdf/${edicao}`);
+                    const dados = await verificacao.json();
+                    
+                    if (dados.existe) {
+                        // PDF ENCONTRADO! Sincronizar imediatamente
+                        console.log(`[SYNC] ✅ PDF detectado para edição ${edicao}! Sincronizando...`);
+                        
+                        // DESMARCAR PROCESSAMENTO
+                        desmarcarProcessamento(edicao);
+                        
+                        atualizarStatusRodape('atualizado', `🎉 Relatório da edição ${edicao} está pronto!`);
+                        
+                        // Forçar atualização IMEDIATA do dashboard
+                        await carregarDados();
+                        
+                        // Destacar visualmente a linha que acabou de ficar pronta
+                        destacarRelatorioNovo(edicao);
+                        
+                        return true; // PDF encontrado
+                    } else {
+                        if (tentativas >= maxTentativas) {
+                            console.log(`[SYNC] ⏰ Timeout no monitoramento da edição ${edicao}`);
+                            mostrarErro(`Timeout: Relatório da edição ${edicao} demorou mais que o esperado`);
+                            // DESMARCAR PROCESSAMENTO EM CASO DE TIMEOUT
+                            desmarcarProcessamento(edicao);
+                            return false;
+                        }
+                        
+                        // Continuar monitorando
+                        setTimeout(verificarPDF, intervalo);
+                        return null; // Continuar tentando
+                    }
+                } catch (error) {
+                    console.error(`[SYNC] Erro na verificação ${tentativas}: ${error}`);
+                    if (tentativas >= maxTentativas) {
+                        mostrarErro(`Erro no monitoramento: ${error.message}`);
+                        // DESMARCAR PROCESSAMENTO EM CASO DE ERRO
+                        desmarcarProcessamento(edicao);
+                        return false;
+                    }
+                    // Tentar novamente mesmo com erro
+                    setTimeout(verificarPDF, intervalo);
+                    return null;
+                }
+            };
+            
+            // Iniciar monitoramento
+            verificarPDF();
+        }
+
+        // NOVA FUNÇÃO: Destacar visualmente relatório recém-disponível
+        function destacarRelatorioNovo(edicao) {
+            // Encontrar a linha da edição na tabela
+            const linhas = document.querySelectorAll('#table-body tr');
+            
+            linhas.forEach(linha => {
+                const celulaEdicao = linha.querySelector('.edicao-cell');
+                if (celulaEdicao && celulaEdicao.textContent.includes(edicao)) {
+                    // Adicionar destaque visual temporário
+                    linha.style.background = 'linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%)';
+                    linha.style.border = '2px solid #28a745';
+                    linha.style.transform = 'scale(1.02)';
+                    linha.style.transition = 'all 0.3s ease';
+                    
+                    // Scroll suave até a linha
+                    linha.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Remover destaque após 5 segundos
+                    setTimeout(() => {
+                        linha.style.background = '';
+                        linha.style.border = '';
+                        linha.style.transform = '';
+                    }, 5000);
+                    
+                    // Piscar o ícone PDF brevemente
+                    const iconePdf = linha.querySelector('.pdf-icon');
+                    if (iconePdf) {
+                        iconePdf.style.animation = 'pulse 0.5s ease-in-out 3';
+                    }
+                }
+            });
+        }
+
+        // Verificar geração automática de relatórios (OTIMIZADA + SINCRONIZAÇÃO + ESTADOS VISUAIS)
+        async function verificarGeracaoAutomatica(extracoes) {
+            const rifas100SemPdf = extracoes.filter(e => e.andamento_numerico === 100 && !e.tem_pdf && !rifasProcessando.has(e.edicao));
+            
+            if (rifas100SemPdf.length > 0) {
+                console.log(`[DASHBOARD AUTO] ${rifas100SemPdf.length} rifa(s) 100% sem PDF - gerando automaticamente...`);
+                
+                // MARCAR TODAS COMO PROCESSANDO ANTES DE INICIAR
+                rifas100SemPdf.forEach(extracao => {
+                    marcarComoProcessando(extracao.edicao);
+                });
+                
+                // Gerar todos os relatórios em paralelo para máxima velocidade
+                const promessas = rifas100SemPdf.map(async (extracao) => {
+                    try {
+                        console.log(`[DASHBOARD AUTO] Iniciando geração para edição ${extracao.edicao}`);
+                        
+                        const resposta = await fetch(`/api/dashboard/gerar-relatorio/${extracao.edicao}`, {
+                            method: 'POST'
+                        });
+                        
+                        if (resposta.ok) {
+                            const dados = await resposta.json();
+                            console.log(`[DASHBOARD AUTO] ✅ ${dados.message}`);
+                            
+                            // NOVA FUNCIONALIDADE: Iniciar monitoramento para esta edição
+                            monitorarDisponibilidadePDF(extracao.edicao);
+                            
+                            return { edicao: extracao.edicao, sucesso: true };
+                        } else {
+                            const erro = await resposta.json();
+                            console.error(`[DASHBOARD AUTO] ❌ Erro na edição ${extracao.edicao}: ${erro.detail}`);
+                            
+                            // DESMARCAR PROCESSAMENTO EM CASO DE ERRO
+                            desmarcarProcessamento(extracao.edicao);
+                            
+                            return { edicao: extracao.edicao, sucesso: false, erro: erro.detail };
+                        }
+                    } catch (error) {
+                        console.error(`[DASHBOARD AUTO] ❌ Erro de conexão na edição ${extracao.edicao}:`, error);
+                        
+                        // DESMARCAR PROCESSAMENTO EM CASO DE ERRO
+                        desmarcarProcessamento(extracao.edicao);
+                        
+                        return { edicao: extracao.edicao, sucesso: false, erro: error.message };
+                    }
+                });
+                
+                // Executar todas as gerações em paralelo
+                const resultados = await Promise.allSettled(promessas);
+                const sucessos = resultados.filter(r => r.status === 'fulfilled' && r.value.sucesso).length;
+                
+                console.log(`[DASHBOARD AUTO] Concluído: ${sucessos}/${rifas100SemPdf.length} relatórios em geração`);
+                console.log(`[SYNC] Monitoramento ativo para ${sucessos} relatório(s)`);
+                
+                // Mostrar notificação para o usuário
+                if (sucessos > 0) {
+                    atualizarStatusRodape('sincronizando', `🚀 ${sucessos} relatório(s) sendo gerado(s)`);
+                }
+            }
+        }
+
+        // Mostrar mensagem de erro
+        function mostrarErro(mensagem) {
+            const errorDiv = document.getElementById('error');
+            errorDiv.textContent = mensagem;
+            errorDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                errorDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Atualizar status no rodapé
+        function atualizarStatusRodape(tipo, mensagem) {
+            const statusDiv = document.getElementById('status-atualizacao');
+            const textoStatus = document.getElementById('texto-status-atualizacao');
+            
+            // Remover classes anteriores
+            statusDiv.classList.remove('status-atualizado', 'status-sincronizando', 'status-offline');
+            
+            if (tipo === 'sincronizando') {
+                statusDiv.classList.add('status-sincronizando');
+                statusDiv.innerHTML = `<span>⏳</span><span>${mensagem}</span>`;
+            } else if (tipo === 'offline') {
+                statusDiv.classList.add('status-offline');
+                statusDiv.innerHTML = `<span>⚠️</span><span>${mensagem}</span>`;
+            } else {
+                statusDiv.classList.add('status-atualizado');
+                statusDiv.innerHTML = `<span>✅</span><span>${mensagem}</span>`;
+                
+                // Voltar ao estado normal após 3 segundos
+            setTimeout(() => {
+                    statusDiv.innerHTML = `<span>✅</span><span>Dados atualizados</span>`;
+                }, 3000);
+            }
+        }
+
+        // Atualizar última atualização
+        function atualizarUltimaAtualizacao() {
+            const agora = new Date();
+            const horaFormatada = agora.toLocaleTimeString('pt-BR', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            
+            document.getElementById('texto-ultima-atualizacao').textContent = 
+                `Última atualização: ${horaFormatada}`;
+        }
+
+        // Nova função para renderizar o ícone PDF com estado de processamento
+        function renderizarIconePDF(extracao) {
+            const edicao = extracao.edicao;
+            
+            // Estado 1: PDF já disponível
+            if (extracao.tem_pdf) {
+                return `<img src="/img/iconepdf.jpg" 
+                             alt="PDF ${edicao}" 
+                             class="pdf-icon" 
+                             onclick="baixarPDF('${edicao}')">`;
+            }
+            
+            // Estado 2: Processando (rifa 100% sendo processada)
+            if (rifasProcessando.has(edicao)) {
+                return `<div class="pdf-loading" 
+                             alt="Gerando PDF ${edicao}" 
+                             title="Processando relatório...">
+                        </div>`;
+            }
+            
+            // Estado 3: Não disponível (padrão)
+            return `<img src="/img/naodisponivel.png" 
+                         alt="PDF não disponível" 
+                         class="pdf-icon disabled" 
+                         style="opacity: 0.3; cursor: not-allowed;">`;
+        }
+
+        // Função para marcar rifa como processando
+        function marcarComoProcessando(edicao) {
+            rifasProcessando.add(edicao);
+            console.log(`[PROCESSING] Edição ${edicao} marcada como processando`);
+            // Atualizar apenas esta linha na tabela
+            atualizarIconePDF(edicao);
+        }
+
+        // Função para desmarcar rifa como processando
+        function desmarcarProcessamento(edicao) {
+            rifasProcessando.delete(edicao);
+            console.log(`[PROCESSING] Edição ${edicao} processamento finalizado`);
+            // Será atualizada quando carregarDados() for chamado
+        }
+
+        // Função para atualizar apenas o ícone PDF de uma edição específica
+        function atualizarIconePDF(edicao) {
+            const linhas = document.querySelectorAll('#table-body tr');
+            
+            linhas.forEach(linha => {
+                const celulaEdicao = linha.querySelector('.edicao-cell');
+                if (celulaEdicao && celulaEdicao.textContent.includes(edicao)) {
+                    const celulaPdf = linha.querySelector('.pdf-cell');
+                    if (celulaPdf) {
+                        // Encontrar a rifa nos dados para renderizar corretamente
+                        const rifa = rifasData.find(r => r.edicao == edicao);
+                        if (rifa) {
+                            celulaPdf.innerHTML = renderizarIconePDF(rifa);
+                        }
+                    }
+                }
+            });
+        }
+
+        // Funções para controlar loading sem afetar layout
+        function mostrarLoadingOverlay(texto = 'Carregando...') {
+            const overlay = document.getElementById('loading-overlay');
+            const textElement = overlay.querySelector('.loading-text');
+            textElement.textContent = texto;
+            overlay.style.display = 'flex';
+        }
+
+        function mostrarLoadingCompacto(texto = 'Sincronizando...') {
+            const compact = document.getElementById('loading-compact');
+            const textElement = compact.querySelector('.loading-text');
+            textElement.textContent = texto;
+            compact.style.display = 'flex';
+        }
+
+        function ocultarLoadingOverlay() {
+            document.getElementById('loading-overlay').style.display = 'none';
+        }
+
+        function ocultarLoadingCompacto() {
+            document.getElementById('loading-compact').style.display = 'none';
+        }
+
+        function ocultarTodosLoadings() {
+            ocultarLoadingOverlay();
+            ocultarLoadingCompacto();
+        }
+    </script>
+</body>
+</html> 
