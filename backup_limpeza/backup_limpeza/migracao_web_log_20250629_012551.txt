@@ -1,7 +1,0 @@
-[2025-06-29 01:25:51] 🚀 INICIANDO MIGRAÇÃO COMPLETA
-[2025-06-29 01:25:51] ============================================================
-[2025-06-29 01:25:51] 🔌 Testando conectividade com pma.megatrends.site...
-[2025-06-29 01:25:51] ✅ Conectividade OK com pma.megatrends.site
-[2025-06-29 01:25:51] 🌐 Fazendo login no phpMyAdmin: http://pma.linksystems.com.br
-[2025-06-29 01:25:51] ❌ Login falhou - credenciais incorretas
-[2025-06-29 01:25:51] ❌ Falha no login do phpMyAdmin

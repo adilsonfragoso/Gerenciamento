@@ -22,6 +22,10 @@ from selenium.common.exceptions import (
 )
 
 # Importar configurações centralizadas
+import sys
+import os
+# Adicionar o diretório scripts ao path para permitir imports
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from config_cadRifas import (
     DATABASE_CONFIG, BROWSER_CONFIG, LOGIN_CONFIG, PAYMENT_CONFIG,
     FILE_CONFIG, URL_CONFIG, TIMEOUT_CONFIG, LOGGING_CONFIG, RETRY_CONFIG,
@@ -31,7 +35,7 @@ from config_cadRifas import (
 # =============================================================================
 # CONFIGURAÇÃO DE TESTE - ALTERE AQUI PARA TESTAR SEM SALVAR
 # =============================================================================
-CRIAR_SORTEIO = True  # True = Salva o sorteio, False = Apenas simula (para testes)
+CRIAR_SORTEIO = False  # True = Salva o sorteio, False = Apenas simula (para testes)
 
 # =============================================================================
 # Configuração de logging
@@ -118,13 +122,19 @@ def fazer_login_e_abrir_navegador():
             options=chrome_options
         )
         
-        # Fazer login
+        # Checagem robusta antes do login
+        if not LOGIN_CONFIG['url'] or not LOGIN_CONFIG['email'] or not LOGIN_CONFIG['password']:
+            raise ValueError(
+                f"LOGIN_CONFIG está incompleto: {LOGIN_CONFIG}\n"
+                "Verifique se o arquivo .env está presente e corretamente preenchido!"
+            )
+
         driver.get(LOGIN_CONFIG['url'])
         esperar_elemento(driver, (By.NAME, "email"))
         driver.find_element(By.NAME, "email").send_keys(LOGIN_CONFIG['email'])
         driver.find_element(By.NAME, "password").send_keys(LOGIN_CONFIG['password'])
-        driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
-        esperar_elemento(driver, (By.XPATH, "//div[contains(@class,'MuiDrawer')]"))
+        driver.find_element(By.CSS_SELECTOR, "button[type='submit'").click()
+        esperar_elemento(driver, (By.XPATH, "//div[contains(@class,'MuiDrawer')]") )
         
         logger.info("Login efetuado com sucesso!")
         return driver
@@ -283,22 +293,41 @@ def cadastrar_sorteio(driver, edicao_data):
     logger.info("Selecionando Info Pago...")
     Select(driver.find_element(By.NAME, "paymentConfig.host")).select_by_visible_text("Info Pago")
     
-    # Preencher Client ID
+    # Verificar e preencher dados de pagamento
     client_id = PAYMENT_CONFIG['client_id']
-    logger.info(f"Preenchendo Client ID: {client_id}")
-    driver.find_element(By.NAME, "paymentConfig.infoPago.clientId").send_keys(client_id)
-    
-    # Preencher Client Secret
     client_secret = PAYMENT_CONFIG['client_secret']
-    logger.info(f"Preenchendo Client Secret: {client_secret}")
-    driver.find_element(By.NAME, "paymentConfig.infoPago.clientSecret").send_keys(client_secret)
-    
-    # Preencher Chave PIX
     chave_pix = PAYMENT_CONFIG['chave_pix']
-    logger.info(f"Preenchendo Chave PIX: {chave_pix}")
-    driver.find_element(By.NAME, "paymentConfig.infoPago.chavePix").send_keys(chave_pix)
     
-    logger.info("=== ABA PAGAMENTO PREENCHIDA COM SUCESSO ===")
+    logger.info(f"Dados de pagamento carregados:")
+    logger.info(f"  Client ID: {'DEFINIDO' if client_id else 'VAZIO'} ({len(client_id)} chars)")
+    logger.info(f"  Client Secret: {'DEFINIDO' if client_secret else 'VAZIO'} ({len(client_secret)} chars)")
+    logger.info(f"  Chave PIX: {'DEFINIDO' if chave_pix else 'VAZIO'} ({len(chave_pix)} chars)")
+    
+    if client_id:
+        logger.info(f"Preenchendo Client ID: {client_id}")
+        campo_client_id = driver.find_element(By.NAME, "paymentConfig.infoPago.clientId")
+        campo_client_id.clear()
+        campo_client_id.send_keys(client_id)
+    else:
+        logger.warning("Client ID está vazio - campo não será preenchido")
+    
+    if client_secret:
+        logger.info(f"Preenchendo Client Secret: {client_secret}")
+        campo_client_secret = driver.find_element(By.NAME, "paymentConfig.infoPago.clientSecret")
+        campo_client_secret.clear()
+        campo_client_secret.send_keys(client_secret)
+    else:
+        logger.warning("Client Secret está vazio - campo não será preenchido")
+    
+    if chave_pix:
+        logger.info(f"Preenchendo Chave PIX: {chave_pix}")
+        campo_chave_pix = driver.find_element(By.NAME, "paymentConfig.infoPago.chavePix")
+        campo_chave_pix.clear()
+        campo_chave_pix.send_keys(chave_pix)
+    else:
+        logger.warning("Chave PIX está vazia - campo não será preenchido")
+    
+    logger.info("=== ABA PAGAMENTO PROCESSADA ===")
 
     # --- Aba Suporte --------------------------------------------------------
     logger.info("=== PREENCHENDO ABA SUPORTE ===")
@@ -451,8 +480,8 @@ def main():
         logger.warning("MODO TESTE ATIVADO - Nenhum sorteio será criado!")
 
     try:
-        # Validar configurações
-        validar_configuracoes()
+        # Validar configurações - passar modo teste
+        validar_configuracoes(modo_teste=not CRIAR_SORTEIO)
         logger.info("Configurações validadas com sucesso")
 
         # Buscar edições pendentes
