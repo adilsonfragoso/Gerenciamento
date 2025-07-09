@@ -22,6 +22,10 @@ import sys
 import re
 import time
 
+# Configurar logging adequadamente
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 # Tentar importar pytz para fuso horário, se não estiver disponível usar fallback
 try:
     import pytz
@@ -1490,15 +1494,26 @@ def executar_script_para_siglas(siglas_id: int):
             raise HTTPException(status_code=404, detail="Script cadRifas_litoral_latest.py não encontrado")
         
         # Preparar comando com argumentos (números das edições)
-        comando = ["python", script_path] + [str(edicao_id) for edicao_id in edicoes_ids]
+        comando = [sys.executable, script_path] + [str(edicao_id) for edicao_id in edicoes_ids]
         
-        # Executar script
+        logger.info(f"Executando script para siglas_id {siglas_id} com edições: {edicoes_ids}")
+        logger.info(f"Comando: {' '.join(comando)}")
+        
+        # Configurar ambiente
+        env = os.environ.copy()
+        env['PYTHONIOENCODING'] = 'utf-8'
+        env['PYTHONLEGACYWINDOWSFSENCODING'] = '0'
+        
+        # Executar script com encoding adequado
         resultado = subprocess.run(
             comando,
             capture_output=True,
             text=True,
+            encoding='utf-8',
+            errors='replace',  # Substitui caracteres inválidos
             cwd=os.path.dirname(script_path),
-            timeout=600  # 10 minutos de timeout
+            timeout=600,  # 10 minutos de timeout
+            env=env
         )
         
         # Verificar resultado
@@ -1642,6 +1657,7 @@ def verificar_pendencias_siglas(siglas_id: int):
     Verifica se um registro de siglas_diarias tem edições pendentes/erro
     """
     try:
+        logger.info(f"Verificando pendências para siglas_id: {siglas_id}")
         connection = pymysql.connect(**DB_CONFIG)
         cursor = connection.cursor(DictCursor)
         
@@ -1650,6 +1666,7 @@ def verificar_pendencias_siglas(siglas_id: int):
         registro_siglas = cursor.fetchone()
         
         if not registro_siglas:
+            logger.warning(f"Registro de siglas com ID {siglas_id} não encontrado")
             raise HTTPException(status_code=404, detail=f"Registro de siglas com ID {siglas_id} não encontrado")
         
         # Buscar edições pendentes/erro

@@ -7006,3 +7006,1237 @@ Processando edição 6285 para 'PPT'...
 2025-07-08 21:44:10,888 - __main__ - INFO - Status de cadastro atualizado para 'cadastrado' na edição 6285
 2025-07-08 21:44:15,025 - __main__ - INFO - Processamento concluído das edições pendentes.
 2025-07-08 21:44:15,025 - __main__ - INFO - === SCRIPT CONCLUÍDO COM SUCESSO (MODO PRODUÇÃO) ===
+2025-07-09 14:47:35,694 - __main__ - INFO - === INICIANDO SCRIPT CADRIFAS_LITORAL_V4 ===
+2025-07-09 14:47:35,694 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:47:35,695 - __main__ - ERROR - Erro crítico no script: Configurações de pagamento incompletas
+2025-07-09 14:48:34,362 - __main__ - INFO - === INICIANDO SCRIPT CADRIFAS_LITORAL_V4 ===
+2025-07-09 14:48:34,363 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:48:34,363 - __main__ - ERROR - Erro crítico no script: Configurações de pagamento incompletas
+2025-07-09 14:49:52,440 - __main__ - INFO - === INICIANDO SCRIPT CADRIFAS_LITORAL_V4 ===
+2025-07-09 14:49:52,440 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:49:52,441 - __main__ - INFO - Configurações validadas com sucesso
+2025-07-09 14:49:52,526 - __main__ - INFO - Total de edições pendentes ou com erro encontradas: 6
+2025-07-09 14:49:52,527 - __main__ - INFO - Edição error: 6290 | Sigla: PPT | Data: 2025-07-10
+2025-07-09 14:49:52,527 - __main__ - INFO - Edição error: 6291 | Sigla: PTM | Data: 2025-07-10
+2025-07-09 14:49:52,527 - __main__ - INFO - Edição error: 6292 | Sigla: PT | Data: 2025-07-10
+2025-07-09 14:49:52,527 - __main__ - INFO - Edição error: 6293 | Sigla: PTV | Data: 2025-07-10
+2025-07-09 14:49:52,527 - __main__ - INFO - Edição error: 6294 | Sigla: PTN | Data: 2025-07-10
+2025-07-09 14:49:52,527 - __main__ - INFO - Edição error: 6295 | Sigla: CORUJINHA | Data: 2025-07-10
+2025-07-09 14:49:54,917 - __main__ - INFO - Login efetuado com sucesso!
+2025-07-09 14:49:54,917 - __main__ - INFO - 
+Processando edição 6295 para 'CORUJINHA'...
+2025-07-09 14:49:54,917 - __main__ - INFO - Tentativa 1 de 3 para edição 6295
+2025-07-09 14:49:54,917 - __main__ - INFO - Iniciando cadastro do sorteio 6295 para sigla 'CORUJINHA' (extracao: 'CORUJINHA_40')
+2025-07-09 14:49:54,917 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:49:55,497 - __main__ - INFO - Pop-up fechado.
+2025-07-09 14:49:58,402 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\CORUJINHA_40.jpg
+2025-07-09 14:50:00,951 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:50:01,014 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:50:01,078 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:50:01,087 - __main__ - WARNING - Tentativa 1 falhou para edição 6295: 'NoneType' object is not iterable
+2025-07-09 14:50:01,087 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 14:50:06,088 - __main__ - INFO - Tentativa 2 de 3 para edição 6295
+2025-07-09 14:50:06,088 - __main__ - INFO - Iniciando cadastro do sorteio 6295 para sigla 'CORUJINHA' (extracao: 'CORUJINHA_40')
+2025-07-09 14:50:06,088 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:50:11,761 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\CORUJINHA_40.jpg
+2025-07-09 14:50:14,040 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:50:14,100 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:50:14,156 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:50:14,161 - __main__ - WARNING - Tentativa 2 falhou para edição 6295: 'NoneType' object is not iterable
+2025-07-09 14:50:14,161 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 14:50:19,162 - __main__ - INFO - Tentativa 3 de 3 para edição 6295
+2025-07-09 14:50:19,162 - __main__ - INFO - Iniciando cadastro do sorteio 6295 para sigla 'CORUJINHA' (extracao: 'CORUJINHA_40')
+2025-07-09 14:50:19,162 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:50:24,840 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\CORUJINHA_40.jpg
+2025-07-09 14:50:27,079 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:50:27,134 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:50:27,191 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:50:27,196 - __main__ - WARNING - Tentativa 3 falhou para edição 6295: 'NoneType' object is not iterable
+2025-07-09 14:50:27,196 - __main__ - ERROR - Todas as tentativas falharam para edição 6295
+2025-07-09 14:50:27,196 - __main__ - ERROR - [ERRO] Falha na edição 6295: 'NoneType' object is not iterable
+2025-07-09 14:50:27,197 - __main__ - INFO - 
+Processando edição 6294 para 'PTN'...
+2025-07-09 14:50:27,197 - __main__ - INFO - Tentativa 1 de 3 para edição 6294
+2025-07-09 14:50:27,197 - __main__ - INFO - Iniciando cadastro do sorteio 6294 para sigla 'PTN' (extracao: 'PTN_20')
+2025-07-09 14:50:27,197 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:50:32,720 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTN_20.jpg
+2025-07-09 14:50:34,019 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:50:34,073 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:50:34,128 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:50:34,132 - __main__ - WARNING - Tentativa 1 falhou para edição 6294: 'NoneType' object is not iterable
+2025-07-09 14:50:34,132 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 14:50:39,133 - __main__ - INFO - Tentativa 2 de 3 para edição 6294
+2025-07-09 14:50:39,133 - __main__ - INFO - Iniciando cadastro do sorteio 6294 para sigla 'PTN' (extracao: 'PTN_20')
+2025-07-09 14:50:39,133 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:50:44,749 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTN_20.jpg
+2025-07-09 14:50:46,114 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:50:46,173 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:50:46,231 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:50:46,239 - __main__ - WARNING - Tentativa 2 falhou para edição 6294: 'NoneType' object is not iterable
+2025-07-09 14:50:46,239 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 14:50:51,239 - __main__ - INFO - Tentativa 3 de 3 para edição 6294
+2025-07-09 14:50:51,239 - __main__ - INFO - Iniciando cadastro do sorteio 6294 para sigla 'PTN' (extracao: 'PTN_20')
+2025-07-09 14:50:51,239 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:50:56,833 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTN_20.jpg
+2025-07-09 14:50:58,685 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:50:58,823 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:50:58,954 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:50:58,970 - __main__ - WARNING - Tentativa 3 falhou para edição 6294: 'NoneType' object is not iterable
+2025-07-09 14:50:58,970 - __main__ - ERROR - Todas as tentativas falharam para edição 6294
+2025-07-09 14:50:58,970 - __main__ - ERROR - [ERRO] Falha na edição 6294: 'NoneType' object is not iterable
+2025-07-09 14:50:58,970 - __main__ - INFO - 
+Processando edição 6293 para 'PTV'...
+2025-07-09 14:50:58,970 - __main__ - INFO - Tentativa 1 de 3 para edição 6293
+2025-07-09 14:50:58,970 - __main__ - INFO - Iniciando cadastro do sorteio 6293 para sigla 'PTV' (extracao: 'PTV_16')
+2025-07-09 14:50:58,970 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:51:04,495 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTV_16.jpg
+2025-07-09 14:51:07,199 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:51:07,274 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:51:07,351 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:51:07,359 - __main__ - WARNING - Tentativa 1 falhou para edição 6293: 'NoneType' object is not iterable
+2025-07-09 14:51:07,359 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 14:51:12,360 - __main__ - INFO - Tentativa 2 de 3 para edição 6293
+2025-07-09 14:51:12,360 - __main__ - INFO - Iniciando cadastro do sorteio 6293 para sigla 'PTV' (extracao: 'PTV_16')
+2025-07-09 14:51:12,360 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:51:17,915 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTV_16.jpg
+2025-07-09 14:51:20,570 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:51:20,632 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:51:20,689 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:51:20,697 - __main__ - WARNING - Tentativa 2 falhou para edição 6293: 'NoneType' object is not iterable
+2025-07-09 14:51:20,697 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 14:51:25,697 - __main__ - INFO - Tentativa 3 de 3 para edição 6293
+2025-07-09 14:51:25,697 - __main__ - INFO - Iniciando cadastro do sorteio 6293 para sigla 'PTV' (extracao: 'PTV_16')
+2025-07-09 14:51:25,697 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:51:31,236 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTV_16.jpg
+2025-07-09 14:51:33,839 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:51:33,897 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:51:33,956 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:51:33,962 - __main__ - WARNING - Tentativa 3 falhou para edição 6293: 'NoneType' object is not iterable
+2025-07-09 14:51:33,962 - __main__ - ERROR - Todas as tentativas falharam para edição 6293
+2025-07-09 14:51:33,962 - __main__ - ERROR - [ERRO] Falha na edição 6293: 'NoneType' object is not iterable
+2025-07-09 14:51:33,962 - __main__ - INFO - 
+Processando edição 6292 para 'PT'...
+2025-07-09 14:51:33,963 - __main__ - INFO - Tentativa 1 de 3 para edição 6292
+2025-07-09 14:51:33,963 - __main__ - INFO - Iniciando cadastro do sorteio 6292 para sigla 'PT' (extracao: 'PT_40')
+2025-07-09 14:51:33,963 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:51:39,516 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PT_40.jpg
+2025-07-09 14:51:41,747 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:51:41,804 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:51:41,858 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:51:41,864 - __main__ - WARNING - Tentativa 1 falhou para edição 6292: 'NoneType' object is not iterable
+2025-07-09 14:51:41,865 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 14:51:46,865 - __main__ - INFO - Tentativa 2 de 3 para edição 6292
+2025-07-09 14:51:46,865 - __main__ - INFO - Iniciando cadastro do sorteio 6292 para sigla 'PT' (extracao: 'PT_40')
+2025-07-09 14:51:46,865 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:51:52,374 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PT_40.jpg
+2025-07-09 14:51:54,575 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:51:54,633 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:51:54,688 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:51:54,694 - __main__ - WARNING - Tentativa 2 falhou para edição 6292: 'NoneType' object is not iterable
+2025-07-09 14:51:54,694 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 14:51:59,695 - __main__ - INFO - Tentativa 3 de 3 para edição 6292
+2025-07-09 14:51:59,695 - __main__ - INFO - Iniciando cadastro do sorteio 6292 para sigla 'PT' (extracao: 'PT_40')
+2025-07-09 14:51:59,695 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:52:05,216 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PT_40.jpg
+2025-07-09 14:52:07,428 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:52:07,486 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:52:07,545 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:52:07,551 - __main__ - WARNING - Tentativa 3 falhou para edição 6292: 'NoneType' object is not iterable
+2025-07-09 14:52:07,551 - __main__ - ERROR - Todas as tentativas falharam para edição 6292
+2025-07-09 14:52:07,551 - __main__ - ERROR - [ERRO] Falha na edição 6292: 'NoneType' object is not iterable
+2025-07-09 14:52:07,551 - __main__ - INFO - 
+Processando edição 6291 para 'PTM'...
+2025-07-09 14:52:07,551 - __main__ - INFO - Tentativa 1 de 3 para edição 6291
+2025-07-09 14:52:07,552 - __main__ - INFO - Iniciando cadastro do sorteio 6291 para sigla 'PTM' (extracao: 'PTM_22')
+2025-07-09 14:52:07,552 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:52:13,077 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTM_22.jpg
+2025-07-09 14:52:15,701 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:52:15,756 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:52:15,813 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:52:15,817 - __main__ - WARNING - Tentativa 1 falhou para edição 6291: 'NoneType' object is not iterable
+2025-07-09 14:52:15,817 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 14:52:20,818 - __main__ - INFO - Tentativa 2 de 3 para edição 6291
+2025-07-09 14:52:20,818 - __main__ - INFO - Iniciando cadastro do sorteio 6291 para sigla 'PTM' (extracao: 'PTM_22')
+2025-07-09 14:52:20,818 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:52:26,428 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTM_22.jpg
+2025-07-09 14:52:29,123 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:52:29,186 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:52:29,245 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:52:29,253 - __main__ - WARNING - Tentativa 2 falhou para edição 6291: 'NoneType' object is not iterable
+2025-07-09 14:52:29,253 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 14:52:34,254 - __main__ - INFO - Tentativa 3 de 3 para edição 6291
+2025-07-09 14:52:34,254 - __main__ - INFO - Iniciando cadastro do sorteio 6291 para sigla 'PTM' (extracao: 'PTM_22')
+2025-07-09 14:52:34,254 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:52:39,898 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTM_22.jpg
+2025-07-09 14:52:42,523 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:52:42,579 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:52:42,634 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:52:42,639 - __main__ - WARNING - Tentativa 3 falhou para edição 6291: 'NoneType' object is not iterable
+2025-07-09 14:52:42,639 - __main__ - ERROR - Todas as tentativas falharam para edição 6291
+2025-07-09 14:52:42,639 - __main__ - ERROR - [ERRO] Falha na edição 6291: 'NoneType' object is not iterable
+2025-07-09 14:52:42,639 - __main__ - INFO - 
+Processando edição 6290 para 'PPT'...
+2025-07-09 14:52:42,639 - __main__ - INFO - Tentativa 1 de 3 para edição 6290
+2025-07-09 14:52:42,639 - __main__ - INFO - Iniciando cadastro do sorteio 6290 para sigla 'PPT' (extracao: 'PPT_20')
+2025-07-09 14:52:42,639 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:52:48,169 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PPT_20.jpg
+2025-07-09 14:52:50,018 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:52:50,076 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:52:50,130 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:52:50,136 - __main__ - WARNING - Tentativa 1 falhou para edição 6290: 'NoneType' object is not iterable
+2025-07-09 14:52:50,136 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 14:52:55,137 - __main__ - INFO - Tentativa 2 de 3 para edição 6290
+2025-07-09 14:52:55,137 - __main__ - INFO - Iniciando cadastro do sorteio 6290 para sigla 'PPT' (extracao: 'PPT_20')
+2025-07-09 14:52:55,137 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:53:00,652 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PPT_20.jpg
+2025-07-09 14:53:02,633 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:53:02,689 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:53:02,742 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:53:02,747 - __main__ - WARNING - Tentativa 2 falhou para edição 6290: 'NoneType' object is not iterable
+2025-07-09 14:53:02,747 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 14:53:07,748 - __main__ - INFO - Tentativa 3 de 3 para edição 6290
+2025-07-09 14:53:07,748 - __main__ - INFO - Iniciando cadastro do sorteio 6290 para sigla 'PPT' (extracao: 'PPT_20')
+2025-07-09 14:53:07,748 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:53:13,364 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PPT_20.jpg
+2025-07-09 14:53:15,255 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:53:15,320 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:53:15,375 - __main__ - INFO - Preenchendo Client ID: None
+2025-07-09 14:53:15,380 - __main__ - WARNING - Tentativa 3 falhou para edição 6290: 'NoneType' object is not iterable
+2025-07-09 14:53:15,380 - __main__ - ERROR - Todas as tentativas falharam para edição 6290
+2025-07-09 14:53:15,380 - __main__ - ERROR - [ERRO] Falha na edição 6290: 'NoneType' object is not iterable
+2025-07-09 14:53:19,451 - __main__ - INFO - Processamento concluído das edições pendentes.
+2025-07-09 14:53:19,451 - __main__ - WARNING - === SCRIPT CONCLUÍDO COM SUCESSO (MODO TESTE) ===
+2025-07-09 14:55:48,023 - __main__ - INFO - === INICIANDO SCRIPT CADRIFAS_LITORAL_V4 ===
+2025-07-09 14:55:48,024 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:55:48,024 - __main__ - INFO - Configurações validadas com sucesso
+2025-07-09 14:55:48,096 - __main__ - INFO - Total de edições pendentes ou com erro encontradas: 6
+2025-07-09 14:55:48,096 - __main__ - INFO - Edição error: 6290 | Sigla: PPT | Data: 2025-07-10
+2025-07-09 14:55:48,096 - __main__ - INFO - Edição error: 6291 | Sigla: PTM | Data: 2025-07-10
+2025-07-09 14:55:48,096 - __main__ - INFO - Edição error: 6292 | Sigla: PT | Data: 2025-07-10
+2025-07-09 14:55:48,096 - __main__ - INFO - Edição error: 6293 | Sigla: PTV | Data: 2025-07-10
+2025-07-09 14:55:48,096 - __main__ - INFO - Edição error: 6294 | Sigla: PTN | Data: 2025-07-10
+2025-07-09 14:55:48,097 - __main__ - INFO - Edição error: 6295 | Sigla: CORUJINHA | Data: 2025-07-10
+2025-07-09 14:55:50,404 - __main__ - INFO - Login efetuado com sucesso!
+2025-07-09 14:55:50,404 - __main__ - INFO - 
+Processando edição 6295 para 'CORUJINHA'...
+2025-07-09 14:55:50,404 - __main__ - INFO - Tentativa 1 de 3 para edição 6295
+2025-07-09 14:55:50,404 - __main__ - INFO - Iniciando cadastro do sorteio 6295 para sigla 'CORUJINHA' (extracao: 'CORUJINHA_40')
+2025-07-09 14:55:50,404 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:55:50,983 - __main__ - INFO - Pop-up fechado.
+2025-07-09 14:55:53,850 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\CORUJINHA_40.jpg
+2025-07-09 14:55:56,239 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:55:56,299 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:55:56,360 - __main__ - INFO - Preenchendo Client ID: 
+2025-07-09 14:55:56,397 - __main__ - INFO - Preenchendo Client Secret: 
+2025-07-09 14:55:56,429 - __main__ - INFO - Preenchendo Chave PIX: 
+2025-07-09 14:55:56,461 - __main__ - INFO - === ABA PAGAMENTO PREENCHIDA COM SUCESSO ===
+2025-07-09 14:55:56,461 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 14:55:56,524 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 14:55:56,849 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 14:55:57,469 - __main__ - WARNING - MODO TESTE - Sorteio 6295 (CORUJINHA) NÃO foi criado!
+2025-07-09 14:55:57,469 - __main__ - INFO - Formulário preenchido completamente, mas sorteio não foi salvo.
+2025-07-09 14:56:10,606 - __main__ - INFO - Navegando de volta para a lista...
+2025-07-09 14:56:10,606 - __main__ - INFO - 
+Processando edição 6294 para 'PTN'...
+2025-07-09 14:56:10,607 - __main__ - INFO - Tentativa 1 de 3 para edição 6294
+2025-07-09 14:56:10,607 - __main__ - INFO - Iniciando cadastro do sorteio 6294 para sigla 'PTN' (extracao: 'PTN_20')
+2025-07-09 14:56:10,607 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:56:16,115 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTN_20.jpg
+2025-07-09 14:56:17,449 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:56:17,503 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:56:17,555 - __main__ - INFO - Preenchendo Client ID: 
+2025-07-09 14:56:17,586 - __main__ - INFO - Preenchendo Client Secret: 
+2025-07-09 14:56:17,614 - __main__ - INFO - Preenchendo Chave PIX: 
+2025-07-09 14:56:17,641 - __main__ - INFO - === ABA PAGAMENTO PREENCHIDA COM SUCESSO ===
+2025-07-09 14:56:17,641 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 14:56:17,700 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 14:56:18,014 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 14:56:19,025 - __main__ - WARNING - MODO TESTE - Sorteio 6294 (PTN) NÃO foi criado!
+2025-07-09 14:56:19,026 - __main__ - INFO - Formulário preenchido completamente, mas sorteio não foi salvo.
+2025-07-09 14:56:32,163 - __main__ - INFO - Navegando de volta para a lista...
+2025-07-09 14:56:32,163 - __main__ - INFO - 
+Processando edição 6293 para 'PTV'...
+2025-07-09 14:56:32,163 - __main__ - INFO - Tentativa 1 de 3 para edição 6293
+2025-07-09 14:56:32,163 - __main__ - INFO - Iniciando cadastro do sorteio 6293 para sigla 'PTV' (extracao: 'PTV_16')
+2025-07-09 14:56:32,163 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:56:37,715 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTV_16.jpg
+2025-07-09 14:56:40,619 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:56:40,681 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:56:40,739 - __main__ - INFO - Preenchendo Client ID: 
+2025-07-09 14:56:40,775 - __main__ - INFO - Preenchendo Client Secret: 
+2025-07-09 14:56:40,810 - __main__ - INFO - Preenchendo Chave PIX: 
+2025-07-09 14:56:40,842 - __main__ - INFO - === ABA PAGAMENTO PREENCHIDA COM SUCESSO ===
+2025-07-09 14:56:40,842 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 14:56:40,910 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 14:56:41,248 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 14:56:42,313 - __main__ - WARNING - MODO TESTE - Sorteio 6293 (PTV) NÃO foi criado!
+2025-07-09 14:56:42,313 - __main__ - INFO - Formulário preenchido completamente, mas sorteio não foi salvo.
+2025-07-09 14:56:55,456 - __main__ - INFO - Navegando de volta para a lista...
+2025-07-09 14:56:55,456 - __main__ - INFO - 
+Processando edição 6292 para 'PT'...
+2025-07-09 14:56:55,456 - __main__ - INFO - Tentativa 1 de 3 para edição 6292
+2025-07-09 14:56:55,456 - __main__ - INFO - Iniciando cadastro do sorteio 6292 para sigla 'PT' (extracao: 'PT_40')
+2025-07-09 14:56:55,456 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:57:01,085 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PT_40.jpg
+2025-07-09 14:57:03,395 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:57:03,464 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:57:03,525 - __main__ - INFO - Preenchendo Client ID: 
+2025-07-09 14:57:03,559 - __main__ - INFO - Preenchendo Client Secret: 
+2025-07-09 14:57:03,591 - __main__ - INFO - Preenchendo Chave PIX: 
+2025-07-09 14:57:03,622 - __main__ - INFO - === ABA PAGAMENTO PREENCHIDA COM SUCESSO ===
+2025-07-09 14:57:03,622 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 14:57:03,690 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 14:57:04,015 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 14:57:04,610 - __main__ - WARNING - MODO TESTE - Sorteio 6292 (PT) NÃO foi criado!
+2025-07-09 14:57:04,610 - __main__ - INFO - Formulário preenchido completamente, mas sorteio não foi salvo.
+2025-07-09 14:57:17,751 - __main__ - INFO - Navegando de volta para a lista...
+2025-07-09 14:57:17,751 - __main__ - INFO - 
+Processando edição 6291 para 'PTM'...
+2025-07-09 14:57:17,751 - __main__ - INFO - Tentativa 1 de 3 para edição 6291
+2025-07-09 14:57:17,751 - __main__ - INFO - Iniciando cadastro do sorteio 6291 para sigla 'PTM' (extracao: 'PTM_22')
+2025-07-09 14:57:17,751 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:57:23,345 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTM_22.jpg
+2025-07-09 14:57:25,962 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:57:26,018 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:57:26,074 - __main__ - INFO - Preenchendo Client ID: 
+2025-07-09 14:57:26,103 - __main__ - INFO - Preenchendo Client Secret: 
+2025-07-09 14:57:26,132 - __main__ - INFO - Preenchendo Chave PIX: 
+2025-07-09 14:57:26,163 - __main__ - INFO - === ABA PAGAMENTO PREENCHIDA COM SUCESSO ===
+2025-07-09 14:57:26,163 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 14:57:26,232 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 14:57:26,543 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 14:57:27,074 - __main__ - WARNING - MODO TESTE - Sorteio 6291 (PTM) NÃO foi criado!
+2025-07-09 14:57:27,074 - __main__ - INFO - Formulário preenchido completamente, mas sorteio não foi salvo.
+2025-07-09 14:57:40,222 - __main__ - INFO - Navegando de volta para a lista...
+2025-07-09 14:57:40,222 - __main__ - INFO - 
+Processando edição 6290 para 'PPT'...
+2025-07-09 14:57:40,222 - __main__ - INFO - Tentativa 1 de 3 para edição 6290
+2025-07-09 14:57:40,222 - __main__ - INFO - Iniciando cadastro do sorteio 6290 para sigla 'PPT' (extracao: 'PPT_20')
+2025-07-09 14:57:40,222 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:57:45,813 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PPT_20.jpg
+2025-07-09 14:57:47,774 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 14:57:47,828 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 14:57:47,880 - __main__ - INFO - Preenchendo Client ID: 
+2025-07-09 14:57:47,911 - __main__ - INFO - Preenchendo Client Secret: 
+2025-07-09 14:57:47,938 - __main__ - INFO - Preenchendo Chave PIX: 
+2025-07-09 14:57:47,966 - __main__ - INFO - === ABA PAGAMENTO PREENCHIDA COM SUCESSO ===
+2025-07-09 14:57:47,966 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 14:57:48,022 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 14:57:48,330 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 14:57:48,873 - __main__ - WARNING - MODO TESTE - Sorteio 6290 (PPT) NÃO foi criado!
+2025-07-09 14:57:48,873 - __main__ - INFO - Formulário preenchido completamente, mas sorteio não foi salvo.
+2025-07-09 14:57:57,465 - __main__ - WARNING - Tentativa 1 falhou para edição 6290: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb1113]
+	(No symbol) [0x0xca08a0]
+	(No symbol) [0x0xcbe8c2]
+	(No symbol) [0x0xd2519c]
+	(No symbol) [0x0xd3f359]
+	(No symbol) [0x0xd1e376]
+	(No symbol) [0x0xced6e0]
+	(No symbol) [0x0xcee544]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	GetHandleVerifier [0x0xe8b6c8+95912]
+	GetHandleVerifier [0x0xe8b870+96336]
+	GetHandleVerifier [0x0xe7664a+9770]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 14:57:57,465 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 14:58:02,466 - __main__ - INFO - Tentativa 2 de 3 para edição 6290
+2025-07-09 14:58:02,466 - __main__ - INFO - Iniciando cadastro do sorteio 6290 para sigla 'PPT' (extracao: 'PPT_20')
+2025-07-09 14:58:02,466 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:58:02,467 - __main__ - WARNING - Tentativa 2 falhou para edição 6290: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb0f70]
+	(No symbol) [0x0xcec9a8]
+	(No symbol) [0x0xd1e436]
+	(No symbol) [0x0xd19f05]
+	(No symbol) [0x0xd19486]
+	(No symbol) [0x0xc83a05]
+	(No symbol) [0x0xc83f5e]
+	(No symbol) [0x0xc843ed]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	(No symbol) [0x0xc836d0]
+	(No symbol) [0x0xc82edd]
+	GetHandleVerifier [0x0x1217edc+3817148]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 14:58:02,467 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 14:58:07,468 - __main__ - INFO - Tentativa 3 de 3 para edição 6290
+2025-07-09 14:58:07,468 - __main__ - INFO - Iniciando cadastro do sorteio 6290 para sigla 'PPT' (extracao: 'PPT_20')
+2025-07-09 14:58:07,468 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 14:58:07,469 - __main__ - WARNING - Tentativa 3 falhou para edição 6290: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb0f70]
+	(No symbol) [0x0xcec9a8]
+	(No symbol) [0x0xd1e436]
+	(No symbol) [0x0xd19f05]
+	(No symbol) [0x0xd19486]
+	(No symbol) [0x0xc83a05]
+	(No symbol) [0x0xc83f5e]
+	(No symbol) [0x0xc843ed]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	(No symbol) [0x0xc836d0]
+	(No symbol) [0x0xc82edd]
+	GetHandleVerifier [0x0x1217edc+3817148]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 14:58:07,469 - __main__ - ERROR - Todas as tentativas falharam para edição 6290
+2025-07-09 14:58:07,469 - __main__ - ERROR - [ERRO] Falha na edição 6290: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb0f70]
+	(No symbol) [0x0xcec9a8]
+	(No symbol) [0x0xd1e436]
+	(No symbol) [0x0xd19f05]
+	(No symbol) [0x0xd19486]
+	(No symbol) [0x0xc83a05]
+	(No symbol) [0x0xc83f5e]
+	(No symbol) [0x0xc843ed]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	(No symbol) [0x0xc836d0]
+	(No symbol) [0x0xc82edd]
+	GetHandleVerifier [0x0x1217edc+3817148]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 14:58:11,483 - __main__ - INFO - Processamento concluído das edições pendentes.
+2025-07-09 14:58:11,483 - __main__ - WARNING - === SCRIPT CONCLUÍDO COM SUCESSO (MODO TESTE) ===
+2025-07-09 15:00:50,888 - __main__ - INFO - === INICIANDO SCRIPT CADRIFAS_LITORAL_V4 ===
+2025-07-09 15:00:50,888 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:00:50,889 - __main__ - INFO - Configurações validadas com sucesso
+2025-07-09 15:00:50,954 - __main__ - INFO - Total de edições pendentes ou com erro encontradas: 6
+2025-07-09 15:00:50,955 - __main__ - INFO - Edição error: 6290 | Sigla: PPT | Data: 2025-07-10
+2025-07-09 15:00:50,955 - __main__ - INFO - Edição error: 6291 | Sigla: PTM | Data: 2025-07-10
+2025-07-09 15:00:50,955 - __main__ - INFO - Edição error: 6292 | Sigla: PT | Data: 2025-07-10
+2025-07-09 15:00:50,955 - __main__ - INFO - Edição error: 6293 | Sigla: PTV | Data: 2025-07-10
+2025-07-09 15:00:50,955 - __main__ - INFO - Edição error: 6294 | Sigla: PTN | Data: 2025-07-10
+2025-07-09 15:00:50,955 - __main__ - INFO - Edição error: 6295 | Sigla: CORUJINHA | Data: 2025-07-10
+2025-07-09 15:00:53,239 - __main__ - INFO - Login efetuado com sucesso!
+2025-07-09 15:00:53,239 - __main__ - INFO - 
+Processando edição 6295 para 'CORUJINHA'...
+2025-07-09 15:00:53,239 - __main__ - INFO - Tentativa 1 de 3 para edição 6295
+2025-07-09 15:00:53,239 - __main__ - INFO - Iniciando cadastro do sorteio 6295 para sigla 'CORUJINHA' (extracao: 'CORUJINHA_40')
+2025-07-09 15:00:53,239 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:00:53,827 - __main__ - INFO - Pop-up fechado.
+2025-07-09 15:00:56,708 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\CORUJINHA_40.jpg
+2025-07-09 15:00:59,104 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 15:00:59,168 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 15:00:59,230 - __main__ - INFO - Dados de pagamento carregados:
+2025-07-09 15:00:59,230 - __main__ - INFO -   Client ID: VAZIO (0 chars)
+2025-07-09 15:00:59,230 - __main__ - INFO -   Client Secret: VAZIO (0 chars)
+2025-07-09 15:00:59,231 - __main__ - INFO -   Chave PIX: VAZIO (0 chars)
+2025-07-09 15:00:59,231 - __main__ - WARNING - Client ID está vazio - campo não será preenchido
+2025-07-09 15:00:59,231 - __main__ - WARNING - Client Secret está vazio - campo não será preenchido
+2025-07-09 15:00:59,231 - __main__ - WARNING - Chave PIX está vazia - campo não será preenchido
+2025-07-09 15:00:59,231 - __main__ - INFO - === ABA PAGAMENTO PROCESSADA ===
+2025-07-09 15:00:59,231 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 15:00:59,299 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 15:00:59,625 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 15:01:00,219 - __main__ - WARNING - MODO TESTE - Sorteio 6295 (CORUJINHA) NÃO foi criado!
+2025-07-09 15:01:00,219 - __main__ - INFO - Formulário preenchido completamente, mas sorteio não foi salvo.
+2025-07-09 15:01:13,361 - __main__ - INFO - Navegando de volta para a lista...
+2025-07-09 15:01:13,361 - __main__ - INFO - 
+Processando edição 6294 para 'PTN'...
+2025-07-09 15:01:13,361 - __main__ - INFO - Tentativa 1 de 3 para edição 6294
+2025-07-09 15:01:13,361 - __main__ - INFO - Iniciando cadastro do sorteio 6294 para sigla 'PTN' (extracao: 'PTN_20')
+2025-07-09 15:01:13,362 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:01:19,129 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTN_20.jpg
+2025-07-09 15:01:20,664 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 15:01:20,734 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 15:01:20,792 - __main__ - INFO - Dados de pagamento carregados:
+2025-07-09 15:01:20,792 - __main__ - INFO -   Client ID: VAZIO (0 chars)
+2025-07-09 15:01:20,792 - __main__ - INFO -   Client Secret: VAZIO (0 chars)
+2025-07-09 15:01:20,792 - __main__ - INFO -   Chave PIX: VAZIO (0 chars)
+2025-07-09 15:01:20,793 - __main__ - WARNING - Client ID está vazio - campo não será preenchido
+2025-07-09 15:01:20,793 - __main__ - WARNING - Client Secret está vazio - campo não será preenchido
+2025-07-09 15:01:20,793 - __main__ - WARNING - Chave PIX está vazia - campo não será preenchido
+2025-07-09 15:01:20,793 - __main__ - INFO - === ABA PAGAMENTO PROCESSADA ===
+2025-07-09 15:01:20,793 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 15:01:20,858 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 15:01:21,199 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 15:01:21,807 - __main__ - WARNING - MODO TESTE - Sorteio 6294 (PTN) NÃO foi criado!
+2025-07-09 15:01:21,807 - __main__ - INFO - Formulário preenchido completamente, mas sorteio não foi salvo.
+2025-07-09 15:01:34,953 - __main__ - INFO - Navegando de volta para a lista...
+2025-07-09 15:01:34,953 - __main__ - INFO - 
+Processando edição 6293 para 'PTV'...
+2025-07-09 15:01:34,953 - __main__ - INFO - Tentativa 1 de 3 para edição 6293
+2025-07-09 15:01:34,953 - __main__ - INFO - Iniciando cadastro do sorteio 6293 para sigla 'PTV' (extracao: 'PTV_16')
+2025-07-09 15:01:34,953 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:01:40,880 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTV_16.jpg
+2025-07-09 15:01:43,595 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 15:01:43,661 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 15:01:43,731 - __main__ - INFO - Dados de pagamento carregados:
+2025-07-09 15:01:43,731 - __main__ - INFO -   Client ID: VAZIO (0 chars)
+2025-07-09 15:01:43,731 - __main__ - INFO -   Client Secret: VAZIO (0 chars)
+2025-07-09 15:01:43,731 - __main__ - INFO -   Chave PIX: VAZIO (0 chars)
+2025-07-09 15:01:43,731 - __main__ - WARNING - Client ID está vazio - campo não será preenchido
+2025-07-09 15:01:43,731 - __main__ - WARNING - Client Secret está vazio - campo não será preenchido
+2025-07-09 15:01:43,731 - __main__ - WARNING - Chave PIX está vazia - campo não será preenchido
+2025-07-09 15:01:43,731 - __main__ - INFO - === ABA PAGAMENTO PROCESSADA ===
+2025-07-09 15:01:43,731 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 15:01:43,793 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 15:01:44,098 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 15:01:44,681 - __main__ - WARNING - MODO TESTE - Sorteio 6293 (PTV) NÃO foi criado!
+2025-07-09 15:01:44,681 - __main__ - INFO - Formulário preenchido completamente, mas sorteio não foi salvo.
+2025-07-09 15:01:57,832 - __main__ - INFO - Navegando de volta para a lista...
+2025-07-09 15:01:57,832 - __main__ - INFO - 
+Processando edição 6292 para 'PT'...
+2025-07-09 15:01:57,832 - __main__ - INFO - Tentativa 1 de 3 para edição 6292
+2025-07-09 15:01:57,832 - __main__ - INFO - Iniciando cadastro do sorteio 6292 para sigla 'PT' (extracao: 'PT_40')
+2025-07-09 15:01:57,832 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:02:03,276 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PT_40.jpg
+2025-07-09 15:02:05,422 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 15:02:05,475 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 15:02:05,530 - __main__ - INFO - Dados de pagamento carregados:
+2025-07-09 15:02:05,530 - __main__ - INFO -   Client ID: VAZIO (0 chars)
+2025-07-09 15:02:05,530 - __main__ - INFO -   Client Secret: VAZIO (0 chars)
+2025-07-09 15:02:05,530 - __main__ - INFO -   Chave PIX: VAZIO (0 chars)
+2025-07-09 15:02:05,530 - __main__ - WARNING - Client ID está vazio - campo não será preenchido
+2025-07-09 15:02:05,530 - __main__ - WARNING - Client Secret está vazio - campo não será preenchido
+2025-07-09 15:02:05,530 - __main__ - WARNING - Chave PIX está vazia - campo não será preenchido
+2025-07-09 15:02:05,530 - __main__ - INFO - === ABA PAGAMENTO PROCESSADA ===
+2025-07-09 15:02:05,530 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 15:02:05,586 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 15:02:05,883 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 15:02:06,406 - __main__ - WARNING - MODO TESTE - Sorteio 6292 (PT) NÃO foi criado!
+2025-07-09 15:02:06,406 - __main__ - INFO - Formulário preenchido completamente, mas sorteio não foi salvo.
+2025-07-09 15:02:19,543 - __main__ - INFO - Navegando de volta para a lista...
+2025-07-09 15:02:19,543 - __main__ - INFO - 
+Processando edição 6291 para 'PTM'...
+2025-07-09 15:02:19,543 - __main__ - INFO - Tentativa 1 de 3 para edição 6291
+2025-07-09 15:02:19,543 - __main__ - INFO - Iniciando cadastro do sorteio 6291 para sigla 'PTM' (extracao: 'PTM_22')
+2025-07-09 15:02:19,543 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:02:25,051 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTM_22.jpg
+2025-07-09 15:02:27,643 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 15:02:27,705 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 15:02:27,770 - __main__ - INFO - Dados de pagamento carregados:
+2025-07-09 15:02:27,770 - __main__ - INFO -   Client ID: VAZIO (0 chars)
+2025-07-09 15:02:27,771 - __main__ - INFO -   Client Secret: VAZIO (0 chars)
+2025-07-09 15:02:27,771 - __main__ - INFO -   Chave PIX: VAZIO (0 chars)
+2025-07-09 15:02:27,771 - __main__ - WARNING - Client ID está vazio - campo não será preenchido
+2025-07-09 15:02:27,771 - __main__ - WARNING - Client Secret está vazio - campo não será preenchido
+2025-07-09 15:02:27,771 - __main__ - WARNING - Chave PIX está vazia - campo não será preenchido
+2025-07-09 15:02:27,771 - __main__ - INFO - === ABA PAGAMENTO PROCESSADA ===
+2025-07-09 15:02:27,771 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 15:02:27,830 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 15:02:28,143 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 15:02:28,662 - __main__ - WARNING - MODO TESTE - Sorteio 6291 (PTM) NÃO foi criado!
+2025-07-09 15:02:28,662 - __main__ - INFO - Formulário preenchido completamente, mas sorteio não foi salvo.
+2025-07-09 15:02:41,800 - __main__ - INFO - Navegando de volta para a lista...
+2025-07-09 15:02:41,800 - __main__ - INFO - 
+Processando edição 6290 para 'PPT'...
+2025-07-09 15:02:41,800 - __main__ - INFO - Tentativa 1 de 3 para edição 6290
+2025-07-09 15:02:41,800 - __main__ - INFO - Iniciando cadastro do sorteio 6290 para sigla 'PPT' (extracao: 'PPT_20')
+2025-07-09 15:02:41,800 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:02:47,235 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PPT_20.jpg
+2025-07-09 15:02:49,050 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 15:02:49,138 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 15:02:49,224 - __main__ - INFO - Dados de pagamento carregados:
+2025-07-09 15:02:49,224 - __main__ - INFO -   Client ID: VAZIO (0 chars)
+2025-07-09 15:02:49,224 - __main__ - INFO -   Client Secret: VAZIO (0 chars)
+2025-07-09 15:02:49,224 - __main__ - INFO -   Chave PIX: VAZIO (0 chars)
+2025-07-09 15:02:49,224 - __main__ - WARNING - Client ID está vazio - campo não será preenchido
+2025-07-09 15:02:49,224 - __main__ - WARNING - Client Secret está vazio - campo não será preenchido
+2025-07-09 15:02:49,224 - __main__ - WARNING - Chave PIX está vazia - campo não será preenchido
+2025-07-09 15:02:49,224 - __main__ - INFO - === ABA PAGAMENTO PROCESSADA ===
+2025-07-09 15:02:49,224 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 15:02:49,289 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 15:02:49,585 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 15:02:50,076 - __main__ - WARNING - MODO TESTE - Sorteio 6290 (PPT) NÃO foi criado!
+2025-07-09 15:02:50,076 - __main__ - INFO - Formulário preenchido completamente, mas sorteio não foi salvo.
+2025-07-09 15:03:03,227 - __main__ - INFO - Navegando de volta para a lista...
+2025-07-09 15:03:07,310 - __main__ - INFO - Processamento concluído das edições pendentes.
+2025-07-09 15:03:07,310 - __main__ - WARNING - === SCRIPT CONCLUÍDO COM SUCESSO (MODO TESTE) ===
+2025-07-09 15:04:58,474 - __main__ - INFO - === INICIANDO SCRIPT CADRIFAS_LITORAL_V4 ===
+2025-07-09 15:04:58,474 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:04:58,475 - __main__ - INFO - Configurações validadas com sucesso
+2025-07-09 15:04:58,544 - __main__ - INFO - Total de edições pendentes ou com erro encontradas: 6
+2025-07-09 15:04:58,545 - __main__ - INFO - Edição error: 6290 | Sigla: PPT | Data: 2025-07-10
+2025-07-09 15:04:58,545 - __main__ - INFO - Edição error: 6291 | Sigla: PTM | Data: 2025-07-10
+2025-07-09 15:04:58,545 - __main__ - INFO - Edição error: 6292 | Sigla: PT | Data: 2025-07-10
+2025-07-09 15:04:58,545 - __main__ - INFO - Edição error: 6293 | Sigla: PTV | Data: 2025-07-10
+2025-07-09 15:04:58,545 - __main__ - INFO - Edição error: 6294 | Sigla: PTN | Data: 2025-07-10
+2025-07-09 15:04:58,545 - __main__ - INFO - Edição error: 6295 | Sigla: CORUJINHA | Data: 2025-07-10
+2025-07-09 15:05:00,858 - __main__ - INFO - Login efetuado com sucesso!
+2025-07-09 15:05:00,858 - __main__ - INFO - 
+Processando edição 6295 para 'CORUJINHA'...
+2025-07-09 15:05:00,858 - __main__ - INFO - Tentativa 1 de 3 para edição 6295
+2025-07-09 15:05:00,858 - __main__ - INFO - Iniciando cadastro do sorteio 6295 para sigla 'CORUJINHA' (extracao: 'CORUJINHA_40')
+2025-07-09 15:05:00,858 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:05:01,427 - __main__ - INFO - Pop-up fechado.
+2025-07-09 15:05:04,298 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\CORUJINHA_40.jpg
+2025-07-09 15:05:06,778 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 15:05:06,840 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 15:05:06,901 - __main__ - INFO - Dados de pagamento carregados:
+2025-07-09 15:05:06,901 - __main__ - INFO -   Client ID: DEFINIDO (20 chars)
+2025-07-09 15:05:06,901 - __main__ - INFO -   Client Secret: DEFINIDO (32 chars)
+2025-07-09 15:05:06,902 - __main__ - INFO -   Chave PIX: DEFINIDO (36 chars)
+2025-07-09 15:05:06,902 - __main__ - INFO - Preenchendo Client ID: 11151160128039923883
+2025-07-09 15:05:07,046 - __main__ - INFO - Preenchendo Client Secret: jZlYzM0NDMtMGMzZC00NzkyLWI1N2ItN
+2025-07-09 15:05:07,248 - __main__ - INFO - Preenchendo Chave PIX: 4437d697-f765-45f8-89be-213dda9862c5
+2025-07-09 15:05:07,458 - __main__ - INFO - === ABA PAGAMENTO PROCESSADA ===
+2025-07-09 15:05:07,458 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 15:05:07,525 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 15:05:07,852 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 15:05:08,446 - __main__ - WARNING - MODO TESTE - Sorteio 6295 (CORUJINHA) NÃO foi criado!
+2025-07-09 15:05:08,447 - __main__ - INFO - Formulário preenchido completamente, mas sorteio não foi salvo.
+2025-07-09 15:05:21,595 - __main__ - INFO - Navegando de volta para a lista...
+2025-07-09 15:05:21,595 - __main__ - INFO - 
+Processando edição 6294 para 'PTN'...
+2025-07-09 15:05:21,595 - __main__ - INFO - Tentativa 1 de 3 para edição 6294
+2025-07-09 15:05:21,596 - __main__ - INFO - Iniciando cadastro do sorteio 6294 para sigla 'PTN' (extracao: 'PTN_20')
+2025-07-09 15:05:21,596 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:05:27,132 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTN_20.jpg
+2025-07-09 15:05:28,442 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 15:05:28,497 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 15:05:28,552 - __main__ - INFO - Dados de pagamento carregados:
+2025-07-09 15:05:28,552 - __main__ - INFO -   Client ID: DEFINIDO (20 chars)
+2025-07-09 15:05:28,552 - __main__ - INFO -   Client Secret: DEFINIDO (32 chars)
+2025-07-09 15:05:28,552 - __main__ - INFO -   Chave PIX: DEFINIDO (36 chars)
+2025-07-09 15:05:28,552 - __main__ - INFO - Preenchendo Client ID: 11151160128039923883
+2025-07-09 15:05:28,700 - __main__ - INFO - Preenchendo Client Secret: jZlYzM0NDMtMGMzZC00NzkyLWI1N2ItN
+2025-07-09 15:05:28,897 - __main__ - INFO - Preenchendo Chave PIX: 4437d697-f765-45f8-89be-213dda9862c5
+2025-07-09 15:05:29,106 - __main__ - INFO - === ABA PAGAMENTO PROCESSADA ===
+2025-07-09 15:05:29,106 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 15:05:29,162 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 15:05:29,495 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 15:05:30,529 - __main__ - WARNING - MODO TESTE - Sorteio 6294 (PTN) NÃO foi criado!
+2025-07-09 15:05:30,529 - __main__ - INFO - Formulário preenchido completamente, mas sorteio não foi salvo.
+2025-07-09 15:05:43,688 - __main__ - INFO - Navegando de volta para a lista...
+2025-07-09 15:05:43,688 - __main__ - INFO - 
+Processando edição 6293 para 'PTV'...
+2025-07-09 15:05:43,689 - __main__ - INFO - Tentativa 1 de 3 para edição 6293
+2025-07-09 15:05:43,689 - __main__ - INFO - Iniciando cadastro do sorteio 6293 para sigla 'PTV' (extracao: 'PTV_16')
+2025-07-09 15:05:43,689 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:05:49,480 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTV_16.jpg
+2025-07-09 15:05:51,448 - __main__ - WARNING - Tentativa 1 falhou para edição 6293: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb1113]
+	(No symbol) [0x0xc8ff69]
+	(No symbol) [0x0xd24fce]
+	(No symbol) [0x0xd3f359]
+	(No symbol) [0x0xd1e376]
+	(No symbol) [0x0xced6e0]
+	(No symbol) [0x0xcee544]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	GetHandleVerifier [0x0xe8b6c8+95912]
+	GetHandleVerifier [0x0xe8b870+96336]
+	GetHandleVerifier [0x0xe7664a+9770]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 15:05:51,448 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 15:05:56,449 - __main__ - INFO - Tentativa 2 de 3 para edição 6293
+2025-07-09 15:05:56,449 - __main__ - INFO - Iniciando cadastro do sorteio 6293 para sigla 'PTV' (extracao: 'PTV_16')
+2025-07-09 15:05:56,449 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:05:56,450 - __main__ - WARNING - Tentativa 2 falhou para edição 6293: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb1113]
+	(No symbol) [0x0xc8ff69]
+	(No symbol) [0x0xd24fce]
+	(No symbol) [0x0xd3f359]
+	(No symbol) [0x0xd1e376]
+	(No symbol) [0x0xced6e0]
+	(No symbol) [0x0xcee544]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	GetHandleVerifier [0x0xe8b6c8+95912]
+	GetHandleVerifier [0x0xe8b870+96336]
+	GetHandleVerifier [0x0xe7664a+9770]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 15:05:56,450 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 15:06:01,451 - __main__ - INFO - Tentativa 3 de 3 para edição 6293
+2025-07-09 15:06:01,451 - __main__ - INFO - Iniciando cadastro do sorteio 6293 para sigla 'PTV' (extracao: 'PTV_16')
+2025-07-09 15:06:01,451 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:06:01,452 - __main__ - WARNING - Tentativa 3 falhou para edição 6293: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb1113]
+	(No symbol) [0x0xc8ff69]
+	(No symbol) [0x0xd24fce]
+	(No symbol) [0x0xd3f359]
+	(No symbol) [0x0xd1e376]
+	(No symbol) [0x0xced6e0]
+	(No symbol) [0x0xcee544]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	GetHandleVerifier [0x0xe8b6c8+95912]
+	GetHandleVerifier [0x0xe8b870+96336]
+	GetHandleVerifier [0x0xe7664a+9770]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 15:06:01,452 - __main__ - ERROR - Todas as tentativas falharam para edição 6293
+2025-07-09 15:06:01,452 - __main__ - ERROR - [ERRO] Falha na edição 6293: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb1113]
+	(No symbol) [0x0xc8ff69]
+	(No symbol) [0x0xd24fce]
+	(No symbol) [0x0xd3f359]
+	(No symbol) [0x0xd1e376]
+	(No symbol) [0x0xced6e0]
+	(No symbol) [0x0xcee544]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	GetHandleVerifier [0x0xe8b6c8+95912]
+	GetHandleVerifier [0x0xe8b870+96336]
+	GetHandleVerifier [0x0xe7664a+9770]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 15:06:01,452 - __main__ - INFO - 
+Processando edição 6292 para 'PT'...
+2025-07-09 15:06:01,452 - __main__ - INFO - Tentativa 1 de 3 para edição 6292
+2025-07-09 15:06:01,452 - __main__ - INFO - Iniciando cadastro do sorteio 6292 para sigla 'PT' (extracao: 'PT_40')
+2025-07-09 15:06:01,452 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:06:01,453 - __main__ - WARNING - Tentativa 1 falhou para edição 6292: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb1113]
+	(No symbol) [0x0xc8ff69]
+	(No symbol) [0x0xd24fce]
+	(No symbol) [0x0xd3f359]
+	(No symbol) [0x0xd1e376]
+	(No symbol) [0x0xced6e0]
+	(No symbol) [0x0xcee544]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	GetHandleVerifier [0x0xe8b6c8+95912]
+	GetHandleVerifier [0x0xe8b870+96336]
+	GetHandleVerifier [0x0xe7664a+9770]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 15:06:01,453 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 15:06:06,454 - __main__ - INFO - Tentativa 2 de 3 para edição 6292
+2025-07-09 15:06:06,454 - __main__ - INFO - Iniciando cadastro do sorteio 6292 para sigla 'PT' (extracao: 'PT_40')
+2025-07-09 15:06:06,454 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:06:06,455 - __main__ - WARNING - Tentativa 2 falhou para edição 6292: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb1113]
+	(No symbol) [0x0xc8ff69]
+	(No symbol) [0x0xd24fce]
+	(No symbol) [0x0xd3f359]
+	(No symbol) [0x0xd1e376]
+	(No symbol) [0x0xced6e0]
+	(No symbol) [0x0xcee544]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	GetHandleVerifier [0x0xe8b6c8+95912]
+	GetHandleVerifier [0x0xe8b870+96336]
+	GetHandleVerifier [0x0xe7664a+9770]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 15:06:06,455 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 15:06:11,456 - __main__ - INFO - Tentativa 3 de 3 para edição 6292
+2025-07-09 15:06:11,456 - __main__ - INFO - Iniciando cadastro do sorteio 6292 para sigla 'PT' (extracao: 'PT_40')
+2025-07-09 15:06:11,456 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:06:11,457 - __main__ - WARNING - Tentativa 3 falhou para edição 6292: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb1113]
+	(No symbol) [0x0xc8ff69]
+	(No symbol) [0x0xd24fce]
+	(No symbol) [0x0xd3f359]
+	(No symbol) [0x0xd1e376]
+	(No symbol) [0x0xced6e0]
+	(No symbol) [0x0xcee544]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	GetHandleVerifier [0x0xe8b6c8+95912]
+	GetHandleVerifier [0x0xe8b870+96336]
+	GetHandleVerifier [0x0xe7664a+9770]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 15:06:11,457 - __main__ - ERROR - Todas as tentativas falharam para edição 6292
+2025-07-09 15:06:11,457 - __main__ - ERROR - [ERRO] Falha na edição 6292: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb1113]
+	(No symbol) [0x0xc8ff69]
+	(No symbol) [0x0xd24fce]
+	(No symbol) [0x0xd3f359]
+	(No symbol) [0x0xd1e376]
+	(No symbol) [0x0xced6e0]
+	(No symbol) [0x0xcee544]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	GetHandleVerifier [0x0xe8b6c8+95912]
+	GetHandleVerifier [0x0xe8b870+96336]
+	GetHandleVerifier [0x0xe7664a+9770]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 15:06:11,457 - __main__ - INFO - 
+Processando edição 6291 para 'PTM'...
+2025-07-09 15:06:11,457 - __main__ - INFO - Tentativa 1 de 3 para edição 6291
+2025-07-09 15:06:11,457 - __main__ - INFO - Iniciando cadastro do sorteio 6291 para sigla 'PTM' (extracao: 'PTM_22')
+2025-07-09 15:06:11,457 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:06:11,458 - __main__ - WARNING - Tentativa 1 falhou para edição 6291: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb1113]
+	(No symbol) [0x0xc8ff69]
+	(No symbol) [0x0xd24fce]
+	(No symbol) [0x0xd3f359]
+	(No symbol) [0x0xd1e376]
+	(No symbol) [0x0xced6e0]
+	(No symbol) [0x0xcee544]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	GetHandleVerifier [0x0xe8b6c8+95912]
+	GetHandleVerifier [0x0xe8b870+96336]
+	GetHandleVerifier [0x0xe7664a+9770]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 15:06:11,458 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 15:06:16,459 - __main__ - INFO - Tentativa 2 de 3 para edição 6291
+2025-07-09 15:06:16,459 - __main__ - INFO - Iniciando cadastro do sorteio 6291 para sigla 'PTM' (extracao: 'PTM_22')
+2025-07-09 15:06:16,459 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:06:16,460 - __main__ - WARNING - Tentativa 2 falhou para edição 6291: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb1113]
+	(No symbol) [0x0xc8ff69]
+	(No symbol) [0x0xd24fce]
+	(No symbol) [0x0xd3f359]
+	(No symbol) [0x0xd1e376]
+	(No symbol) [0x0xced6e0]
+	(No symbol) [0x0xcee544]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	GetHandleVerifier [0x0xe8b6c8+95912]
+	GetHandleVerifier [0x0xe8b870+96336]
+	GetHandleVerifier [0x0xe7664a+9770]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 15:06:16,460 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 15:06:21,460 - __main__ - INFO - Tentativa 3 de 3 para edição 6291
+2025-07-09 15:06:21,460 - __main__ - INFO - Iniciando cadastro do sorteio 6291 para sigla 'PTM' (extracao: 'PTM_22')
+2025-07-09 15:06:21,460 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:06:21,461 - __main__ - WARNING - Tentativa 3 falhou para edição 6291: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb1113]
+	(No symbol) [0x0xc8ff69]
+	(No symbol) [0x0xd24fce]
+	(No symbol) [0x0xd3f359]
+	(No symbol) [0x0xd1e376]
+	(No symbol) [0x0xced6e0]
+	(No symbol) [0x0xcee544]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	GetHandleVerifier [0x0xe8b6c8+95912]
+	GetHandleVerifier [0x0xe8b870+96336]
+	GetHandleVerifier [0x0xe7664a+9770]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 15:06:21,461 - __main__ - ERROR - Todas as tentativas falharam para edição 6291
+2025-07-09 15:06:21,461 - __main__ - ERROR - [ERRO] Falha na edição 6291: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb1113]
+	(No symbol) [0x0xc8ff69]
+	(No symbol) [0x0xd24fce]
+	(No symbol) [0x0xd3f359]
+	(No symbol) [0x0xd1e376]
+	(No symbol) [0x0xced6e0]
+	(No symbol) [0x0xcee544]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	GetHandleVerifier [0x0xe8b6c8+95912]
+	GetHandleVerifier [0x0xe8b870+96336]
+	GetHandleVerifier [0x0xe7664a+9770]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 15:06:21,461 - __main__ - INFO - 
+Processando edição 6290 para 'PPT'...
+2025-07-09 15:06:21,462 - __main__ - INFO - Tentativa 1 de 3 para edição 6290
+2025-07-09 15:06:21,462 - __main__ - INFO - Iniciando cadastro do sorteio 6290 para sigla 'PPT' (extracao: 'PPT_20')
+2025-07-09 15:06:21,462 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:06:21,462 - __main__ - WARNING - Tentativa 1 falhou para edição 6290: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb1113]
+	(No symbol) [0x0xc8ff69]
+	(No symbol) [0x0xd24fce]
+	(No symbol) [0x0xd3f359]
+	(No symbol) [0x0xd1e376]
+	(No symbol) [0x0xced6e0]
+	(No symbol) [0x0xcee544]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	GetHandleVerifier [0x0xe8b6c8+95912]
+	GetHandleVerifier [0x0xe8b870+96336]
+	GetHandleVerifier [0x0xe7664a+9770]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 15:06:21,462 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 15:06:26,463 - __main__ - INFO - Tentativa 2 de 3 para edição 6290
+2025-07-09 15:06:26,463 - __main__ - INFO - Iniciando cadastro do sorteio 6290 para sigla 'PPT' (extracao: 'PPT_20')
+2025-07-09 15:06:26,463 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:06:26,464 - __main__ - WARNING - Tentativa 2 falhou para edição 6290: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb1113]
+	(No symbol) [0x0xc8ff69]
+	(No symbol) [0x0xd24fce]
+	(No symbol) [0x0xd3f359]
+	(No symbol) [0x0xd1e376]
+	(No symbol) [0x0xced6e0]
+	(No symbol) [0x0xcee544]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	GetHandleVerifier [0x0xe8b6c8+95912]
+	GetHandleVerifier [0x0xe8b870+96336]
+	GetHandleVerifier [0x0xe7664a+9770]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 15:06:26,464 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 15:06:31,465 - __main__ - INFO - Tentativa 3 de 3 para edição 6290
+2025-07-09 15:06:31,465 - __main__ - INFO - Iniciando cadastro do sorteio 6290 para sigla 'PPT' (extracao: 'PPT_20')
+2025-07-09 15:06:31,465 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:06:31,466 - __main__ - WARNING - Tentativa 3 falhou para edição 6290: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb1113]
+	(No symbol) [0x0xc8ff69]
+	(No symbol) [0x0xd24fce]
+	(No symbol) [0x0xd3f359]
+	(No symbol) [0x0xd1e376]
+	(No symbol) [0x0xced6e0]
+	(No symbol) [0x0xcee544]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	GetHandleVerifier [0x0xe8b6c8+95912]
+	GetHandleVerifier [0x0xe8b870+96336]
+	GetHandleVerifier [0x0xe7664a+9770]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 15:06:31,466 - __main__ - ERROR - Todas as tentativas falharam para edição 6290
+2025-07-09 15:06:31,466 - __main__ - ERROR - [ERRO] Falha na edição 6290: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0xe83763+63299]
+	GetHandleVerifier [0x0xe837a4+63364]
+	(No symbol) [0x0xcb1113]
+	(No symbol) [0x0xc8ff69]
+	(No symbol) [0x0xd24fce]
+	(No symbol) [0x0xd3f359]
+	(No symbol) [0x0xd1e376]
+	(No symbol) [0x0xced6e0]
+	(No symbol) [0x0xcee544]
+	GetHandleVerifier [0x0x10de033+2531347]
+	GetHandleVerifier [0x0x10d9332+2511634]
+	GetHandleVerifier [0x0xea9eda+220858]
+	GetHandleVerifier [0x0xe9a528+156936]
+	GetHandleVerifier [0x0xea0c5d+183357]
+	GetHandleVerifier [0x0xe8b6c8+95912]
+	GetHandleVerifier [0x0xe8b870+96336]
+	GetHandleVerifier [0x0xe7664a+9770]
+	BaseThreadInitThunk [0x0x769e5d49+25]
+	RtlInitializeExceptionChain [0x0x76fad1ab+107]
+	RtlGetAppContainerNamedObjectPath [0x0x76fad131+561]
+
+2025-07-09 15:06:35,505 - __main__ - INFO - Processamento concluído das edições pendentes.
+2025-07-09 15:06:35,505 - __main__ - WARNING - === SCRIPT CONCLUÍDO COM SUCESSO (MODO TESTE) ===
+2025-07-09 15:06:40,808 - __main__ - INFO - === INICIANDO SCRIPT CADRIFAS_LITORAL_V4 ===
+2025-07-09 15:06:40,808 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:06:40,808 - __main__ - INFO - Configurações validadas com sucesso
+2025-07-09 15:06:40,889 - __main__ - INFO - Total de edições pendentes ou com erro encontradas: 6
+2025-07-09 15:06:40,889 - __main__ - INFO - Edição error: 6290 | Sigla: PPT | Data: 2025-07-10
+2025-07-09 15:06:40,889 - __main__ - INFO - Edição error: 6291 | Sigla: PTM | Data: 2025-07-10
+2025-07-09 15:06:40,889 - __main__ - INFO - Edição error: 6292 | Sigla: PT | Data: 2025-07-10
+2025-07-09 15:06:40,889 - __main__ - INFO - Edição error: 6293 | Sigla: PTV | Data: 2025-07-10
+2025-07-09 15:06:40,889 - __main__ - INFO - Edição error: 6294 | Sigla: PTN | Data: 2025-07-10
+2025-07-09 15:06:40,889 - __main__ - INFO - Edição error: 6295 | Sigla: CORUJINHA | Data: 2025-07-10
+2025-07-09 15:06:43,120 - __main__ - INFO - Login efetuado com sucesso!
+2025-07-09 15:06:43,120 - __main__ - INFO - 
+Processando edição 6295 para 'CORUJINHA'...
+2025-07-09 15:06:43,120 - __main__ - INFO - Tentativa 1 de 3 para edição 6295
+2025-07-09 15:06:43,120 - __main__ - INFO - Iniciando cadastro do sorteio 6295 para sigla 'CORUJINHA' (extracao: 'CORUJINHA_40')
+2025-07-09 15:06:43,120 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:06:43,714 - __main__ - INFO - Pop-up fechado.
+2025-07-09 15:06:46,489 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\CORUJINHA_40.jpg
+2025-07-09 15:06:48,836 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 15:06:48,903 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 15:06:48,983 - __main__ - INFO - Dados de pagamento carregados:
+2025-07-09 15:06:48,983 - __main__ - INFO -   Client ID: DEFINIDO (20 chars)
+2025-07-09 15:06:48,983 - __main__ - INFO -   Client Secret: DEFINIDO (32 chars)
+2025-07-09 15:06:48,983 - __main__ - INFO -   Chave PIX: DEFINIDO (36 chars)
+2025-07-09 15:06:48,983 - __main__ - INFO - Preenchendo Client ID: 11151160128039923883
+2025-07-09 15:06:49,179 - __main__ - INFO - Preenchendo Client Secret: jZlYzM0NDMtMGMzZC00NzkyLWI1N2ItN
+2025-07-09 15:06:49,447 - __main__ - INFO - Preenchendo Chave PIX: 4437d697-f765-45f8-89be-213dda9862c5
+2025-07-09 15:06:49,650 - __main__ - INFO - === ABA PAGAMENTO PROCESSADA ===
+2025-07-09 15:06:49,651 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 15:06:49,710 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 15:06:50,017 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 15:06:50,647 - __main__ - WARNING - MODO TESTE - Sorteio 6295 (CORUJINHA) NÃO foi criado!
+2025-07-09 15:06:50,647 - __main__ - INFO - Formulário preenchido completamente, mas sorteio não foi salvo.
+2025-07-09 15:07:03,800 - __main__ - INFO - Navegando de volta para a lista...
+2025-07-09 15:07:03,800 - __main__ - INFO - 
+Processando edição 6294 para 'PTN'...
+2025-07-09 15:07:03,800 - __main__ - INFO - Tentativa 1 de 3 para edição 6294
+2025-07-09 15:07:03,800 - __main__ - INFO - Iniciando cadastro do sorteio 6294 para sigla 'PTN' (extracao: 'PTN_20')
+2025-07-09 15:07:03,800 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:07:09,250 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTN_20.jpg
+2025-07-09 15:07:10,510 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 15:07:10,562 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 15:07:10,613 - __main__ - INFO - Dados de pagamento carregados:
+2025-07-09 15:07:10,613 - __main__ - INFO -   Client ID: DEFINIDO (20 chars)
+2025-07-09 15:07:10,613 - __main__ - INFO -   Client Secret: DEFINIDO (32 chars)
+2025-07-09 15:07:10,613 - __main__ - INFO -   Chave PIX: DEFINIDO (36 chars)
+2025-07-09 15:07:10,613 - __main__ - INFO - Preenchendo Client ID: 11151160128039923883
+2025-07-09 15:07:10,748 - __main__ - INFO - Preenchendo Client Secret: jZlYzM0NDMtMGMzZC00NzkyLWI1N2ItN
+2025-07-09 15:07:10,934 - __main__ - INFO - Preenchendo Chave PIX: 4437d697-f765-45f8-89be-213dda9862c5
+2025-07-09 15:07:11,134 - __main__ - INFO - === ABA PAGAMENTO PROCESSADA ===
+2025-07-09 15:07:11,134 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 15:07:11,185 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 15:07:11,483 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 15:07:12,500 - __main__ - WARNING - MODO TESTE - Sorteio 6294 (PTN) NÃO foi criado!
+2025-07-09 15:07:12,500 - __main__ - INFO - Formulário preenchido completamente, mas sorteio não foi salvo.
+2025-07-09 15:07:25,649 - __main__ - INFO - Navegando de volta para a lista...
+2025-07-09 15:07:25,649 - __main__ - INFO - 
+Processando edição 6293 para 'PTV'...
+2025-07-09 15:07:25,649 - __main__ - INFO - Tentativa 1 de 3 para edição 6293
+2025-07-09 15:07:25,649 - __main__ - INFO - Iniciando cadastro do sorteio 6293 para sigla 'PTV' (extracao: 'PTV_16')
+2025-07-09 15:07:25,649 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:07:31,213 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTV_16.jpg
+2025-07-09 15:07:36,005 - __main__ - WARNING - Tentativa 1 falhou para edição 6293: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+2025-07-09 15:07:36,006 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 15:07:41,006 - __main__ - INFO - Tentativa 2 de 3 para edição 6293
+2025-07-09 15:07:41,006 - __main__ - INFO - Iniciando cadastro do sorteio 6293 para sigla 'PTV' (extracao: 'PTV_16')
+2025-07-09 15:07:41,006 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:07:45,054 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F289280>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:07:49,096 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F2893D0>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:07:53,153 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28B050>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:07:57,193 - __main__ - WARNING - Tentativa 2 falhou para edição 6293: HTTPConnectionPool(host='localhost', port=50479): Max retries exceeded with url: /session/140f965c1b8ebab1d260f9ab0c8f376f/element (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28B230>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))
+2025-07-09 15:07:57,193 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 15:08:02,193 - __main__ - INFO - Tentativa 3 de 3 para edição 6293
+2025-07-09 15:08:02,193 - __main__ - INFO - Iniciando cadastro do sorteio 6293 para sigla 'PTV' (extracao: 'PTV_16')
+2025-07-09 15:08:02,193 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:08:06,248 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28A510>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:08:10,311 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28A300>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:08:14,346 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28B590>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:08:18,404 - __main__ - WARNING - Tentativa 3 falhou para edição 6293: HTTPConnectionPool(host='localhost', port=50479): Max retries exceeded with url: /session/140f965c1b8ebab1d260f9ab0c8f376f/element (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28B7D0>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))
+2025-07-09 15:08:18,404 - __main__ - ERROR - Todas as tentativas falharam para edição 6293
+2025-07-09 15:08:18,404 - __main__ - ERROR - [ERRO] Falha na edição 6293: HTTPConnectionPool(host='localhost', port=50479): Max retries exceeded with url: /session/140f965c1b8ebab1d260f9ab0c8f376f/element (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28B7D0>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))
+2025-07-09 15:08:18,404 - __main__ - INFO - 
+Processando edição 6292 para 'PT'...
+2025-07-09 15:08:18,404 - __main__ - INFO - Tentativa 1 de 3 para edição 6292
+2025-07-09 15:08:18,404 - __main__ - INFO - Iniciando cadastro do sorteio 6292 para sigla 'PT' (extracao: 'PT_40')
+2025-07-09 15:08:18,404 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:08:22,457 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28BBC0>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:08:26,516 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28BE00>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:08:30,558 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F2D0080>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:08:34,579 - __main__ - WARNING - Tentativa 1 falhou para edição 6292: HTTPConnectionPool(host='localhost', port=50479): Max retries exceeded with url: /session/140f965c1b8ebab1d260f9ab0c8f376f/element (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F2D02C0>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))
+2025-07-09 15:08:34,579 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 15:08:39,580 - __main__ - INFO - Tentativa 2 de 3 para edição 6292
+2025-07-09 15:08:39,580 - __main__ - INFO - Iniciando cadastro do sorteio 6292 para sigla 'PT' (extracao: 'PT_40')
+2025-07-09 15:08:39,580 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:08:43,605 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F2D06B0>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:08:47,635 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F2D08F0>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:08:51,675 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F2D0B30>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:08:55,712 - __main__ - WARNING - Tentativa 2 falhou para edição 6292: HTTPConnectionPool(host='localhost', port=50479): Max retries exceeded with url: /session/140f965c1b8ebab1d260f9ab0c8f376f/element (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F2D0D70>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))
+2025-07-09 15:08:55,712 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 15:09:00,713 - __main__ - INFO - Tentativa 3 de 3 para edição 6292
+2025-07-09 15:09:00,713 - __main__ - INFO - Iniciando cadastro do sorteio 6292 para sigla 'PT' (extracao: 'PT_40')
+2025-07-09 15:09:00,713 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:09:04,769 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F2D1160>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:09:08,825 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28BB00>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:09:12,870 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28BF80>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:09:16,956 - __main__ - WARNING - Tentativa 3 falhou para edição 6292: HTTPConnectionPool(host='localhost', port=50479): Max retries exceeded with url: /session/140f965c1b8ebab1d260f9ab0c8f376f/element (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28BDD0>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))
+2025-07-09 15:09:16,956 - __main__ - ERROR - Todas as tentativas falharam para edição 6292
+2025-07-09 15:09:16,956 - __main__ - ERROR - [ERRO] Falha na edição 6292: HTTPConnectionPool(host='localhost', port=50479): Max retries exceeded with url: /session/140f965c1b8ebab1d260f9ab0c8f376f/element (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28BDD0>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))
+2025-07-09 15:09:16,956 - __main__ - INFO - 
+Processando edição 6291 para 'PTM'...
+2025-07-09 15:09:16,956 - __main__ - INFO - Tentativa 1 de 3 para edição 6291
+2025-07-09 15:09:16,956 - __main__ - INFO - Iniciando cadastro do sorteio 6291 para sigla 'PTM' (extracao: 'PTM_22')
+2025-07-09 15:09:16,956 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:09:20,989 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28AB10>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:09:25,042 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28B7A0>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:09:29,063 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28B2F0>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:09:33,134 - __main__ - WARNING - Tentativa 1 falhou para edição 6291: HTTPConnectionPool(host='localhost', port=50479): Max retries exceeded with url: /session/140f965c1b8ebab1d260f9ab0c8f376f/element (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28AC30>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))
+2025-07-09 15:09:33,134 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 15:09:38,134 - __main__ - INFO - Tentativa 2 de 3 para edição 6291
+2025-07-09 15:09:38,134 - __main__ - INFO - Iniciando cadastro do sorteio 6291 para sigla 'PTM' (extracao: 'PTM_22')
+2025-07-09 15:09:38,134 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:09:42,190 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F2D1220>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:09:46,264 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F2D0860>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:09:50,306 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F2D0D40>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:09:54,362 - __main__ - WARNING - Tentativa 2 falhou para edição 6291: HTTPConnectionPool(host='localhost', port=50479): Max retries exceeded with url: /session/140f965c1b8ebab1d260f9ab0c8f376f/element (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F2D0920>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))
+2025-07-09 15:09:54,362 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 15:09:59,363 - __main__ - INFO - Tentativa 3 de 3 para edição 6291
+2025-07-09 15:09:59,363 - __main__ - INFO - Iniciando cadastro do sorteio 6291 para sigla 'PTM' (extracao: 'PTM_22')
+2025-07-09 15:09:59,363 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:10:03,440 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F2D0200>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:10:07,487 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F2D00B0>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:10:11,548 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F2D1400>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:10:15,577 - __main__ - WARNING - Tentativa 3 falhou para edição 6291: HTTPConnectionPool(host='localhost', port=50479): Max retries exceeded with url: /session/140f965c1b8ebab1d260f9ab0c8f376f/element (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F2D1640>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))
+2025-07-09 15:10:15,577 - __main__ - ERROR - Todas as tentativas falharam para edição 6291
+2025-07-09 15:10:15,577 - __main__ - ERROR - [ERRO] Falha na edição 6291: HTTPConnectionPool(host='localhost', port=50479): Max retries exceeded with url: /session/140f965c1b8ebab1d260f9ab0c8f376f/element (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F2D1640>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))
+2025-07-09 15:10:15,577 - __main__ - INFO - 
+Processando edição 6290 para 'PPT'...
+2025-07-09 15:10:15,577 - __main__ - INFO - Tentativa 1 de 3 para edição 6290
+2025-07-09 15:10:15,577 - __main__ - INFO - Iniciando cadastro do sorteio 6290 para sigla 'PPT' (extracao: 'PPT_20')
+2025-07-09 15:10:15,577 - __main__ - WARNING - MODO TESTE ATIVADO - Nenhum sorteio será criado!
+2025-07-09 15:10:19,635 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28BC50>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:10:23,683 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28AB40>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:10:27,740 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28A720>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
+2025-07-09 15:10:31,800 - __main__ - WARNING - Tentativa 1 falhou para edição 6290: HTTPConnectionPool(host='localhost', port=50479): Max retries exceeded with url: /session/140f965c1b8ebab1d260f9ab0c8f376f/element (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28B5C0>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))
+2025-07-09 15:10:31,800 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...

@@ -212,9 +212,9 @@ BROWSER_CONFIG = {
 # =============================================================================
 
 LOGIN_CONFIG = {
-    "url": os.getenv("LOGIN_URL"),
-    "email": os.getenv("LOGIN_EMAIL"),
-    "password": os.getenv("LOGIN_PASSWORD")
+    "url": os.getenv("LOGIN_URL", "https://litoraldasorte.com/login"),
+    "email": os.getenv("LOGIN_EMAIL", ""),
+    "password": os.getenv("LOGIN_PASSWORD", "")
 }
 
 # =============================================================================
@@ -222,9 +222,9 @@ LOGIN_CONFIG = {
 # =============================================================================
 
 PAYMENT_CONFIG = {
-    "client_id": os.getenv("PAYMENT_CLIENT_ID"),
-    "client_secret": os.getenv("PAYMENT_CLIENT_SECRET"),
-    "chave_pix": os.getenv("PAYMENT_CHAVE_PIX")
+    "client_id": os.getenv("PAYMENT_CLIENT_ID", ""),
+    "client_secret": os.getenv("PAYMENT_CLIENT_SECRET", ""),
+    "chave_pix": os.getenv("PAYMENT_CHAVE_PIX", "")
 }
 
 # =============================================================================
@@ -278,7 +278,7 @@ RETRY_CONFIG = {
 # Funções de Validação
 # =============================================================================
 
-def validar_configuracoes():
+def validar_configuracoes(modo_teste=False):
     """Valida se todas as configurações estão corretas"""
     # Verificar se o ChromeDriver está disponível
     if not CHROMEDRIVER_PATH:
@@ -289,12 +289,29 @@ def validar_configuracoes():
         raise ValueError(f"Pasta de imagens não encontrada: {FILE_CONFIG['pasta_imagens']}")
     
     # Verificar se as credenciais estão definidas
-    if not LOGIN_CONFIG["email"] or not LOGIN_CONFIG["password"]:
-        raise ValueError("Credenciais de login não estão definidas")
+    if not LOGIN_CONFIG["email"]:
+        raise ValueError("LOGIN_EMAIL não está definido. Crie um arquivo .env na raiz do projeto com suas credenciais.")
+    if not LOGIN_CONFIG["password"]:
+        raise ValueError("LOGIN_PASSWORD não está definido. Crie um arquivo .env na raiz do projeto com suas credenciais.")
     
-    # Verificar se as configurações de pagamento estão definidas
-    if not all(PAYMENT_CONFIG.values()):
-        raise ValueError("Configurações de pagamento incompletas")
+    # Verificar se as configurações de pagamento estão definidas (apenas se não for modo teste)
+    # Modo teste pode rodar sem configurações de pagamento
+    if not modo_teste:
+        missing_payment = []
+        if not PAYMENT_CONFIG["client_id"]:
+            missing_payment.append("PAYMENT_CLIENT_ID")
+        if not PAYMENT_CONFIG["client_secret"]:
+            missing_payment.append("PAYMENT_CLIENT_SECRET")  
+        if not PAYMENT_CONFIG["chave_pix"]:
+            missing_payment.append("PAYMENT_CHAVE_PIX")
+        
+        if missing_payment:
+            raise ValueError(f"Configurações de pagamento incompletas: {', '.join(missing_payment)}")
+    else:
+        # Em modo teste, apenas avisar sobre configurações de pagamento vazias
+        missing_payment = [k for k, v in PAYMENT_CONFIG.items() if not v]
+        if missing_payment:
+            print(f"AVISO: Modo teste - Configurações de pagamento vazias: {missing_payment}")
 
 def criar_pasta_logs():
     """Cria a pasta de logs se não existir"""
