@@ -35,7 +35,7 @@ from config_cadRifas import (
 # =============================================================================
 # CONFIGURAÇÃO DE TESTE - ALTERE AQUI PARA TESTAR SEM SALVAR
 # =============================================================================
-CRIAR_SORTEIO = False  # True = Salva o sorteio, False = Apenas simula (para testes)
+CRIAR_SORTEIO = True  # True = Salva o sorteio, False = Apenas simula (para testes)
 
 # =============================================================================
 # Configuração de logging
