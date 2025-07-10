@@ -28,12 +28,9 @@ LOG_FILE = None   # Caminho do log se em modo oculto
 driver_path = r"D:\Documentos\Workspace\chromedriver.exe"
 service = Service(driver_path)
 
-# Importar configurações centralizadas
-import sys
-import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'app'))
 
-from db_config import DB_CONFIG
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from app.db_config import DB_CONFIG
 
 def calcular_valor_real(premio):
     valor_reais = 0.0

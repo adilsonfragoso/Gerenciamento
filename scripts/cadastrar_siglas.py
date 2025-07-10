@@ -12,12 +12,9 @@ import mysql.connector
 from mysql.connector import Error
 import requests
 
-# Importar configurações centralizadas
-import sys
-import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'app'))
 
-from db_config import DB_CONFIG
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from app.db_config import DB_CONFIG
 
 def get_db_connection():
     """Conecta ao banco MySQL"""

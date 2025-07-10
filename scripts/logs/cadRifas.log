@@ -8240,3 +8240,143 @@ Processando edição 6290 para 'PPT'...
 2025-07-09 15:10:27,740 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28A720>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/140f965c1b8ebab1d260f9ab0c8f376f/element
 2025-07-09 15:10:31,800 - __main__ - WARNING - Tentativa 1 falhou para edição 6290: HTTPConnectionPool(host='localhost', port=50479): Max retries exceeded with url: /session/140f965c1b8ebab1d260f9ab0c8f376f/element (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F67F28B5C0>: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente'))
 2025-07-09 15:10:31,800 - __main__ - INFO - Aguardando 5 segundos antes da próxima tentativa...
+2025-07-09 21:41:29,909 - __main__ - INFO - === INICIANDO SCRIPT CADRIFAS_LITORAL_V4 ===
+2025-07-09 21:41:29,909 - __main__ - INFO - MODO PRODUÇÃO ATIVADO - Sorteios serão criados!
+2025-07-09 21:41:29,909 - __main__ - INFO - Configurações validadas com sucesso
+2025-07-09 21:41:29,995 - __main__ - INFO - Total de edições pendentes ou com erro encontradas: 6
+2025-07-09 21:41:29,995 - __main__ - INFO - Edição error: 6290 | Sigla: PPT | Data: 2025-07-10
+2025-07-09 21:41:29,995 - __main__ - INFO - Edição error: 6291 | Sigla: PTM | Data: 2025-07-10
+2025-07-09 21:41:29,995 - __main__ - INFO - Edição error: 6292 | Sigla: PT | Data: 2025-07-10
+2025-07-09 21:41:29,995 - __main__ - INFO - Edição error: 6293 | Sigla: PTV | Data: 2025-07-10
+2025-07-09 21:41:29,995 - __main__ - INFO - Edição error: 6294 | Sigla: PTN | Data: 2025-07-10
+2025-07-09 21:41:29,995 - __main__ - INFO - Edição error: 6295 | Sigla: CORUJINHA | Data: 2025-07-10
+2025-07-09 21:41:32,354 - __main__ - INFO - Login efetuado com sucesso!
+2025-07-09 21:41:32,355 - __main__ - INFO - 
+Processando edição 6295 para 'CORUJINHA'...
+2025-07-09 21:41:32,355 - __main__ - INFO - Tentativa 1 de 3 para edição 6295
+2025-07-09 21:41:32,355 - __main__ - INFO - Iniciando cadastro do sorteio 6295 para sigla 'CORUJINHA' (extracao: 'CORUJINHA_40')
+2025-07-09 21:41:32,940 - __main__ - INFO - Pop-up fechado.
+2025-07-09 21:41:35,780 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\CORUJINHA_40.jpg
+2025-07-09 21:41:38,037 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 21:41:38,096 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 21:41:38,156 - __main__ - INFO - Dados de pagamento carregados:
+2025-07-09 21:41:38,156 - __main__ - INFO -   Client ID: DEFINIDO (20 chars)
+2025-07-09 21:41:38,156 - __main__ - INFO -   Client Secret: DEFINIDO (32 chars)
+2025-07-09 21:41:38,156 - __main__ - INFO -   Chave PIX: DEFINIDO (36 chars)
+2025-07-09 21:41:38,156 - __main__ - INFO - Preenchendo Client ID: 11151160128039923883
+2025-07-09 21:41:38,296 - __main__ - INFO - Preenchendo Client Secret: jZlYzM0NDMtMGMzZC00NzkyLWI1N2ItN
+2025-07-09 21:41:38,491 - __main__ - INFO - Preenchendo Chave PIX: 4437d697-f765-45f8-89be-213dda9862c5
+2025-07-09 21:41:38,700 - __main__ - INFO - === ABA PAGAMENTO PROCESSADA ===
+2025-07-09 21:41:38,700 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 21:41:38,762 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 21:41:39,067 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 21:41:39,640 - __main__ - INFO - MODO PRODUÇÃO - Criando sorteio...
+2025-07-09 21:41:40,449 - __main__ - INFO - Sorteio 6295 (CORUJINHA) cadastrado com sucesso!
+2025-07-09 21:41:40,525 - __main__ - INFO - Status de cadastro atualizado para 'cadastrado' na edição 6295
+2025-07-09 21:41:40,525 - __main__ - INFO - 
+Processando edição 6294 para 'PTN'...
+2025-07-09 21:41:40,525 - __main__ - INFO - Tentativa 1 de 3 para edição 6294
+2025-07-09 21:41:40,525 - __main__ - INFO - Iniciando cadastro do sorteio 6294 para sigla 'PTN' (extracao: 'PTN_20')
+2025-07-09 21:41:45,896 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTN_20.jpg
+2025-07-09 21:41:47,180 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 21:41:47,231 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 21:41:47,283 - __main__ - INFO - Dados de pagamento carregados:
+2025-07-09 21:41:47,283 - __main__ - INFO -   Client ID: DEFINIDO (20 chars)
+2025-07-09 21:41:47,283 - __main__ - INFO -   Client Secret: DEFINIDO (32 chars)
+2025-07-09 21:41:47,283 - __main__ - INFO -   Chave PIX: DEFINIDO (36 chars)
+2025-07-09 21:41:47,283 - __main__ - INFO - Preenchendo Client ID: 11151160128039923883
+2025-07-09 21:41:47,420 - __main__ - INFO - Preenchendo Client Secret: jZlYzM0NDMtMGMzZC00NzkyLWI1N2ItN
+2025-07-09 21:41:47,608 - __main__ - INFO - Preenchendo Chave PIX: 4437d697-f765-45f8-89be-213dda9862c5
+2025-07-09 21:41:47,810 - __main__ - INFO - === ABA PAGAMENTO PROCESSADA ===
+2025-07-09 21:41:47,810 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 21:41:47,862 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 21:41:48,166 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 21:41:49,171 - __main__ - INFO - MODO PRODUÇÃO - Criando sorteio...
+2025-07-09 21:41:49,962 - __main__ - INFO - Sorteio 6294 (PTN) cadastrado com sucesso!
+2025-07-09 21:41:50,043 - __main__ - INFO - Status de cadastro atualizado para 'cadastrado' na edição 6294
+2025-07-09 21:41:50,043 - __main__ - INFO - 
+Processando edição 6293 para 'PTV'...
+2025-07-09 21:41:50,043 - __main__ - INFO - Tentativa 1 de 3 para edição 6293
+2025-07-09 21:41:50,044 - __main__ - INFO - Iniciando cadastro do sorteio 6293 para sigla 'PTV' (extracao: 'PTV_16')
+2025-07-09 21:41:55,485 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTV_16.jpg
+2025-07-09 21:41:58,282 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 21:41:58,337 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 21:41:58,391 - __main__ - INFO - Dados de pagamento carregados:
+2025-07-09 21:41:58,391 - __main__ - INFO -   Client ID: DEFINIDO (20 chars)
+2025-07-09 21:41:58,391 - __main__ - INFO -   Client Secret: DEFINIDO (32 chars)
+2025-07-09 21:41:58,391 - __main__ - INFO -   Chave PIX: DEFINIDO (36 chars)
+2025-07-09 21:41:58,391 - __main__ - INFO - Preenchendo Client ID: 11151160128039923883
+2025-07-09 21:41:58,526 - __main__ - INFO - Preenchendo Client Secret: jZlYzM0NDMtMGMzZC00NzkyLWI1N2ItN
+2025-07-09 21:41:58,715 - __main__ - INFO - Preenchendo Chave PIX: 4437d697-f765-45f8-89be-213dda9862c5
+2025-07-09 21:41:58,919 - __main__ - INFO - === ABA PAGAMENTO PROCESSADA ===
+2025-07-09 21:41:58,919 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 21:41:58,972 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 21:41:59,277 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 21:41:59,799 - __main__ - INFO - MODO PRODUÇÃO - Criando sorteio...
+2025-07-09 21:42:00,596 - __main__ - INFO - Sorteio 6293 (PTV) cadastrado com sucesso!
+2025-07-09 21:42:00,680 - __main__ - INFO - Status de cadastro atualizado para 'cadastrado' na edição 6293
+2025-07-09 21:42:00,680 - __main__ - INFO - 
+Processando edição 6292 para 'PT'...
+2025-07-09 21:42:00,680 - __main__ - INFO - Tentativa 1 de 3 para edição 6292
+2025-07-09 21:42:00,680 - __main__ - INFO - Iniciando cadastro do sorteio 6292 para sigla 'PT' (extracao: 'PT_40')
+2025-07-09 21:42:06,000 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PT_40.jpg
+2025-07-09 21:42:08,148 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 21:42:08,203 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 21:42:08,259 - __main__ - INFO - Dados de pagamento carregados:
+2025-07-09 21:42:08,259 - __main__ - INFO -   Client ID: DEFINIDO (20 chars)
+2025-07-09 21:42:08,259 - __main__ - INFO -   Client Secret: DEFINIDO (32 chars)
+2025-07-09 21:42:08,259 - __main__ - INFO -   Chave PIX: DEFINIDO (36 chars)
+2025-07-09 21:42:08,259 - __main__ - INFO - Preenchendo Client ID: 11151160128039923883
+2025-07-09 21:42:08,392 - __main__ - INFO - Preenchendo Client Secret: jZlYzM0NDMtMGMzZC00NzkyLWI1N2ItN
+2025-07-09 21:42:08,583 - __main__ - INFO - Preenchendo Chave PIX: 4437d697-f765-45f8-89be-213dda9862c5
+2025-07-09 21:42:08,787 - __main__ - INFO - === ABA PAGAMENTO PROCESSADA ===
+2025-07-09 21:42:08,787 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 21:42:08,842 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 21:42:09,144 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 21:42:09,662 - __main__ - INFO - MODO PRODUÇÃO - Criando sorteio...
+2025-07-09 21:42:10,461 - __main__ - INFO - Sorteio 6292 (PT) cadastrado com sucesso!
+2025-07-09 21:42:10,549 - __main__ - INFO - Status de cadastro atualizado para 'cadastrado' na edição 6292
+2025-07-09 21:42:10,549 - __main__ - INFO - 
+Processando edição 6291 para 'PTM'...
+2025-07-09 21:42:10,549 - __main__ - INFO - Tentativa 1 de 3 para edição 6291
+2025-07-09 21:42:10,549 - __main__ - INFO - Iniciando cadastro do sorteio 6291 para sigla 'PTM' (extracao: 'PTM_22')
+2025-07-09 21:42:15,978 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PTM_22.jpg
+2025-07-09 21:42:18,518 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 21:42:18,569 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 21:42:18,622 - __main__ - INFO - Dados de pagamento carregados:
+2025-07-09 21:42:18,622 - __main__ - INFO -   Client ID: DEFINIDO (20 chars)
+2025-07-09 21:42:18,622 - __main__ - INFO -   Client Secret: DEFINIDO (32 chars)
+2025-07-09 21:42:18,622 - __main__ - INFO -   Chave PIX: DEFINIDO (36 chars)
+2025-07-09 21:42:18,622 - __main__ - INFO - Preenchendo Client ID: 11151160128039923883
+2025-07-09 21:42:18,757 - __main__ - INFO - Preenchendo Client Secret: jZlYzM0NDMtMGMzZC00NzkyLWI1N2ItN
+2025-07-09 21:42:18,946 - __main__ - INFO - Preenchendo Chave PIX: 4437d697-f765-45f8-89be-213dda9862c5
+2025-07-09 21:42:19,169 - __main__ - INFO - === ABA PAGAMENTO PROCESSADA ===
+2025-07-09 21:42:19,170 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 21:42:19,230 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 21:42:19,554 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 21:42:20,071 - __main__ - INFO - MODO PRODUÇÃO - Criando sorteio...
+2025-07-09 21:42:20,858 - __main__ - INFO - Sorteio 6291 (PTM) cadastrado com sucesso!
+2025-07-09 21:42:20,934 - __main__ - INFO - Status de cadastro atualizado para 'cadastrado' na edição 6291
+2025-07-09 21:42:20,934 - __main__ - INFO - 
+Processando edição 6290 para 'PPT'...
+2025-07-09 21:42:20,934 - __main__ - INFO - Tentativa 1 de 3 para edição 6290
+2025-07-09 21:42:20,934 - __main__ - INFO - Iniciando cadastro do sorteio 6290 para sigla 'PPT' (extracao: 'PPT_20')
+2025-07-09 21:42:26,276 - __main__ - INFO - Imagem carregada: D:\Documentos\Workspace\Gerenciamento\uploads\PPT_20.jpg
+2025-07-09 21:42:28,044 - __main__ - INFO - === PREENCHENDO ABA PAGAMENTO ===
+2025-07-09 21:42:28,098 - __main__ - INFO - Selecionando Info Pago...
+2025-07-09 21:42:28,152 - __main__ - INFO - Dados de pagamento carregados:
+2025-07-09 21:42:28,152 - __main__ - INFO -   Client ID: DEFINIDO (20 chars)
+2025-07-09 21:42:28,153 - __main__ - INFO -   Client Secret: DEFINIDO (32 chars)
+2025-07-09 21:42:28,153 - __main__ - INFO -   Chave PIX: DEFINIDO (36 chars)
+2025-07-09 21:42:28,153 - __main__ - INFO - Preenchendo Client ID: 11151160128039923883
+2025-07-09 21:42:28,289 - __main__ - INFO - Preenchendo Client Secret: jZlYzM0NDMtMGMzZC00NzkyLWI1N2ItN
+2025-07-09 21:42:28,481 - __main__ - INFO - Preenchendo Chave PIX: 4437d697-f765-45f8-89be-213dda9862c5
+2025-07-09 21:42:28,683 - __main__ - INFO - === ABA PAGAMENTO PROCESSADA ===
+2025-07-09 21:42:28,683 - __main__ - INFO - === PREENCHENDO ABA SUPORTE ===
+2025-07-09 21:42:28,738 - __main__ - INFO - Preenchendo WhatsApp Group: https://chat.whatsapp.com/FQkOgQZxlv96jNT6MD4uUt
+2025-07-09 21:42:29,035 - __main__ - INFO - === ABA SUPORTE PREENCHIDA COM SUCESSO ===
+2025-07-09 21:42:29,547 - __main__ - INFO - MODO PRODUÇÃO - Criando sorteio...
+2025-07-09 21:42:30,336 - __main__ - INFO - Sorteio 6290 (PPT) cadastrado com sucesso!
+2025-07-09 21:42:30,416 - __main__ - INFO - Status de cadastro atualizado para 'cadastrado' na edição 6290
+2025-07-09 21:42:34,516 - __main__ - INFO - Processamento concluído das edições pendentes.
+2025-07-09 21:42:34,516 - __main__ - INFO - === SCRIPT CONCLUÍDO COM SUCESSO (MODO PRODUÇÃO) ===
