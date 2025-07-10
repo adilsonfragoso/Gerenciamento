@@ -2428,16 +2428,16 @@ def obter_estatisticas_pessoa(nome: str):
         
         # Estatísticas gerais da pessoa
         query_stats = """
-        SELECT 
+        SELECT
             COUNT(*) as total_premiacoes,
             SUM(CAST(valor_real AS DECIMAL(10,2))) as total_recebido,
             MIN(edicao) as primeira_edicao,
             MAX(edicao) as ultima_edicao,
             GROUP_CONCAT(DISTINCT telefone) as telefones
-        FROM premiados 
+        FROM premiados
         WHERE nome = %s
         """
-        
+
         cursor.execute(query_stats, (nome,))
         stats = cursor.fetchone()
         
@@ -2491,4 +2491,48 @@ def obter_estatisticas_pessoa(nome: str):
         
     except Exception as e:
         logger.error(f"Erro ao obter estatísticas da pessoa: {e}")
+        raise HTTPException(status_code=500, detail=f"Erro interno: {str(e)}")
+
+@app.get("/api/premiados/ultima-atualizacao")
+def obter_ultima_atualizacao():
+    """
+    Obtém informações da última atualização geral da tabela premiados
+    """
+    try:
+        connection = pymysql.connect(**DB_CONFIG)
+        cursor = connection.cursor(DictCursor)
+
+        # Buscar a maior edição na tabela premiados e suas informações
+        query = """
+        SELECT
+            p.edicao,
+            p.extracao,
+            ec.data_sorteio
+        FROM premiados p
+        LEFT JOIN extracoes_cadastro ec ON p.edicao = ec.edicao
+        WHERE p.edicao = (SELECT MAX(edicao) FROM premiados)
+        LIMIT 1
+        """
+
+        cursor.execute(query)
+        resultado = cursor.fetchone()
+
+        cursor.close()
+        connection.close()
+
+        if resultado:
+            return {
+                "edicao": resultado['edicao'],
+                "extracao": resultado['extracao'],
+                "data_sorteio": resultado['data_sorteio'].strftime('%d/%m/%Y') if resultado['data_sorteio'] else None
+            }
+        else:
+            return {
+                "edicao": None,
+                "extracao": None,
+                "data_sorteio": None
+            }
+
+    except Exception as e:
+        logger.error(f"Erro ao obter última atualização: {e}")
         raise HTTPException(status_code=500, detail=f"Erro interno: {str(e)}")

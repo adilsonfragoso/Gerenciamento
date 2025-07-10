@@ -399,3 +399,18 @@ Processando edição 6288 - FEDERAL
 2025-07-09 21:18:24,548 - INFO - Total de PDFs processados: 1
 2025-07-09 21:18:24,548 - INFO - PDFs enviados com sucesso: 0
 2025-07-09 21:18:24,548 - INFO - Falhas: 1
+2025-07-10 08:47:23,306 - INFO - === Iniciando Envio Automático de PDFs para WhatsApp ===
+2025-07-10 08:47:23,532 - INFO - Encontradas 1 rifas com PDF para enviar
+2025-07-10 08:47:23,532 - INFO - 
+Processando edição 6289 - CORUJINHA
+2025-07-10 08:47:23,614 - INFO - Status PDF WhatsApp atualizado para 'enviando' na edição 6289
+2025-07-10 08:47:23,614 - INFO - Iniciando envio do PDF para edição 6289 - CORUJINHA
+2025-07-10 08:47:23,639 - ERROR - Erro ao enviar texto para edição 6289: HTTPSConnectionPool(host='evolution-evolution.aras94.easypanel.host', port=443): Max retries exceeded with url: /message/sendText/bancada (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1000)')))
+2025-07-10 08:47:23,639 - ERROR - Falha ao enviar texto informativo para edição 6289
+2025-07-10 08:47:23,720 - INFO - Status PDF WhatsApp atualizado para 'erro' na edição 6289
+2025-07-10 08:47:23,720 - ERROR - ❌ Falha ao enviar PDF da edição 6289
+2025-07-10 08:47:23,721 - INFO - 
+=== RESUMO FINAL ===
+2025-07-10 08:47:23,721 - INFO - Total de PDFs processados: 1
+2025-07-10 08:47:23,721 - INFO - PDFs enviados com sucesso: 0
+2025-07-10 08:47:23,721 - INFO - Falhas: 1

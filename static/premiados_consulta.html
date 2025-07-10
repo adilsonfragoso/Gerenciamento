@@ -407,6 +407,13 @@
                     <div class="stat-label">Última<br>premiação</div>
                 </div>
             </div>
+
+        </div>
+
+        <!-- Rodapé com informações da última atualização (sempre visível) -->
+        <div id="ultimaAtualizacaoFooter" style="text-align: center; margin-top: 30px; padding: 15px; font-style: italic; color: #666; border-top: 1px solid #e0e0e0;">
+            <span id="ultimaAtualizacaoTexto">Carregando última atualização...</span>
+        </div>
         </div>
     </div>
 
@@ -419,6 +426,7 @@
         // Inicialização
         document.addEventListener('DOMContentLoaded', function() {
             setupAutocomplete();
+            carregarUltimaAtualizacao();
         });
 
         // Configurar autocomplete
@@ -611,17 +619,38 @@
             `;
 
             // Cards de estatísticas
-            document.getElementById('totalRecebido').textContent = 
+            document.getElementById('totalRecebido').textContent =
                 'R$ ' + data.total_recebido.toLocaleString('pt-BR', {minimumFractionDigits: 2});
-            
-            document.getElementById('totalVezes').textContent = 
+
+            document.getElementById('totalVezes').textContent =
                 data.total_premiacoes + ' vezes';
-            
-            document.getElementById('primeiraEdicao').textContent = 
+
+            document.getElementById('primeiraEdicao').textContent =
                 'Edição ' + data.primeira_edicao;
-            
-            document.getElementById('ultimaEdicao').textContent = 
+
+            document.getElementById('ultimaEdicao').textContent =
                 'Edição ' + data.ultima_edicao;
+        }
+
+        // Carregar última atualização geral (independente de usuário)
+        async function carregarUltimaAtualizacao() {
+            try {
+                const response = await fetch('/api/premiados/ultima-atualizacao');
+                const data = await response.json();
+
+                const textoElement = document.getElementById('ultimaAtualizacaoTexto');
+
+                if (data.edicao && data.data_sorteio && data.extracao) {
+                    const texto = `Última atualização ${data.data_sorteio} - Edição: ${data.edicao} - ${data.extracao}`;
+                    textoElement.textContent = texto;
+                } else {
+                    textoElement.textContent = 'Nenhuma atualização disponível';
+                }
+
+            } catch (error) {
+                console.error('Erro ao carregar última atualização:', error);
+                document.getElementById('ultimaAtualizacaoTexto').textContent = 'Erro ao carregar última atualização';
+            }
         }
 
         // Funções auxiliares
