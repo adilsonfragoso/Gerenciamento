@@ -1,6 +1,3 @@
-#backup do script relatorio_v1.py usado em Workspace
-
-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
@@ -39,7 +36,7 @@ if HEADLESS:
     chrome_opts.add_experimental_option("excludeSwitches", ["enable-logging"])
     chrome_opts.add_experimental_option("useAutomationExtension", False)
     navegador = webdriver.Chrome(service=service, options=chrome_opts)
-        else:
+else:
     navegador = webdriver.Chrome(service=service)
 
 caminho_downloads = r"D:\Adilson\Downloads"
