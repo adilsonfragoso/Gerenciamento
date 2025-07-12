@@ -915,6 +915,12 @@
                 verificarStatusAgendador();
             }, 30000); // 30 segundos
 
+            // Atualização do horário do agendador a cada 30 segundos
+            setInterval(() => {
+                console.log('[TIMER] Atualizando horário do agendador...');
+                atualizarUltimaAtualizacao();
+            }, 30000);
+
             // Atualização completa a cada 1 minuto (fallback)
             setInterval(() => {
                 console.log('[AUTO] Atualização completa programada...');
@@ -995,17 +1001,28 @@
 
 
         // FUNÇÃO TEMPORÁRIA: Verificar status baseado na atividade dos dados
-        function verificarStatusPorAtividade() {
-            // Se os dados estão sendo atualizados recentemente, assumir que agendador está ativo
-            const agora = new Date();
-            const ultimaAtualizacao = new Date(document.getElementById('texto-ultima-atualizacao').textContent.replace('Última atualização: ', ''));
-            
-            // Se a última atualização foi há menos de 2 minutos, considerar ativo
-            const diferencaMinutos = (agora - ultimaAtualizacao) / (1000 * 60);
-            
-            if (diferencaMinutos < 2) {
-                atualizarIndicadorAgendador('online');
-            } else {
+        async function verificarStatusPorAtividade() {
+            try {
+                // Buscar status diretamente do agendador
+                const response = await fetch('/api/scripts/status-agendador');
+                const statusData = await response.json();
+
+                if (response.ok && statusData.ativo && statusData.ultimo_check) {
+                    // Verificar se a última verificação foi recente (menos de 10 minutos)
+                    const agora = new Date();
+                    const ultimaVerificacao = new Date(statusData.ultimo_check);
+                    const diferencaMinutos = (agora - ultimaVerificacao) / (1000 * 60);
+
+                    if (diferencaMinutos < 10) {
+                        atualizarIndicadorAgendador('online');
+                    } else {
+                        atualizarIndicadorAgendador('offline');
+                    }
+                } else {
+                    atualizarIndicadorAgendador('offline');
+                }
+            } catch (error) {
+                console.error('Erro ao verificar status por atividade:', error);
                 atualizarIndicadorAgendador('offline');
             }
         }
@@ -1645,17 +1662,46 @@
             }
         }
 
-        // Atualizar última atualização
-        function atualizarUltimaAtualizacao() {
-            const agora = new Date();
-            const horaFormatada = agora.toLocaleTimeString('pt-BR', { 
-                hour: '2-digit', 
-                minute: '2-digit',
-                second: '2-digit'
-            });
-            
-            document.getElementById('texto-ultima-atualizacao').textContent = 
-                `Última atualização: ${horaFormatada}`;
+        // Atualizar última atualização com dados do log do agendador
+        async function atualizarUltimaAtualizacao() {
+            try {
+                // Buscar horário da última verificação no log
+                const response = await fetch('/api/scripts/ultima-verificacao-log');
+                const logData = await response.json();
+
+                if (response.ok && logData.sucesso && logData.timestamp_formatado) {
+                    // Usar horário extraído do log
+                    document.getElementById('texto-ultima-atualizacao').textContent =
+                        `Última atualização: ${logData.timestamp_formatado}`;
+
+                    console.log('[LOG] Horário atualizado do log:', logData.linha_completa);
+                } else {
+                    // Fallback para horário local se não conseguir ler o log
+                    const agora = new Date();
+                    const horaFormatada = agora.toLocaleTimeString('pt-BR', {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit'
+                    });
+
+                    document.getElementById('texto-ultima-atualizacao').textContent =
+                        `Última atualização: ${horaFormatada} (local)`;
+
+                    console.log('[LOG] Fallback para horário local:', logData.motivo || 'Erro desconhecido');
+                }
+            } catch (error) {
+                console.error('Erro ao buscar horário do log:', error);
+                // Fallback para horário local em caso de erro
+                const agora = new Date();
+                const horaFormatada = agora.toLocaleTimeString('pt-BR', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+
+                document.getElementById('texto-ultima-atualizacao').textContent =
+                    `Última atualização: ${horaFormatada} (local)`;
+            }
         }
 
         // Nova função para renderizar o ícone PDF com estado de processamento

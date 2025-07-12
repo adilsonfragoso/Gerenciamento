@@ -124,7 +124,7 @@ def extrair_percentual_andamento(driver, link):
             )
             
             texto_andamento = elemento.text.strip()
-            logger.info(f"Texto encontrado no elemento: {texto_andamento}")
+            logger.info(f"Percentual encontrado: {texto_andamento}")
             
             # Extrair percentual usando regex
             match = re.search(r'(\d+)%', texto_andamento)
@@ -191,24 +191,43 @@ def extrair_percentual_andamento(driver, link):
         logger.error(f"Erro geral ao extrair percentual do link {link}: {e}")
         return "ERRO_GERAL"
 
-def buscar_links_para_verificar():
-    """Busca todos os links da tabela extracoes_cadastro que precisam ser verificados"""
+def buscar_links_para_verificar(ids_especificos=None):
+    """Busca todos os links da tabela extracoes_cadastro que precisam ser verificados
+
+    Args:
+        ids_especificos (list): Lista de IDs específicos para verificar (modo foco)
+    """
     try:
         connection = pymysql.connect(**DB_CONFIG)
         cursor = connection.cursor()
         
         # Buscar apenas registros com status_rifa = 'ativo'
-        query = """
-        SELECT id, edicao, sigla_oficial, link, andamento, status_rifa
-        FROM extracoes_cadastro 
-        WHERE link IS NOT NULL 
-        AND link != '' 
-        AND link LIKE 'https://litoraldasorte.com%'
-        AND status_rifa = 'ativo'
-        ORDER BY edicao DESC
-        """
-        
-        cursor.execute(query)
+        if ids_especificos:
+            # Modo foco: buscar apenas IDs específicos
+            placeholders = ','.join(['%s'] * len(ids_especificos))
+            query = f"""
+            SELECT id, edicao, sigla_oficial, link, andamento, status_rifa
+            FROM extracoes_cadastro
+            WHERE id IN ({placeholders})
+            AND link IS NOT NULL
+            AND link != ''
+            AND link LIKE 'https://litoraldasorte.com%'
+            AND status_rifa = 'ativo'
+            ORDER BY edicao DESC
+            """
+            cursor.execute(query, ids_especificos)
+        else:
+            # Modo normal: buscar todas as rifas ativas
+            query = """
+            SELECT id, edicao, sigla_oficial, link, andamento, status_rifa
+            FROM extracoes_cadastro
+            WHERE link IS NOT NULL
+            AND link != ''
+            AND link LIKE 'https://litoraldasorte.com%'
+            AND status_rifa = 'ativo'
+            ORDER BY edicao DESC
+            """
+            cursor.execute(query)
         resultados = cursor.fetchall()
         
         links_para_verificar = []
@@ -334,12 +353,19 @@ def executar_envio_automatico_pdfs():
     except Exception as e:
         logger.warning(f"⚠️ Erro ao executar script de envio automático de PDFs: {e}")
 
-def main():
-    """Função principal do script"""
-    logger.info("=== INICIANDO VERIFICAÇÃO DE ANDAMENTO DAS RIFAS (APENAS ATIVOS) ===")
-    
+def main(ids_especificos=None):
+    """Função principal do script
+
+    Args:
+        ids_especificos (list): Lista de IDs específicos para verificar (modo foco)
+    """
+    if ids_especificos:
+        logger.info(f"=== INICIANDO VERIFICAÇÃO EM MODO FOCO (IDs: {ids_especificos}) ===")
+    else:
+        logger.info("=== INICIANDO VERIFICAÇÃO DE ANDAMENTO DAS RIFAS (APENAS ATIVOS) ===")
+
     # Buscar links para verificar
-    links = buscar_links_para_verificar()
+    links = buscar_links_para_verificar(ids_especificos)
     if not links:
         logger.info("Nenhum link ATIVO encontrado para verificar")
         return

@@ -2346,33 +2346,84 @@ def verificar_status_agendador():
     """
     try:
         import os
-        
+
         # Verificar se o arquivo de status existe
         status_file = "scripts/agendador_status.json"
-        
+
         if not os.path.exists(status_file):
             return {"ativo": False, "motivo": "Arquivo de status não encontrado"}
-        
+
         # Ler o arquivo de status
         with open(status_file, 'r') as f:
             import json
             status_data = json.load(f)
-        
+
         # Verificar se o agendador está ativo
         status = status_data.get("status", "").lower()
         if status in ["running", "rodando"]:
             return {
-                "ativo": True, 
+                "ativo": True,
                 "ultimo_check": status_data.get("ultima_verificacao", status_data.get("last_check")),
                 "rifas_ativas": status_data.get("rifas_ativas", 0),
                 "pid": status_data.get("pid")
             }
         else:
             return {"ativo": False, "motivo": f"Agendador parado (status: {status})"}
-            
+
     except Exception as e:
         logger.error(f"Erro ao verificar status do agendador: {e}")
         return {"ativo": False, "motivo": f"Erro: {str(e)}"}
+
+@app.get("/api/scripts/ultima-verificacao-log")
+def obter_ultima_verificacao_log():
+    """
+    Busca o horário da última linha que contém 'Job criado' no log de verificação
+    """
+    try:
+        import os
+        import re
+        from datetime import datetime
+
+        log_file = "scripts/logs/verificar_andamento.log"
+
+        if not os.path.exists(log_file):
+            return {"sucesso": False, "motivo": "Arquivo de log não encontrado"}
+
+        # Ler o arquivo de log de trás para frente para encontrar a última ocorrência
+        ultima_linha_job = None
+
+        with open(log_file, 'r', encoding='utf-8') as f:
+            linhas = f.readlines()
+
+        # Procurar de trás para frente pela última linha com "Job criado"
+        for linha in reversed(linhas):
+            if "Job criado" in linha:
+                ultima_linha_job = linha.strip()
+                break
+
+        if not ultima_linha_job:
+            return {"sucesso": False, "motivo": "Nenhuma linha com 'Job criado' encontrada"}
+
+        # Extrair timestamp da linha (formato: 2025-07-10 23:51:46,438)
+        match = re.match(r'(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}),\d+', ultima_linha_job)
+
+        if match:
+            timestamp_str = match.group(1)
+            # Converter para datetime e depois para ISO format
+            timestamp_dt = datetime.strptime(timestamp_str, '%Y-%m-%d %H:%M:%S')
+
+            return {
+                "sucesso": True,
+                "ultima_verificacao": timestamp_dt.isoformat(),
+                "linha_completa": ultima_linha_job,
+                "timestamp_formatado": timestamp_dt.strftime('%H:%M:%S')
+            }
+        else:
+            return {"sucesso": False, "motivo": "Formato de timestamp não reconhecido"}
+
+    except Exception as e:
+        logger.error(f"Erro ao buscar última verificação no log: {e}")
+        return {"sucesso": False, "motivo": f"Erro: {str(e)}"}
 
 @app.get("/api/dashboard/check-updates")
 def verificar_atualizacoes_agendador():

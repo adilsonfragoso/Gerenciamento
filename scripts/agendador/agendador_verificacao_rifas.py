@@ -72,6 +72,7 @@ HORARIOS_FECHAMENTO = {
 INTERVALO_PADRAO = 5
 INTERVALO_80_PERCENT = 3
 INTERVALO_90_PERCENT = 1
+INTERVALO_95_PERCENT_FOCO = 1  # Modo foco para rifas com 95%+
 INTERVALO_PROXIMO_FECHAMENTO = 1
 MINUTOS_ANTES_FECHAMENTO = 15
 
@@ -146,6 +147,8 @@ class AgendadorRifas:
     def __init__(self):
         self.rifas_monitoradas = {}  # {sigla: {'percentual': int, 'proximo_check': datetime}}
         self.executando = False
+        self.modo_foco_ativo = False  # Flag para modo foco
+        self.rifa_em_foco = None  # Dados da rifa em foco (95%+)
         
     def extrair_sigla_base(self, sigla_oficial: str) -> str:
         """Extrai a sigla base (PPT, PTM, etc.) da sigla oficial"""
@@ -186,20 +189,61 @@ class AgendadorRifas:
         tempo_restante = (fechamento - agora).total_seconds() / 60
         
         return 0 <= tempo_restante <= MINUTOS_ANTES_FECHAMENTO
-    
+
+    def verificar_modo_foco(self, rifas_ativas: List[Dict]) -> bool:
+        """Verifica se alguma rifa atingiu 95% e ativa o modo foco"""
+        # Buscar rifas com 95%+ que não estão concluídas
+        rifas_95_plus = [rifa for rifa in rifas_ativas if rifa['percentual'] >= 95 and rifa['status_rifa'] == 'ativo']
+
+        if rifas_95_plus:
+            # Se já estava em modo foco, verificar se a rifa ainda está ativa
+            if self.modo_foco_ativo and self.rifa_em_foco:
+                # Verificar se a rifa em foco ainda está na lista de 95%+
+                rifa_atual_em_foco = next((r for r in rifas_95_plus if r['id'] == self.rifa_em_foco['id']), None)
+                if rifa_atual_em_foco:
+                    # Atualizar dados da rifa em foco
+                    self.rifa_em_foco = rifa_atual_em_foco
+                    logger.info(f"🎯 MODO FOCO MANTIDO: {self.rifa_em_foco['sigla_oficial']} ({self.rifa_em_foco['percentual']}%)")
+                    return True
+                else:
+                    # Rifa em foco não está mais na lista (provavelmente concluída)
+                    logger.info(f"🏆 RIFA EM FOCO CONCLUÍDA: {self.rifa_em_foco['sigla_oficial']} - SAINDO DO MODO FOCO")
+                    self.modo_foco_ativo = False
+                    self.rifa_em_foco = None
+
+            # Se não estava em modo foco ou a rifa anterior foi concluída, ativar para a primeira rifa 95%+
+            if not self.modo_foco_ativo:
+                self.rifa_em_foco = rifas_95_plus[0]  # Pegar a primeira rifa com 95%+
+                self.modo_foco_ativo = True
+                logger.info(f"🎯 MODO FOCO ATIVADO: {self.rifa_em_foco['sigla_oficial']} ({self.rifa_em_foco['percentual']}%)")
+                logger.info("🔍 CONCENTRANDO MONITORAMENTO APENAS NESTA RIFA ATÉ 100%")
+                return True
+        else:
+            # Nenhuma rifa com 95%+, desativar modo foco se estava ativo
+            if self.modo_foco_ativo:
+                logger.info(f"🔄 SAINDO DO MODO FOCO - Voltando ao monitoramento normal")
+                self.modo_foco_ativo = False
+                self.rifa_em_foco = None
+
+        return self.modo_foco_ativo
+
     def calcular_intervalo_monitoramento(self, percentual: int, sigla_base: str) -> int:
         """Calcula o intervalo de monitoramento baseado no percentual e proximidade do fechamento"""
-        
+
         # Prioridade 1: Próximo do fechamento (15 min antes)
         if self.esta_proximo_fechamento(sigla_base):
             return INTERVALO_PROXIMO_FECHAMENTO
-            
-        # Prioridade 2: Percentual alto
+
+        # Prioridade 2: 95%+ de andamento (MODO FOCO)
+        if percentual >= 95:
+            return INTERVALO_95_PERCENT_FOCO
+
+        # Prioridade 3: 90%+ de andamento
         if percentual >= 90:
             return INTERVALO_90_PERCENT
         elif percentual >= 80:
             return INTERVALO_80_PERCENT
-            
+
         # Intervalo padrão
         return INTERVALO_PADRAO
     
@@ -251,33 +295,51 @@ class AgendadorRifas:
     def atualizar_cronograma_monitoramento(self):
         """Atualiza o cronograma de monitoramento baseado nas rifas ativas"""
         rifas_ativas = self.buscar_rifas_ativas()
-        
+
         if not rifas_ativas:
             logger.info("Nenhuma rifa ativa encontrada")
             return
-        
+
         logger.info(f"=== ATUALIZANDO CRONOGRAMA DE MONITORAMENTO ===")
         logger.info(f"Rifas ativas encontradas: {len(rifas_ativas)}")
-        
+
+        # Verificar se deve ativar/manter modo foco
+        modo_foco = self.verificar_modo_foco(rifas_ativas)
+
         # Limpar cronograma anterior
         schedule.clear()
-        
-        # Agrupar rifas por intervalo de monitoramento
-        grupos_intervalo = {}
-        
-        for rifa in rifas_ativas:
-            intervalo = self.calcular_intervalo_monitoramento(rifa['percentual'], rifa['sigla_base'])
-            
-            if intervalo not in grupos_intervalo:
-                grupos_intervalo[intervalo] = []
-            grupos_intervalo[intervalo].append(rifa)
-        
-        # Criar jobs para cada grupo de intervalo
-        for intervalo, rifas_grupo in grupos_intervalo.items():
-            self.criar_job_monitoramento(intervalo, rifas_grupo)
-        
-        # Log do cronograma
-        self.log_cronograma_atual(grupos_intervalo)
+
+        if modo_foco and self.rifa_em_foco:
+            # MODO FOCO: Monitorar apenas a rifa com 95%+
+            logger.info("🎯 MODO FOCO ATIVO - Monitorando apenas rifa crítica")
+            rifas_para_monitorar = [self.rifa_em_foco]
+            intervalo = INTERVALO_95_PERCENT_FOCO
+
+            # Criar job específico para a rifa em foco
+            self.criar_job_monitoramento(intervalo, rifas_para_monitorar)
+
+            # Log específico do modo foco
+            logger.info("📋 CRONOGRAMA MODO FOCO:")
+            logger.info(f"🎯 A cada {intervalo} min (FOCO 95%+):")
+            logger.info(f"  • {self.rifa_em_foco['sigla_oficial']} (Edição {self.rifa_em_foco['edicao']}) - {self.rifa_em_foco['andamento_str']}")
+
+        else:
+            # MODO NORMAL: Agrupar rifas por intervalo de monitoramento
+            grupos_intervalo = {}
+
+            for rifa in rifas_ativas:
+                intervalo = self.calcular_intervalo_monitoramento(rifa['percentual'], rifa['sigla_base'])
+
+                if intervalo not in grupos_intervalo:
+                    grupos_intervalo[intervalo] = []
+                grupos_intervalo[intervalo].append(rifa)
+
+            # Criar jobs para cada grupo de intervalo
+            for intervalo, rifas_grupo in grupos_intervalo.items():
+                self.criar_job_monitoramento(intervalo, rifas_grupo)
+
+            # Log do cronograma normal
+            self.log_cronograma_atual(grupos_intervalo)
     
     def criar_job_monitoramento(self, intervalo: int, rifas: List[Dict]):
         """Cria um job de monitoramento para um grupo de rifas"""
@@ -295,7 +357,13 @@ class AgendadorRifas:
                 logger.info(f"Rifas a verificar: {rifas_info}")
                 
                 # Executar o script de verificação
-                verificar_rifas()
+                if self.modo_foco_ativo and self.rifa_em_foco:
+                    # Modo foco: verificar apenas a rifa específica
+                    logger.info(f"🎯 Verificando apenas rifa em foco: {self.rifa_em_foco['sigla_oficial']}")
+                    verificar_rifas([self.rifa_em_foco['id']])
+                else:
+                    # Modo normal: verificar todas as rifas ativas
+                    verificar_rifas()
                 
                 # SEMPRE executar recuperação de rifas com erro após verificação
                 logger.info("🔄 Verificando rifas com erro para recuperação...")
@@ -342,6 +410,8 @@ class AgendadorRifas:
         """Retorna o motivo do intervalo escolhido"""
         if intervalo == INTERVALO_PROXIMO_FECHAMENTO:
             return "próximo do fechamento"
+        elif intervalo == INTERVALO_95_PERCENT_FOCO:
+            return "FOCO 95%+ (modo concentrado)"
         elif intervalo == INTERVALO_90_PERCENT:
             return "90%+ de andamento"
         elif intervalo == INTERVALO_80_PERCENT:
