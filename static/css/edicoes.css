@@ -416,9 +416,9 @@
 
 #logsExecucao {/*campo onde aparece os textos de logs*/
     background: #FFFAF0;
-    border: 1px transparent #e9ecef;
+    border: 1px solid #e9ecef;
     border-radius: 4px;
-    padding: 5px;
+    padding: 1px;
     min-height: 150px;
     max-height: 300px;
     overflow-y: auto;

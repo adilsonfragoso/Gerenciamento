@@ -5,7 +5,6 @@
 ```mermaid
 graph TD
     A[gerenciar_agendador.bat] --> B[agendador_servico.py]
-    C[agendador_rapido.bat] --> B
     B --> D[agendador_verificacao_rifas.py]
     D --> E[verificar_andamento_rifas.py]
     D --> F[recuperar_rifas_erro.py]
@@ -30,9 +29,9 @@ graph TD
 ### 🎮 **Nível 1 - Interfaces de Usuário**
 ```
 gerenciar_agendador.bat (Interface Principal)
-agendador_rapido.bat (Comandos Rápidos)
+
 ```
-**Dependem de:** `agendador_servico.py`
+**Depende de:** `agendador_servico.py`
 
 ### 🔧 **Nível 2 - Serviço Principal**
 ```
@@ -76,7 +75,7 @@ envio_automatico_pdfs_whatsapp.py (Envio PDFs)
 
 ### ✅ **Pode Modificar:**
 - `gerenciar_agendador.bat` - Interface
-- `agendador_rapido.bat` - Comandos
+
 - Configurações em `agendador_verificacao_rifas.py`
 
 ### 🔒 **Não Modificar (sem conhecimento):**

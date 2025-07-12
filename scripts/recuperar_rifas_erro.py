@@ -126,7 +126,7 @@ def recuperar_rifa(rifa_id, percentual):
             host=DB_CONFIG['host'],
             user=DB_CONFIG['user'],
             password=DB_CONFIG['password'],
-            db=DB_CONFIG['db'],
+            database=DB_CONFIG['database'],
             charset=DB_CONFIG['charset']
         )
         cursor = connection.cursor()
@@ -164,7 +164,7 @@ def buscar_rifas_com_erro():
             host=DB_CONFIG['host'],
             user=DB_CONFIG['user'],
             password=DB_CONFIG['password'],
-            db=DB_CONFIG['db'],
+            database=DB_CONFIG['database'],
             charset=DB_CONFIG['charset']
         )
         cursor = connection.cursor()

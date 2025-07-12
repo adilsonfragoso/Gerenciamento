@@ -1,8 +1,8 @@
 {
   "status": "rodando",
-  "pid": 11260,
-  "inicio": "2025-07-10T09:50:41.537724",
+  "pid": 35816,
+  "inicio": "2025-07-11T22:20:43.136752",
   "rifas_ativas": 5,
-  "ultima_verificacao": "2025-07-10T09:50:41.537724",
+  "ultima_verificacao": "2025-07-11T22:20:43.136752",
   "log_file": "D:\\Documentos\\Workspace\\Gerenciamento\\scripts\\agendador\\logs\\agendador_servico.log"
 }
