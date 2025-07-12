@@ -22521,3 +22521,285 @@
 2025-07-11 22:25:15,909 - INFO -   • PT (Edição 6304) - 0% | Fecha em 954min
 2025-07-11 22:25:15,909 - INFO -   • PTM (Edição 6303) - 0% | Fecha em 774min
 2025-07-11 22:25:15,909 - INFO -   • PPT (Edição 6302) - 0% | Fecha em 654min
+2025-07-11 22:25:46,035 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:26:16,149 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:26:46,278 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:27:16,401 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:27:46,518 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:28:16,665 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:28:46,807 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:29:16,923 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:29:47,034 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:30:17,221 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:30:17,274 - INFO - 🔄 Executando verificação (intervalo 5min)
+2025-07-11 22:30:17,274 - INFO - Rifas a verificar: ['CORUJINHA (0%)', 'FEDERAL (0%)', 'PT (0%)', 'PTM (0%)', 'PPT (0%)']
+2025-07-11 22:30:17,274 - INFO - === INICIANDO VERIFICAÇÃO DE ANDAMENTO DAS RIFAS (APENAS ATIVOS) ===
+2025-07-11 22:30:17,330 - INFO - Encontrados 5 links ATIVOS para verificar
+2025-07-11 22:30:18,435 - INFO - Driver do Chrome criado com sucesso
+2025-07-11 22:30:18,435 - INFO - 
+--- Processando 1/5 ---
+2025-07-11 22:30:18,436 - INFO - Edição: 6306
+2025-07-11 22:30:18,436 - INFO - Sigla: CORUJINHA
+2025-07-11 22:30:18,436 - INFO - Andamento atual: 0%
+2025-07-11 22:30:18,436 - INFO - Status atual: ativo
+2025-07-11 22:30:18,436 - INFO - Acessando link: https://litoraldasorte.com/campanha/corujinha-rj-edicao-6306
+2025-07-11 22:30:22,070 - INFO - Percentual encontrado: 0%
+2025-07-11 22:30:22,070 - INFO - Percentual extraído: 0%
+2025-07-11 22:30:22,070 - INFO - ℹ️ Andamento não mudou: 0%
+2025-07-11 22:30:24,070 - INFO - 
+--- Processando 2/5 ---
+2025-07-11 22:30:24,070 - INFO - Edição: 6305
+2025-07-11 22:30:24,070 - INFO - Sigla: FEDERAL
+2025-07-11 22:30:24,070 - INFO - Andamento atual: 0%
+2025-07-11 22:30:24,070 - INFO - Status atual: ativo
+2025-07-11 22:30:24,070 - INFO - Acessando link: https://litoraldasorte.com/campanha/federal-edicao-6305
+2025-07-11 22:30:27,295 - INFO - Percentual encontrado: 0%
+2025-07-11 22:30:27,295 - INFO - Percentual extraído: 0%
+2025-07-11 22:30:27,296 - INFO - ℹ️ Andamento não mudou: 0%
+2025-07-11 22:30:29,297 - INFO - 
+--- Processando 3/5 ---
+2025-07-11 22:30:29,297 - INFO - Edição: 6304
+2025-07-11 22:30:29,297 - INFO - Sigla: PT
+2025-07-11 22:30:29,297 - INFO - Andamento atual: 0%
+2025-07-11 22:30:29,297 - INFO - Status atual: ativo
+2025-07-11 22:30:29,297 - INFO - Acessando link: https://litoraldasorte.com/campanha/pt-rj-edicao-6304
+2025-07-11 22:30:32,501 - INFO - Percentual encontrado: 0%
+2025-07-11 22:30:32,501 - INFO - Percentual extraído: 0%
+2025-07-11 22:30:32,501 - INFO - ℹ️ Andamento não mudou: 0%
+2025-07-11 22:30:34,502 - INFO - 
+--- Processando 4/5 ---
+2025-07-11 22:30:34,502 - INFO - Edição: 6303
+2025-07-11 22:30:34,502 - INFO - Sigla: PTM
+2025-07-11 22:30:34,502 - INFO - Andamento atual: 0%
+2025-07-11 22:30:34,502 - INFO - Status atual: ativo
+2025-07-11 22:30:34,502 - INFO - Acessando link: https://litoraldasorte.com/campanha/ptm-rj-edicao-6303
+2025-07-11 22:30:37,674 - INFO - Percentual encontrado: 0%
+2025-07-11 22:30:37,674 - INFO - Percentual extraído: 0%
+2025-07-11 22:30:37,674 - INFO - ℹ️ Andamento não mudou: 0%
+2025-07-11 22:30:39,675 - INFO - 
+--- Processando 5/5 ---
+2025-07-11 22:30:39,675 - INFO - Edição: 6302
+2025-07-11 22:30:39,675 - INFO - Sigla: PPT
+2025-07-11 22:30:39,675 - INFO - Andamento atual: 0%
+2025-07-11 22:30:39,675 - INFO - Status atual: ativo
+2025-07-11 22:30:39,675 - INFO - Acessando link: https://litoraldasorte.com/campanha/ppt-rj-edicao-6302
+2025-07-11 22:30:42,839 - INFO - Percentual encontrado: 0%
+2025-07-11 22:30:42,839 - INFO - Percentual extraído: 0%
+2025-07-11 22:30:42,839 - INFO - ℹ️ Andamento não mudou: 0%
+2025-07-11 22:30:44,839 - INFO - 
+=== RESUMO FINAL ===
+2025-07-11 22:30:44,839 - INFO - Total de links ATIVOS: 5
+2025-07-11 22:30:44,839 - INFO - Sucessos: 5
+2025-07-11 22:30:44,839 - INFO - Erros: 0
+2025-07-11 22:30:44,839 - INFO - Rifas concluídas (100%): 0
+2025-07-11 22:30:44,839 - INFO - Andamentos atualizados: 0
+2025-07-11 22:30:44,839 - INFO - Processados efetivamente: 5
+2025-07-11 22:30:44,839 - INFO - ℹ️ Nenhuma atualização realizada - dashboard não notificado
+2025-07-11 22:30:46,930 - INFO - Driver do Chrome encerrado
+2025-07-11 22:30:46,930 - INFO - 🔄 Verificando rifas com erro para recuperação...
+2025-07-11 22:30:46,930 - INFO - ============================================================
+2025-07-11 22:30:46,930 - INFO - 🚀 INICIANDO RECUPERAÇÃO DE RIFAS COM ERRO
+2025-07-11 22:30:46,931 - INFO - ============================================================
+2025-07-11 22:30:46,987 - INFO - 📊 Encontradas 0 rifas com erro
+2025-07-11 22:30:46,987 - INFO - ✅ Nenhuma rifa com erro encontrada!
+2025-07-11 22:30:46,987 - INFO - 📡 Notificando dashboard para atualização...
+2025-07-11 22:30:49,016 - INFO - 🔄 Dashboard notificado para atualização
+2025-07-11 22:30:49,016 - INFO - 📄 Verificando envio automático de PDFs...
+2025-07-11 22:30:49,065 - INFO - === ATUALIZANDO CRONOGRAMA DE MONITORAMENTO ===
+2025-07-11 22:30:49,065 - INFO - Rifas ativas encontradas: 5
+2025-07-11 22:30:49,065 - INFO - 📅 Job criado: verificar a cada 5 minutos
+2025-07-11 22:30:49,065 - INFO - 📋 CRONOGRAMA ATUAL:
+2025-07-11 22:30:49,065 - INFO - ⏰ Intervalo 5min (intervalo padrão):
+2025-07-11 22:30:49,066 - INFO -   • CORUJINHA (Edição 6306) - 0% | Fecha em 1379min
+2025-07-11 22:30:49,066 - INFO -   • FEDERAL (Edição 6305) - 0% | Fecha em 1229min
+2025-07-11 22:30:49,066 - INFO -   • PT (Edição 6304) - 0% | Fecha em 949min
+2025-07-11 22:30:49,066 - INFO -   • PTM (Edição 6303) - 0% | Fecha em 769min
+2025-07-11 22:30:49,066 - INFO -   • PPT (Edição 6302) - 0% | Fecha em 649min
+2025-07-11 22:31:19,128 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:31:49,230 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:32:19,388 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:32:49,529 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:33:19,650 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:33:49,780 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:34:19,904 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:34:50,010 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:35:20,183 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:35:50,357 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:35:50,426 - INFO - 🔄 Executando verificação (intervalo 5min)
+2025-07-11 22:35:50,426 - INFO - Rifas a verificar: ['CORUJINHA (0%)', 'FEDERAL (0%)', 'PT (0%)', 'PTM (0%)', 'PPT (0%)']
+2025-07-11 22:35:50,427 - INFO - === INICIANDO VERIFICAÇÃO DE ANDAMENTO DAS RIFAS (APENAS ATIVOS) ===
+2025-07-11 22:35:50,488 - INFO - Encontrados 5 links ATIVOS para verificar
+2025-07-11 22:35:51,516 - INFO - Driver do Chrome criado com sucesso
+2025-07-11 22:35:51,516 - INFO - 
+--- Processando 1/5 ---
+2025-07-11 22:35:51,516 - INFO - Edição: 6306
+2025-07-11 22:35:51,516 - INFO - Sigla: CORUJINHA
+2025-07-11 22:35:51,516 - INFO - Andamento atual: 0%
+2025-07-11 22:35:51,517 - INFO - Status atual: ativo
+2025-07-11 22:35:51,517 - INFO - Acessando link: https://litoraldasorte.com/campanha/corujinha-rj-edicao-6306
+2025-07-11 22:35:55,352 - INFO - Percentual encontrado: 0%
+2025-07-11 22:35:55,352 - INFO - Percentual extraído: 0%
+2025-07-11 22:35:55,352 - INFO - ℹ️ Andamento não mudou: 0%
+2025-07-11 22:35:57,353 - INFO - 
+--- Processando 2/5 ---
+2025-07-11 22:35:57,353 - INFO - Edição: 6305
+2025-07-11 22:35:57,353 - INFO - Sigla: FEDERAL
+2025-07-11 22:35:57,353 - INFO - Andamento atual: 0%
+2025-07-11 22:35:57,353 - INFO - Status atual: ativo
+2025-07-11 22:35:57,354 - INFO - Acessando link: https://litoraldasorte.com/campanha/federal-edicao-6305
+2025-07-11 22:36:00,557 - INFO - Percentual encontrado: 0%
+2025-07-11 22:36:00,557 - INFO - Percentual extraído: 0%
+2025-07-11 22:36:00,558 - INFO - ℹ️ Andamento não mudou: 0%
+2025-07-11 22:36:02,558 - INFO - 
+--- Processando 3/5 ---
+2025-07-11 22:36:02,558 - INFO - Edição: 6304
+2025-07-11 22:36:02,558 - INFO - Sigla: PT
+2025-07-11 22:36:02,558 - INFO - Andamento atual: 0%
+2025-07-11 22:36:02,558 - INFO - Status atual: ativo
+2025-07-11 22:36:02,558 - INFO - Acessando link: https://litoraldasorte.com/campanha/pt-rj-edicao-6304
+2025-07-11 22:36:05,717 - INFO - Percentual encontrado: 0%
+2025-07-11 22:36:05,717 - INFO - Percentual extraído: 0%
+2025-07-11 22:36:05,717 - INFO - ℹ️ Andamento não mudou: 0%
+2025-07-11 22:36:07,718 - INFO - 
+--- Processando 4/5 ---
+2025-07-11 22:36:07,718 - INFO - Edição: 6303
+2025-07-11 22:36:07,718 - INFO - Sigla: PTM
+2025-07-11 22:36:07,718 - INFO - Andamento atual: 0%
+2025-07-11 22:36:07,718 - INFO - Status atual: ativo
+2025-07-11 22:36:07,719 - INFO - Acessando link: https://litoraldasorte.com/campanha/ptm-rj-edicao-6303
+2025-07-11 22:36:10,881 - INFO - Percentual encontrado: 0%
+2025-07-11 22:36:10,882 - INFO - Percentual extraído: 0%
+2025-07-11 22:36:10,882 - INFO - ℹ️ Andamento não mudou: 0%
+2025-07-11 22:36:12,883 - INFO - 
+--- Processando 5/5 ---
+2025-07-11 22:36:12,883 - INFO - Edição: 6302
+2025-07-11 22:36:12,883 - INFO - Sigla: PPT
+2025-07-11 22:36:12,883 - INFO - Andamento atual: 0%
+2025-07-11 22:36:12,883 - INFO - Status atual: ativo
+2025-07-11 22:36:12,884 - INFO - Acessando link: https://litoraldasorte.com/campanha/ppt-rj-edicao-6302
+2025-07-11 22:36:16,076 - INFO - Percentual encontrado: 0%
+2025-07-11 22:36:16,076 - INFO - Percentual extraído: 0%
+2025-07-11 22:36:16,076 - INFO - ℹ️ Andamento não mudou: 0%
+2025-07-11 22:36:18,077 - INFO - 
+=== RESUMO FINAL ===
+2025-07-11 22:36:18,077 - INFO - Total de links ATIVOS: 5
+2025-07-11 22:36:18,077 - INFO - Sucessos: 5
+2025-07-11 22:36:18,077 - INFO - Erros: 0
+2025-07-11 22:36:18,078 - INFO - Rifas concluídas (100%): 0
+2025-07-11 22:36:18,078 - INFO - Andamentos atualizados: 0
+2025-07-11 22:36:18,078 - INFO - Processados efetivamente: 5
+2025-07-11 22:36:18,078 - INFO - ℹ️ Nenhuma atualização realizada - dashboard não notificado
+2025-07-11 22:36:20,166 - INFO - Driver do Chrome encerrado
+2025-07-11 22:36:20,166 - INFO - 🔄 Verificando rifas com erro para recuperação...
+2025-07-11 22:36:20,166 - INFO - ============================================================
+2025-07-11 22:36:20,166 - INFO - 🚀 INICIANDO RECUPERAÇÃO DE RIFAS COM ERRO
+2025-07-11 22:36:20,167 - INFO - ============================================================
+2025-07-11 22:36:20,229 - INFO - 📊 Encontradas 0 rifas com erro
+2025-07-11 22:36:20,230 - INFO - ✅ Nenhuma rifa com erro encontrada!
+2025-07-11 22:36:20,230 - INFO - 📡 Notificando dashboard para atualização...
+2025-07-11 22:36:22,265 - INFO - 🔄 Dashboard notificado para atualização
+2025-07-11 22:36:22,265 - INFO - 📄 Verificando envio automático de PDFs...
+2025-07-11 22:36:22,328 - INFO - === ATUALIZANDO CRONOGRAMA DE MONITORAMENTO ===
+2025-07-11 22:36:22,328 - INFO - Rifas ativas encontradas: 5
+2025-07-11 22:36:22,328 - INFO - 📅 Job criado: verificar a cada 5 minutos
+2025-07-11 22:36:22,329 - INFO - 📋 CRONOGRAMA ATUAL:
+2025-07-11 22:36:22,329 - INFO - ⏰ Intervalo 5min (intervalo padrão):
+2025-07-11 22:36:22,329 - INFO -   • CORUJINHA (Edição 6306) - 0% | Fecha em 1373min
+2025-07-11 22:36:22,329 - INFO -   • FEDERAL (Edição 6305) - 0% | Fecha em 1223min
+2025-07-11 22:36:22,329 - INFO -   • PT (Edição 6304) - 0% | Fecha em 943min
+2025-07-11 22:36:22,330 - INFO -   • PTM (Edição 6303) - 0% | Fecha em 763min
+2025-07-11 22:36:22,330 - INFO -   • PPT (Edição 6302) - 0% | Fecha em 643min
+2025-07-11 22:36:52,389 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:37:22,517 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:37:52,644 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:38:22,774 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:38:52,896 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:39:23,000 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:39:53,122 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:40:23,315 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:40:53,477 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:41:23,606 - INFO - Executando 1 jobs agendados...
+2025-07-11 22:41:23,675 - INFO - 🔄 Executando verificação (intervalo 5min)
+2025-07-11 22:41:23,675 - INFO - Rifas a verificar: ['CORUJINHA (0%)', 'FEDERAL (0%)', 'PT (0%)', 'PTM (0%)', 'PPT (0%)']
+2025-07-11 22:41:23,676 - INFO - === INICIANDO VERIFICAÇÃO DE ANDAMENTO DAS RIFAS (APENAS ATIVOS) ===
+2025-07-11 22:41:23,728 - INFO - Encontrados 5 links ATIVOS para verificar
+2025-07-11 22:41:24,825 - INFO - Driver do Chrome criado com sucesso
+2025-07-11 22:41:24,825 - INFO - 
+--- Processando 1/5 ---
+2025-07-11 22:41:24,825 - INFO - Edição: 6306
+2025-07-11 22:41:24,825 - INFO - Sigla: CORUJINHA
+2025-07-11 22:41:24,825 - INFO - Andamento atual: 0%
+2025-07-11 22:41:24,825 - INFO - Status atual: ativo
+2025-07-11 22:41:24,825 - INFO - Acessando link: https://litoraldasorte.com/campanha/corujinha-rj-edicao-6306
+2025-07-11 22:41:28,397 - INFO - Percentual encontrado: 0%
+2025-07-11 22:41:28,397 - INFO - Percentual extraído: 0%
+2025-07-11 22:41:28,398 - INFO - ℹ️ Andamento não mudou: 0%
+2025-07-11 22:41:30,398 - INFO - 
+--- Processando 2/5 ---
+2025-07-11 22:41:30,398 - INFO - Edição: 6305
+2025-07-11 22:41:30,398 - INFO - Sigla: FEDERAL
+2025-07-11 22:41:30,398 - INFO - Andamento atual: 0%
+2025-07-11 22:41:30,398 - INFO - Status atual: ativo
+2025-07-11 22:41:30,399 - INFO - Acessando link: https://litoraldasorte.com/campanha/federal-edicao-6305
+2025-07-11 22:41:33,962 - INFO - Percentual encontrado: 0%
+2025-07-11 22:41:33,962 - INFO - Percentual extraído: 0%
+2025-07-11 22:41:33,962 - INFO - ℹ️ Andamento não mudou: 0%
+2025-07-11 22:41:35,963 - INFO - 
+--- Processando 3/5 ---
+2025-07-11 22:41:35,963 - INFO - Edição: 6304
+2025-07-11 22:41:35,963 - INFO - Sigla: PT
+2025-07-11 22:41:35,963 - INFO - Andamento atual: 0%
+2025-07-11 22:41:35,963 - INFO - Status atual: ativo
+2025-07-11 22:41:35,964 - INFO - Acessando link: https://litoraldasorte.com/campanha/pt-rj-edicao-6304
+2025-07-11 22:41:39,190 - INFO - Percentual encontrado: 0%
+2025-07-11 22:41:39,190 - INFO - Percentual extraído: 0%
+2025-07-11 22:41:39,190 - INFO - ℹ️ Andamento não mudou: 0%
+2025-07-11 22:41:41,191 - INFO - 
+--- Processando 4/5 ---
+2025-07-11 22:41:41,191 - INFO - Edição: 6303
+2025-07-11 22:41:41,191 - INFO - Sigla: PTM
+2025-07-11 22:41:41,191 - INFO - Andamento atual: 0%
+2025-07-11 22:41:41,191 - INFO - Status atual: ativo
+2025-07-11 22:41:41,191 - INFO - Acessando link: https://litoraldasorte.com/campanha/ptm-rj-edicao-6303
+2025-07-11 22:41:44,388 - INFO - Percentual encontrado: 0%
+2025-07-11 22:41:44,388 - INFO - Percentual extraído: 0%
+2025-07-11 22:41:44,388 - INFO - ℹ️ Andamento não mudou: 0%
+2025-07-11 22:41:46,389 - INFO - 
+--- Processando 5/5 ---
+2025-07-11 22:41:46,389 - INFO - Edição: 6302
+2025-07-11 22:41:46,389 - INFO - Sigla: PPT
+2025-07-11 22:41:46,389 - INFO - Andamento atual: 0%
+2025-07-11 22:41:46,389 - INFO - Status atual: ativo
+2025-07-11 22:41:46,390 - INFO - Acessando link: https://litoraldasorte.com/campanha/ppt-rj-edicao-6302
+2025-07-11 22:41:49,577 - INFO - Percentual encontrado: 0%
+2025-07-11 22:41:49,577 - INFO - Percentual extraído: 0%
+2025-07-11 22:41:49,577 - INFO - ℹ️ Andamento não mudou: 0%
+2025-07-11 22:41:51,578 - INFO - 
+=== RESUMO FINAL ===
+2025-07-11 22:41:51,578 - INFO - Total de links ATIVOS: 5
+2025-07-11 22:41:51,578 - INFO - Sucessos: 5
+2025-07-11 22:41:51,578 - INFO - Erros: 0
+2025-07-11 22:41:51,578 - INFO - Rifas concluídas (100%): 0
+2025-07-11 22:41:51,578 - INFO - Andamentos atualizados: 0
+2025-07-11 22:41:51,578 - INFO - Processados efetivamente: 5
+2025-07-11 22:41:51,580 - INFO - ℹ️ Nenhuma atualização realizada - dashboard não notificado
+2025-07-11 22:41:53,661 - INFO - Driver do Chrome encerrado
+2025-07-11 22:41:53,662 - INFO - 🔄 Verificando rifas com erro para recuperação...
+2025-07-11 22:41:53,667 - INFO - ============================================================
+2025-07-11 22:41:53,673 - INFO - 🚀 INICIANDO RECUPERAÇÃO DE RIFAS COM ERRO
+2025-07-11 22:41:53,676 - INFO - ============================================================
+2025-07-11 22:41:53,750 - INFO - 📊 Encontradas 0 rifas com erro
+2025-07-11 22:41:53,757 - INFO - ✅ Nenhuma rifa com erro encontrada!
+2025-07-11 22:41:53,764 - INFO - 📡 Notificando dashboard para atualização...
+2025-07-11 22:41:55,805 - INFO - 🔄 Dashboard notificado para atualização
+2025-07-11 22:41:55,806 - INFO - 📄 Verificando envio automático de PDFs...
+2025-07-11 22:41:55,866 - INFO - === ATUALIZANDO CRONOGRAMA DE MONITORAMENTO ===
+2025-07-11 22:41:55,866 - INFO - Rifas ativas encontradas: 5
+2025-07-11 22:41:55,866 - INFO - 📅 Job criado: verificar a cada 5 minutos
+2025-07-11 22:41:55,867 - INFO - 📋 CRONOGRAMA ATUAL:
+2025-07-11 22:41:55,867 - INFO - ⏰ Intervalo 5min (intervalo padrão):
+2025-07-11 22:41:55,867 - INFO -   • CORUJINHA (Edição 6306) - 0% | Fecha em 1368min
+2025-07-11 22:41:55,867 - INFO -   • FEDERAL (Edição 6305) - 0% | Fecha em 1218min
+2025-07-11 22:41:55,867 - INFO -   • PT (Edição 6304) - 0% | Fecha em 938min
+2025-07-11 22:41:55,868 - INFO -   • PTM (Edição 6303) - 0% | Fecha em 758min
+2025-07-11 22:41:55,868 - INFO -   • PPT (Edição 6302) - 0% | Fecha em 638min

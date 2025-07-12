@@ -1,0 +1,9 @@
+2025-07-11 22:32:43,309 - INFO - INICIO - Agendador Desativa e Alimenta iniciado
+2025-07-11 22:32:43,309 - INFO - INICIO - Execução inicial do agendador
+2025-07-11 22:34:55,964 - INFO - SUCESSO - desativa_concluidas_v4.py executado com sucesso
+2025-07-11 22:34:55,964 - INFO - AGUARDANDO - 3 minutos antes do próximo script
+2025-07-11 22:40:32,807 - INFO - SUCESSO - alimenta_premiados.py executado com sucesso
+2025-07-11 22:40:32,807 - INFO - CONCLUIDO - Execução inicial bem-sucedida
+2025-07-11 22:40:32,807 - INFO - AGENDADOR - Iniciando agendamentos regulares
+2025-07-11 22:40:32,812 - INFO - AGENDAMENTOS - 94 tarefas configuradas
+2025-07-11 22:40:32,812 - INFO - RODANDO - Agendador em execução (modo oculto)
