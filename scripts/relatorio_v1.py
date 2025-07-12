@@ -190,7 +190,7 @@ print("PDF GERADO COM SUCESSO!")
 # -------------------- INSERIR NO BD ----------------
 try:
     subprocess.run(
-        ["python", "D:/Documentos/Workspace/inserir_no_bd.py", edicao_converter, caminho_csv],
+        ["python", "D:/Documentos/Workspace/Gerenciamento/scripts/inserir_no_bd.py", edicao_converter, caminho_csv],
         check=True,
     )
     print("Dados salvos no banco.")

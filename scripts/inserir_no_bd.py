@@ -1,5 +1,7 @@
 import sys
 import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from app.db_config import DB_CONFIG
 import pandas as pd
 import mysql.connector
 from datetime import datetime
@@ -74,12 +76,7 @@ try:
     df_horadata   = df.iloc[:, 13] # M (coluna 13)
 
     # 2) Conexão ao MySQL
-    conn = mysql.connector.connect(
-        host="pma.megatrends.site",  # Ajuste se necessário
-        user="root",
-        password="Define@4536#8521",
-        database="teste"
-    )
+    conn = mysql.connector.connect(**DB_CONFIG)
     cursor = conn.cursor()
 
     # Verifica se já existe registro para esta edição em relatorios_importados
