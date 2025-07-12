@@ -1,3 +1,29 @@
+---
+
+## 🛡️ Boas Práticas para Imports de Configuração
+
+### Evite erros de importação do DB_CONFIG
+
+Para garantir que todos os scripts encontrem corretamente o `DB_CONFIG` (e outros módulos do app), sempre utilize o padrão abaixo para manipular o `sys.path` e realizar o import:
+
+```python
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from app.db_config import DB_CONFIG
+```
+
+**Por quê?**
+- Isso garante que o Python sempre encontre o módulo, independente de onde o script for executado.
+- Evita erros como:
+  - `ModuleNotFoundError: No module named 'db_config'`
+  - `Import "db_config" could not be resolved`
+
+**Dica:**
+- Nunca use caminhos relativos como `from db_config import DB_CONFIG` diretamente em scripts fora da pasta `app`.
+- Sempre padronize o import conforme acima para evitar problemas futuros.
+
+---
 # Migração para .env - Documento Consolidado
 ## Projeto Gerenciamento - Arquitetura Centralizada de Configurações
 
