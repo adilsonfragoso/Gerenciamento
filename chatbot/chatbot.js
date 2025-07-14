@@ -135,9 +135,9 @@ client.on('message', async msg => {
             console.log(`🚀 Enviando mensagem de processamento...`);
             await client.sendMessage(msg.from, `Processando a edição ${number}...`);
 
-            // Chama o script relatorio_v1.py passando a edição como argumento
-            console.log(`🐍 Executando: python D:/Documentos/Workspace/Gerenciamento/scripts/relatorio_v1.py ${number}`);
-            exec(`python D:/Documentos/Workspace/Gerenciamento/scripts/relatorio_v1.py ${number}`, async (err, stdout, stderr) => {
+            // Chama o script Gerenciamento/scripts/relatorio_v2.py passando a edição como argumento
+            console.log(`🐍 Executando: python D:/Documentos/Workspace/Gerenciamento/scripts/relatorio_v2.py ${number}`);
+            exec(`python D:/Documentos/Workspace/Gerenciamento/scripts/relatorio_v2.py ${number}`, async (err, stdout, stderr) => {
                 if (err) {
                     console.error('❌ Erro na execução do Python:', err);
                     await client.sendMessage(msg.from, 'Erro ao processar a edição. Verifique ou contate o suporte.');
@@ -145,9 +145,17 @@ client.on('message', async msg => {
                     console.log('✅ Script Python executado com sucesso');
                     console.log('📄 stdout:', stdout);
                     
-                    // Extrai a última linha do stdout para obter o caminho do PDF
+                    // Procura pela linha que contém "PDF gerado:" para obter o caminho correto
                     const logs = stdout.trim().split('\n');
-                    const pdfPath = logs[logs.length - 1].trim();
+                    const pdfLine = logs.find(line => line.includes('PDF gerado:'));
+                    
+                    if (!pdfLine) {
+                        console.error('❌ Linha com "PDF gerado:" não encontrada no stdout');
+                        await client.sendMessage(msg.from, 'Erro: PDF não foi gerado corretamente.');
+                        return;
+                    }
+                    
+                    const pdfPath = pdfLine.replace('PDF gerado:', '').trim();
                     console.log(`📁 Caminho do PDF: ${pdfPath}`);
 
                     try {
