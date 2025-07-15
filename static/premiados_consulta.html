@@ -147,7 +147,7 @@
 
         .stats-dashboard {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-bottom: 25px;
         }
@@ -191,6 +191,14 @@
 
         .stat-card.last-prize {
             --card-color: linear-gradient(135deg, #48dbfb, #0abde3);
+        }
+
+        .stat-card.total-sales {
+            --card-color: linear-gradient(135deg, #a55eea, #fd79a8);
+        }
+
+        .stat-card.sales-count {
+            --card-color: linear-gradient(135deg, #26de81, #20bf6b);
         }
 
         .stat-icon {
@@ -406,6 +414,18 @@
                     <div class="stat-number" id="ultimaEdicao">-</div>
                     <div class="stat-label">Última<br>premiação</div>
                 </div>
+
+                <div class="stat-card total-sales">
+                    <div class="stat-icon">🛒</div>
+                    <div class="stat-number" id="totalVendas">R$ 0,00</div>
+                    <div class="stat-label">Total em<br>Vendas</div>
+                </div>
+
+                <div class="stat-card sales-count">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-number" id="quantidadeVendas">0</div>
+                    <div class="stat-label">Número de<br>Vendas</div>
+                </div>
             </div>
 
         </div>
@@ -616,6 +636,7 @@
             document.getElementById('personDetails').innerHTML = `
                 📊 ${data.total_premiacoes} premiações registradas
                 ${data.telefones.length > 0 ? `📞 ${data.telefones.join(', ')}` : ''}
+                ${data.vendas_info.quantidade_vendas > 0 ? `🛒 ${data.vendas_info.quantidade_vendas} vendas realizadas` : ''}
             `;
 
             // Cards de estatísticas
@@ -630,6 +651,13 @@
 
             document.getElementById('ultimaEdicao').textContent =
                 'Edição ' + data.ultima_edicao;
+                
+            // Novos campos de vendas
+            document.getElementById('totalVendas').textContent =
+                'R$ ' + data.vendas_info.total_vendas.toLocaleString('pt-BR', {minimumFractionDigits: 2});
+                
+            document.getElementById('quantidadeVendas').textContent =
+                data.vendas_info.quantidade_vendas.toString();
         }
 
         // Carregar última atualização geral (independente de usuário)

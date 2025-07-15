@@ -22,6 +22,10 @@ import sys
 import re
 import time
 
+# Carrega variáveis de ambiente do arquivo .env
+from dotenv import load_dotenv
+load_dotenv()
+
 # Configurar logging adequadamente
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -34,13 +38,20 @@ except ImportError:
     USE_PYTZ = False
     print("Aviso: pytz não está disponível. Usando fuso horário local.")
 
-# Configuração para upload de imagens na VPS externa
+# =============================================================================
+# Configurações VPS/FTP (seguindo padrão MIGRACAO_ENV_CONSOLIDADO)
+# =============================================================================
 VPS_FTP_CONFIG = {
-    'host': 'pma.megatrends.site',  # Mesmo host do MySQL
-    'user': 'root',  # Ajuste conforme suas credenciais FTP
-    'password': 'Define@4536#8521',  # Ajuste conforme suas credenciais FTP
-    'upload_path': '/uploads/'  # Caminho na VPS onde as imagens serão salvas
+    'host': os.getenv('VPS_FTP_HOST'),
+    'user': os.getenv('VPS_FTP_USER'), 
+    'password': os.getenv('VPS_FTP_PASSWORD'),
+    'upload_path': os.getenv('VPS_FTP_UPLOAD_PATH', '/uploads/')
 }
+
+# Validação de configurações críticas
+if not VPS_FTP_CONFIG['host'] or not VPS_FTP_CONFIG['user'] or not VPS_FTP_CONFIG['password']:
+    logger.warning("Configurações VPS/FTP não encontradas no arquivo .env")
+    logger.warning("Verifique se VPS_FTP_HOST, VPS_FTP_USER e VPS_FTP_PASSWORD estão definidos")
 
 # Configurações de upload
 UPLOAD_DIR = os.path.join(os.path.dirname(__file__), "..", "uploads")
@@ -871,9 +882,9 @@ def executar_script_cadrifas(dados: ScriptExecuteRequest):
         
         # Adicionar variáveis de ambiente necessárias se não existirem
         if 'DB_PASSWORD' not in env:
-            env['DB_PASSWORD'] = 'Define@4536#8521'
+            env['DB_PASSWORD'] = os.getenv('DB_PASSWORD')
         if 'LITORAL_PASSWORD' not in env:
-            env['LITORAL_PASSWORD'] = 'Define@4536#8521'
+            env['LITORAL_PASSWORD'] = os.getenv('LOGIN_PASSWORD')
         
         # Definir diretório de trabalho
         working_dir = os.path.join(os.path.dirname(__file__), '..')
@@ -2377,49 +2388,95 @@ def verificar_status_agendador():
 @app.get("/api/scripts/ultima-verificacao-log")
 def obter_ultima_verificacao_log():
     """
-    Busca o horário da última linha que contém 'Job criado' no log de verificação
+    Busca o horário da última linha de verificação de rifas nos logs
+    Prioriza o log unificado, fallback para log antigo
     """
     try:
         import os
         import re
         from datetime import datetime
 
-        log_file = "scripts/logs/verificar_andamento.log"
+        # Tentar primeiro o log unificado (novo sistema)
+        log_unificado = "scripts/andamento/logs/logs_geral_agendador.log"
+        log_antigo = "scripts/logs/verificar_andamento.log"
+        
+        log_file = None
+        tipo_log = None
+        
+        if os.path.exists(log_unificado):
+            log_file = log_unificado
+            tipo_log = "unificado"
+        elif os.path.exists(log_antigo):
+            log_file = log_antigo
+            tipo_log = "antigo"
+        else:
+            return {"sucesso": False, "motivo": "Nenhum arquivo de log encontrado"}
 
-        if not os.path.exists(log_file):
-            return {"sucesso": False, "motivo": "Arquivo de log não encontrado"}
-
-        # Ler o arquivo de log de trás para frente para encontrar a última ocorrência
-        ultima_linha_job = None
+        # Ler o arquivo de log de trás para frente
+        ultima_linha_verificacao = None
 
         with open(log_file, 'r', encoding='utf-8') as f:
             linhas = f.readlines()
 
-        # Procurar de trás para frente pela última linha com "Job criado"
-        for linha in reversed(linhas):
-            if "Job criado" in linha:
-                ultima_linha_job = linha.strip()
-                break
+        if tipo_log == "unificado":
+            # Padrões para log unificado (agendador reorganizado)
+            padroes_verificacao = [
+                "✅ Verificação concluída:",
+                "🔄 === INICIANDO VERIFICAÇÃO ===",
+                "📊 Verificando rifas ativas",
+                "Total de links ATIVOS:",
+                "=== RESUMO FINAL ===",
+                "Rifas ativas encontradas:",
+                "📅 Job criado:",
+                "🔋 CRONOGRAMA ATUAL:",
+                "=== ATUALIZANDO CRONOGRAMA DE MONITORAMENTO ==="
+            ]
+            
+            for linha in reversed(linhas):
+                for padrao in padroes_verificacao:
+                    if padrao in linha:
+                        ultima_linha_verificacao = linha.strip()
+                        break
+                if ultima_linha_verificacao:
+                    break
+            
+            # Formato: 2025-07-15 00:02:31 - [AGENDADOR] - INFO - Mensagem
+            if ultima_linha_verificacao:
+                match = re.match(r'(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})', ultima_linha_verificacao)
+                formato_timestamp = '%Y-%m-%d %H:%M:%S'
+            else:
+                match = None
+                
+        else:
+            # Padrões para log antigo
+            for linha in reversed(linhas):
+                if "Job criado" in linha or "=== INICIANDO VERIFICAÇÃO" in linha or "=== RESUMO FINAL ===" in linha:
+                    ultima_linha_verificacao = linha.strip()
+                    break
+            
+            # Formato: 2025-07-10 23:51:46,438
+            if ultima_linha_verificacao:
+                match = re.match(r'(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}),\d+', ultima_linha_verificacao)
+                formato_timestamp = '%Y-%m-%d %H:%M:%S'
+            else:
+                match = None
 
-        if not ultima_linha_job:
-            return {"sucesso": False, "motivo": "Nenhuma linha com 'Job criado' encontrada"}
-
-        # Extrair timestamp da linha (formato: 2025-07-10 23:51:46,438)
-        match = re.match(r'(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}),\d+', ultima_linha_job)
+        if not ultima_linha_verificacao:
+            return {"sucesso": False, "motivo": f"Nenhuma linha de verificação encontrada no log {tipo_log}"}
 
         if match:
             timestamp_str = match.group(1)
-            # Converter para datetime e depois para ISO format
-            timestamp_dt = datetime.strptime(timestamp_str, '%Y-%m-%d %H:%M:%S')
+            timestamp_dt = datetime.strptime(timestamp_str, formato_timestamp)
 
             return {
                 "sucesso": True,
                 "ultima_verificacao": timestamp_dt.isoformat(),
-                "linha_completa": ultima_linha_job,
-                "timestamp_formatado": timestamp_dt.strftime('%H:%M:%S')
+                "linha_completa": ultima_linha_verificacao,
+                "timestamp_formatado": timestamp_dt.strftime('%H:%M:%S'),
+                "tipo_log": tipo_log
             }
         else:
-            return {"sucesso": False, "motivo": "Formato de timestamp não reconhecido"}
+            return {"sucesso": False, "motivo": f"Formato de timestamp não reconhecido no log {tipo_log}"}
 
     except Exception as e:
         logger.error(f"Erro ao buscar última verificação no log: {e}")
@@ -2525,6 +2582,30 @@ def obter_estatisticas_pessoa(nome: str):
         cursor.execute(query_por_extracao, (nome,))
         por_extracao = cursor.fetchall()
         
+        # Buscar dados em relatorios_vendas para o mesmo nome e telefone
+        telefones_lista = stats['telefones'].split(',') if stats['telefones'] else []
+        total_vendas = 0
+        quantidade_vendas = 0
+        
+        if telefones_lista:
+            # Para cada telefone encontrado, buscar na tabela relatorios_vendas
+            for telefone in telefones_lista:
+                telefone = telefone.strip()
+                query_vendas = """
+                SELECT 
+                    COUNT(*) as quantidade_vendas,
+                    SUM(CAST(total AS DECIMAL(10,2))) as total_vendas
+                FROM relatorios_vendas 
+                WHERE nome = %s AND telefone = %s
+                """
+                
+                cursor.execute(query_vendas, (nome, telefone))
+                vendas_resultado = cursor.fetchone()
+                
+                if vendas_resultado and vendas_resultado['total_vendas']:
+                    total_vendas += float(vendas_resultado['total_vendas'])
+                    quantidade_vendas += vendas_resultado['quantidade_vendas']
+        
         cursor.close()
         connection.close()
         
@@ -2537,7 +2618,11 @@ def obter_estatisticas_pessoa(nome: str):
             "ultima_edicao": stats['ultima_edicao'],
             "telefones": stats['telefones'].split(',') if stats['telefones'] else [],
             "historico": historico,
-            "por_extracao": por_extracao
+            "por_extracao": por_extracao,
+            "vendas_info": {
+                "total_vendas": total_vendas,
+                "quantidade_vendas": quantidade_vendas
+            }
         }
         
     except Exception as e:
