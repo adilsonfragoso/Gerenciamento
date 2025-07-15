@@ -9,7 +9,19 @@
     <style>
         .container {
             max-width: 1400px;
-            margin: 0 auto;
+            margin: 0                <di                                       <div class="stat-card last-prize">
+                    <div class="stat-number" id="ultimaEdicao">-</div>
+                    <div class="stat-label">Última<br>premiação</div>
+                </div>v class="stat-card sales-count">
+                    <div class="stat-number" id="quantidadeVendas">0</div>
+                    <div class="stat-label">Número de<br>Compras</div>
+                </div>  <div class="stat-card editions-participated">
+                    <div class="stat-number" id="edicoesParticipadas">0</div>
+                    <div class="stat-label">Edições que<br>Participou</div>
+                </div>ss="stat-card total-sales">
+                    <div class="stat-number" id="totalVendas">R$ 0,00</div>
+                    <div class="stat-label">Total em<br>Compras</div>
+                </div>;
             padding: 20px;
         }
 
@@ -215,7 +227,7 @@
         }
 
         .stat-number {
-            font-size: 2.5em;
+            font-size: 2em;
             font-weight: bold;
             margin-bottom: 8px;
             background: var(--card-color);
@@ -395,46 +407,43 @@
 
             <!-- Cards de estatísticas -->
             <div class="stats-dashboard">
+                <div class="stat-card total-sales">
+                    <div class="stat-icon">�</div>
+                    <div class="stat-number" id="totalVendas">R$ 0,00</div>
+                    <div class="stat-label">Total em<br>Compras</div>
+                </div>
+
                 <div class="stat-card total-received">
-                    <div class="stat-icon">💰</div>
                     <div class="stat-number" id="totalRecebido">R$ 0,00</div>
                     <div class="stat-label">Total de prêmios<br>Recebidos</div>
                 </div>
 
                 <div class="stat-card total-times">
-                    <div class="stat-icon">🏆</div>
                     <div class="stat-number" id="totalVezes">0 vezes</div>
                     <div class="stat-label">Total de vezes que<br>foi premiado</div>
                 </div>
 
+                <div class="stat-card editions-participated">
+                    <div class="stat-icon">�</div>
+                    <div class="stat-number" id="edicoesParticipadas">0</div>
+                    <div class="stat-label">Edições que<br>Participou</div>
+                </div>
+
+                <div class="stat-card sales-count">
+                    <div class="stat-icon">�</div>
+                    <div class="stat-number" id="quantidadeVendas">0</div>
+                    <div class="stat-label">Número de<br>Compras</div>
+                </div>
+
                 <div class="stat-card first-prize">
-                    <div class="stat-icon">🥇</div>
                     <div class="stat-number" id="primeiraEdicao">-</div>
                     <div class="stat-label">Primeira<br>premiação</div>
                 </div>
 
                 <div class="stat-card last-prize">
-                    <div class="stat-icon">🎯</div>
+                    <div class="stat-icon">�</div>
                     <div class="stat-number" id="ultimaEdicao">-</div>
                     <div class="stat-label">Última<br>premiação</div>
-                </div>
-
-                <div class="stat-card total-sales">
-                    <div class="stat-icon">🛒</div>
-                    <div class="stat-number" id="totalVendas">R$ 0,00</div>
-                    <div class="stat-label">Total em<br>Vendas</div>
-                </div>
-
-                <div class="stat-card sales-count">
-                    <div class="stat-icon">📊</div>
-                    <div class="stat-number" id="quantidadeVendas">0</div>
-                    <div class="stat-label">Número de<br>Vendas</div>
-                </div>
-
-                <div class="stat-card editions-participated">
-                    <div class="stat-icon">🎲</div>
-                    <div class="stat-number" id="edicoesParticipadas">0</div>
-                    <div class="stat-label">Edições que<br>Participou</div>
                 </div>
             </div>
 
@@ -644,10 +653,7 @@
             // Info da pessoa
             document.getElementById('personName').textContent = data.nome;
             document.getElementById('personDetails').innerHTML = `
-                📊 ${data.total_premiacoes} premiações registradas
-                ${data.telefones.length > 0 ? `📞 ${data.telefones.join(', ')}` : ''}
-                ${data.vendas_info.quantidade_vendas > 0 ? `🛒 ${data.vendas_info.quantidade_vendas} vendas realizadas` : ''}
-                ${data.vendas_info.edicoes_participadas > 0 ? `🎲 Participou de ${data.vendas_info.edicoes_participadas} edições diferentes` : ''}
+                ${data.telefones.length > 0 ? `📞 ${data.telefones.join(', ')}` : 'Telefone não informado'}
             `;
 
             // Cards de estatísticas
