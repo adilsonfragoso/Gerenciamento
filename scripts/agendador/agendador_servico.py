@@ -16,9 +16,12 @@ import sys
 import os
 import time
 import signal
-import logging
 from datetime import datetime
 import json
+
+# Adicionar utils ao path para importar logging unificado
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from utils.logging_unificado import get_agendador_logger, log_system_info, log_system_shutdown
 
 # Adicionar o diretório scripts ao path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -31,24 +34,12 @@ class AgendadorServico:
         self.rodando = False
         self.pid_file = "scripts/agendador.pid"
         self.status_file = "scripts/agendador_status.json"
-        self.configurar_logging()
+        self.logger = get_agendador_logger('SERVICO')
         
     def configurar_logging(self):
-        """Configura logging apenas para arquivo (sem console)"""
-        log_dir = os.path.join(os.path.dirname(__file__), 'logs')
-        os.makedirs(log_dir, exist_ok=True)
-        
-        log_file = os.path.join(log_dir, 'agendador_servico.log')
-        
-        logging.basicConfig(
-            level=logging.INFO,
-            format='%(asctime)s - %(levelname)s - %(message)s',
-            handlers=[
-                logging.FileHandler(log_file, encoding='utf-8')
-            ]
-        )
-        
-        self.logger = logging.getLogger(__name__)
+        """Configuração legacy - agora usa sistema unificado"""
+        # Manter para compatibilidade, mas usa logger unificado
+        self.logger.info("📋 Sistema de logging unificado ativo")
     
     def salvar_pid(self):
         """Salva o PID do processo em arquivo"""
@@ -77,7 +68,7 @@ class AgendadorServico:
                 'inicio': datetime.now().isoformat(),
                 'rifas_ativas': rifas_ativas,
                 'ultima_verificacao': ultima_verificacao.isoformat() if ultima_verificacao else None,
-                'log_file': os.path.abspath(os.path.join(os.path.dirname(__file__), 'logs/agendador_servico.log'))
+                'log_file': os.path.abspath(os.path.join(os.path.dirname(__file__), '../logs/logs_geral_agendador.log'))
             }
             
             with open(self.status_file, 'w', encoding='utf-8') as f:

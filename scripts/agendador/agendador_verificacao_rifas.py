@@ -25,6 +25,14 @@ import requests
 from datetime import datetime, timedelta
 from typing import Dict, List, Tuple
 import pymysql
+from dotenv import load_dotenv
+
+# Adicionar utils ao path para importar logging unificado
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from utils.logging_unificado import get_agendador_logger, log_system_info, log_system_shutdown
+
+# Carrega variáveis de ambiente do arquivo .env
+load_dotenv()
 
 # Adicionar o diretório scripts ao path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -37,25 +45,15 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from verificar_andamento_rifas import main as verificar_rifas
 from recuperar_rifas_erro import main as recuperar_rifas_erro
 
-# Configuração de logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler(os.path.abspath(os.path.join(os.path.dirname(__file__), 'logs/agendador_rifas.log')), encoding='utf-8'),
-        logging.StreamHandler()
-    ]
-)
-logger = logging.getLogger(__name__)
+# Importar configuração do banco
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+from app.db_config import DB_CONFIG
 
-# Configuração do banco de dados
-DB_CONFIG = {
-    'host': 'pma.megatrends.site',
-    'user': 'root',
-    'password': 'Define@4536#8521',
-    'database': 'litoral',
-    'charset': 'utf8mb4'
-}
+# Configuração de logging unificado
+logger = get_agendador_logger('AGENDADOR')
+
+# ✅ Configuração do banco de dados (seguindo padrão MIGRACAO_ENV_CONSOLIDADO)
+# DB_CONFIG é importado de app.db_config que já usa .env
 
 # Horários de fechamento das extrações
 HORARIOS_FECHAMENTO = {
@@ -192,6 +190,47 @@ class AgendadorRifas:
 
     def verificar_modo_foco(self, rifas_ativas: List[Dict]) -> bool:
         """Verifica se alguma rifa atingiu 95% e ativa o modo foco"""
+        # NOVA FUNCIONALIDADE: Verificar timeout do modo foco (máximo 3 horas)
+        if self.modo_foco_ativo and self.rifa_em_foco:
+            tempo_limite = datetime.now() - timedelta(hours=3)
+            if hasattr(self, 'modo_foco_inicio') and self.modo_foco_inicio < tempo_limite:
+                logger.warning(f"🕐 TIMEOUT DO MODO FOCO: {self.rifa_em_foco['sigla_oficial']} - Forçando saída")
+                self.modo_foco_ativo = False
+                self.rifa_em_foco = None
+                delattr(self, 'modo_foco_inicio')
+                return False
+            
+            # NOVA FUNCIONALIDADE: Verificar se passou do horário de fechamento
+            sigla_base = self.extrair_sigla_base(self.rifa_em_foco['sigla_oficial'])
+            if sigla_base in HORARIOS_FECHAMENTO:
+                fechamento = self.calcular_proximo_fechamento(sigla_base)
+                if fechamento and datetime.now() > fechamento:
+                    logger.warning(f"⏰ HORÁRIO FECHAMENTO PASSOU: {self.rifa_em_foco['sigla_oficial']} - Forçando saída do modo foco")
+                    self.modo_foco_ativo = False
+                    self.rifa_em_foco = None
+                    delattr(self, 'modo_foco_inicio')
+                    return False
+            
+            # NOVA FUNCIONALIDADE: Verificar se está há muito tempo na mesma porcentagem (possível travamento)
+            percentual_atual = self.rifa_em_foco.get('percentual', 0)
+            agora = datetime.now()
+            
+            if hasattr(self, 'ultimo_percentual_foco') and hasattr(self, 'tempo_ultimo_percentual'):
+                if (percentual_atual == self.ultimo_percentual_foco and 
+                    (agora - self.tempo_ultimo_percentual).total_seconds() > 1800):  # 30 min sem mudança
+                    logger.warning(f"⚠️ TRAVAMENTO DETECTADO: {self.rifa_em_foco['sigla_oficial']} há 30min em {percentual_atual}% - Forçando saída do modo foco")
+                    self.modo_foco_ativo = False
+                    self.rifa_em_foco = None
+                    delattr(self, 'modo_foco_inicio')
+                    delattr(self, 'ultimo_percentual_foco')
+                    delattr(self, 'tempo_ultimo_percentual')
+                    return False
+            
+            # Atualizar controle de percentual
+            if not hasattr(self, 'ultimo_percentual_foco') or percentual_atual != self.ultimo_percentual_foco:
+                self.ultimo_percentual_foco = percentual_atual
+                self.tempo_ultimo_percentual = agora
+
         # Buscar rifas com 95%+ que não estão concluídas
         rifas_95_plus = [rifa for rifa in rifas_ativas if rifa['percentual'] >= 95 and rifa['status_rifa'] == 'ativo']
 
@@ -215,8 +254,14 @@ class AgendadorRifas:
             if not self.modo_foco_ativo:
                 self.rifa_em_foco = rifas_95_plus[0]  # Pegar a primeira rifa com 95%+
                 self.modo_foco_ativo = True
+                self.modo_foco_inicio = datetime.now()  # NOVO: Registrar início do modo foco
+                # NOVO: Inicializar controle de percentual
+                self.ultimo_percentual_foco = self.rifa_em_foco.get('percentual', 0)
+                self.tempo_ultimo_percentual = datetime.now()
                 logger.info(f"🎯 MODO FOCO ATIVADO: {self.rifa_em_foco['sigla_oficial']} ({self.rifa_em_foco['percentual']}%)")
                 logger.info("🔍 CONCENTRANDO MONITORAMENTO APENAS NESTA RIFA ATÉ 100%")
+                logger.info(f"⏰ Timeout do modo foco: 3 horas máximo")
+                logger.info(f"⚠️ Proteção anti-travamento: 30min na mesma porcentagem")
                 return True
         else:
             # Nenhuma rifa com 95%+, desativar modo foco se estava ativo
@@ -224,6 +269,15 @@ class AgendadorRifas:
                 logger.info(f"🔄 SAINDO DO MODO FOCO - Voltando ao monitoramento normal")
                 self.modo_foco_ativo = False
                 self.rifa_em_foco = None
+                # Limpar atributos de controle
+                if hasattr(self, 'modo_foco_inicio'):
+                    delattr(self, 'modo_foco_inicio')
+                if hasattr(self, 'ultimo_percentual_foco'):
+                    delattr(self, 'ultimo_percentual_foco')
+                if hasattr(self, 'tempo_ultimo_percentual'):
+                    delattr(self, 'tempo_ultimo_percentual')
+                if hasattr(self, 'modo_foco_inicio'):
+                    delattr(self, 'modo_foco_inicio')
 
         return self.modo_foco_ativo
 
@@ -292,6 +346,59 @@ class AgendadorRifas:
             logger.error(f"Erro ao buscar rifas ativas: {e}")
             return []
     
+    def obter_rifas_ativas(self) -> List[Dict]:
+        """Obtém lista de rifas ativas do banco de dados"""
+        try:
+            connection = pymysql.connect(**DB_CONFIG)
+            cursor = connection.cursor()
+            
+            query = """
+            SELECT id, edicao, sigla_oficial, andamento, status_rifa, data_sorteio
+            FROM extracoes_cadastro
+            WHERE status_rifa = 'ativo'
+            AND link IS NOT NULL
+            AND link != ''
+            AND link LIKE 'https://litoraldasorte.com%'
+            ORDER BY edicao DESC
+            """
+            
+            cursor.execute(query)
+            resultados = cursor.fetchall()
+            
+            rifas_ativas = []
+            for resultado in resultados:
+                # Extrair percentual do andamento
+                andamento_str = resultado[3] if resultado[3] else '0%'
+                percentual = 0
+                if andamento_str and '%' in andamento_str:
+                    try:
+                        percentual = int(andamento_str.replace('%', ''))
+                    except:
+                        percentual = 0
+                
+                # Extrair sigla base
+                sigla_base = self.extrair_sigla_base(resultado[2])
+                
+                rifas_ativas.append({
+                    'id': resultado[0],
+                    'edicao': resultado[1],
+                    'sigla_oficial': resultado[2],
+                    'andamento_str': andamento_str,
+                    'percentual': percentual,
+                    'status_rifa': resultado[4],
+                    'data_sorteio': resultado[5],
+                    'sigla_base': sigla_base
+                })
+            
+            cursor.close()
+            connection.close()
+            
+            return rifas_ativas
+            
+        except Exception as e:
+            logger.error(f"Erro ao obter rifas ativas: {e}")
+            return []
+
     def atualizar_cronograma_monitoramento(self):
         """Atualiza o cronograma de monitoramento baseado nas rifas ativas"""
         rifas_ativas = self.buscar_rifas_ativas()
@@ -302,6 +409,15 @@ class AgendadorRifas:
 
         logger.info(f"=== ATUALIZANDO CRONOGRAMA DE MONITORAMENTO ===")
         logger.info(f"Rifas ativas encontradas: {len(rifas_ativas)}")
+
+        # NOVA FUNCIONALIDADE: Desativar rifas vencidas automaticamente
+        self.desativar_rifas_vencidas(rifas_ativas)
+        
+        # Recarregar rifas ativas após possível desativação
+        rifas_ativas = self.obter_rifas_ativas()
+        if not rifas_ativas:
+            logger.info("Nenhuma rifa ativa encontrada após verificação de vencimento")
+            return
 
         # Verificar se deve ativar/manter modo foco
         modo_foco = self.verificar_modo_foco(rifas_ativas)
@@ -360,7 +476,18 @@ class AgendadorRifas:
                 if self.modo_foco_ativo and self.rifa_em_foco:
                     # Modo foco: verificar apenas a rifa específica
                     logger.info(f"🎯 Verificando apenas rifa em foco: {self.rifa_em_foco['sigla_oficial']}")
-                    verificar_rifas([self.rifa_em_foco['id']])
+                    try:
+                        verificar_rifas([self.rifa_em_foco['id']])
+                    except Exception as e:
+                        logger.error(f"❌ ERRO NO MODO FOCO para {self.rifa_em_foco['sigla_oficial']}: {e}")
+                        logger.warning("🔄 FORÇANDO SAÍDA DO MODO FOCO devido ao erro")
+                        self.modo_foco_ativo = False
+                        self.rifa_em_foco = None
+                        if hasattr(self, 'modo_foco_inicio'):
+                            delattr(self, 'modo_foco_inicio')
+                        # Tentar verificação normal como fallback
+                        logger.info("🔄 Tentando verificação normal como fallback...")
+                        verificar_rifas()
                 else:
                     # Modo normal: verificar todas as rifas ativas
                     verificar_rifas()
@@ -461,10 +588,72 @@ class AgendadorRifas:
                 logger.error(f"Erro no loop principal: {e}")
                 time.sleep(60)  # Aguardar 1 minuto antes de tentar novamente
 
+    def desativar_rifas_vencidas(self, rifas_ativas: List[Dict]):
+        """Desativa automaticamente rifas que passaram 30min do horário de fechamento"""
+        try:
+            connection = pymysql.connect(**DB_CONFIG)
+            cursor = connection.cursor()
+            
+            rifas_desativadas = 0
+            agora = datetime.now()
+            
+            for rifa in rifas_ativas:
+                sigla_base = rifa['sigla_base']
+                
+                if sigla_base in HORARIOS_FECHAMENTO:
+                    fechamento = self.calcular_proximo_fechamento(sigla_base)
+                    
+                    if fechamento:
+                        # Se passou 30 minutos do fechamento, desativar
+                        limite_desativacao = fechamento + timedelta(minutes=30)
+                        
+                        if agora > limite_desativacao:
+                            update_query = """
+                            UPDATE extracoes_cadastro 
+                            SET status_rifa = 'encerrado_automatico',
+                                observacoes = CONCAT(IFNULL(observacoes, ''), 
+                                    ' [AUTO-DESATIVADA: ', %s, ']')
+                            WHERE id = %s
+                            """
+                            
+                            timestamp = agora.strftime('%Y-%m-%d %H:%M')
+                            cursor.execute(update_query, (timestamp, rifa['id']))
+                            
+                            logger.warning(f"🔄 RIFA AUTO-DESATIVADA: {rifa['sigla_oficial']} (passou 30min do fechamento)")
+                            rifas_desativadas += 1
+            
+            if rifas_desativadas > 0:
+                connection.commit()
+                logger.info(f"✅ {rifas_desativadas} rifa(s) desativada(s) automaticamente")
+            
+            cursor.close()
+            connection.close()
+            
+        except Exception as e:
+            logger.error(f"Erro ao desativar rifas vencidas: {e}")
+
+    def forcar_saida_modo_foco(self):
+        """Força a saída do modo foco - útil para resolução manual de travamentos"""
+        if self.modo_foco_ativo:
+            logger.warning(f"🔧 FORÇANDO SAÍDA DO MODO FOCO: {self.rifa_em_foco['sigla_oficial'] if self.rifa_em_foco else 'N/A'}")
+            self.modo_foco_ativo = False
+            self.rifa_em_foco = None
+            if hasattr(self, 'modo_foco_inicio'):
+                delattr(self, 'modo_foco_inicio')
+            
+            # Limpar cronograma e reagendar modo normal
+            schedule.clear()
+            self.atualizar_cronograma_monitoramento()
+            logger.info("✅ Modo foco desativado - voltando ao monitoramento normal")
+            return True
+        else:
+            logger.info("ℹ️ Modo foco não estava ativo")
+            return False
+
 def main():
     """Função principal"""
     agendador = AgendadorRifas()
     agendador.executar_loop_principal()
 
 if __name__ == "__main__":
-    main() 
+    main()
