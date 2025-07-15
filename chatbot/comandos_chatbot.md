@@ -2,6 +2,7 @@
  Delete - pm2 del BotRelatorio  
 List      - pm2 list
 Logs      - pm2 logs BotRelatorio --lines 40
+Start  -  pm2 start chatbot.js --name BotRelatorio
 
 
 
