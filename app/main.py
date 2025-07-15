@@ -189,6 +189,136 @@ def serve_dashboard():
 def serve_teste_sigla_avulsa():
     return FileResponse(os.path.join(os.path.dirname(__file__), "../test_sigla_avulsa.html"))
 
+@app.get("/analise")
+def serve_analise():
+    return FileResponse(os.path.join(os.path.dirname(__file__), "../static/analise.html"))
+
+@app.get("/analise-dinamica")
+def serve_analise_dinamica():
+    return FileResponse(os.path.join(os.path.dirname(__file__), "../static/analise_dinamica.html"))
+
+@app.get("/api/analise/premiacoes-vs-vendas")
+def get_analise_premiacoes_vendas():
+    """API endpoint para análise completa: clientes que compraram vs prêmios totais + participação"""
+    try:
+        connection = pymysql.connect(**DB_CONFIG)
+        cursor = connection.cursor(DictCursor)
+        
+        # Primeiro, obter informações das edições e datas
+        cursor.execute("""
+            SELECT 
+                MIN(edicao) as primeira_edicao,
+                MAX(edicao) as ultima_edicao,
+                COUNT(DISTINCT edicao) as total_edicoes,
+                COUNT(DISTINCT data) as total_datas
+            FROM relatorios_vendas
+        """)
+        info_edicoes = cursor.fetchone()
+        total_edicoes = info_edicoes['total_edicoes']
+        total_datas = info_edicoes['total_datas']
+        
+        # 1. Buscar clientes que compraram e suas informações completas
+        cursor.execute("""
+            SELECT 
+                rv.nome as cliente,
+                rv.telefone,
+                SUM(rv.total) as total_compras,
+                MAX(rv.edicao) as ultima_edicao,
+                COUNT(DISTINCT rv.edicao) as edicoes_participou,
+                COUNT(DISTINCT rv.data) as datas_participou
+            FROM relatorios_vendas rv
+            GROUP BY rv.nome, rv.telefone
+            ORDER BY total_compras DESC
+        """)
+        
+        clientes_compras = cursor.fetchall()
+        
+        # 2. Para cada cliente, buscar seus prêmios totais
+        resultados_finais = []
+        
+        for cliente in clientes_compras:
+            nome = cliente['cliente']
+            telefone = cliente['telefone']
+            total_compras = float(cliente['total_compras'])
+            ultima_edicao = cliente['ultima_edicao']
+            edicoes_participou = cliente['edicoes_participou']
+            datas_participou = cliente['datas_participou']
+            
+            # Calcular percentuais de participação
+            percentual_participacao_edicoes = (edicoes_participou / total_edicoes) * 100 if total_edicoes > 0 else 0
+            percentual_participacao_datas = (datas_participou / total_datas) * 100 if total_datas > 0 else 0
+            
+            # Buscar prêmios deste cliente
+            cursor.execute("""
+                SELECT COALESCE(SUM(valor_real), 0) as total_premios 
+                FROM premiados 
+                WHERE nome = %s
+            """, (nome,))
+            
+            premio_result = cursor.fetchone()
+            total_premios = float(premio_result['total_premios'])
+            
+            # Calcular diferença
+            diferenca = total_premios - total_compras
+            
+            # Incluir todos os clientes (mesmo com diferença negativa)
+            resultados_finais.append({
+                'nome': nome,
+                'telefone': telefone or 'N/A',
+                'total_premiacoes': total_premios,
+                'total_vendas': total_compras,
+                'diferenca': diferenca,
+                'ultima_edicao': ultima_edicao,
+                'edicoes_participou': edicoes_participou,
+                'datas_participou': datas_participou,
+                'percentual_participacao_edicoes': round(percentual_participacao_edicoes, 1),
+                'percentual_participacao_datas': round(percentual_participacao_datas, 1)
+            })
+        
+        # Ordenar por diferença (maiores primeiro)
+        resultados_finais.sort(key=lambda x: x['diferenca'], reverse=True)
+        
+        # Filtrar apenas os que têm diferença positiva (ganharam mais do que gastaram)
+        clientes_positivos = [c for c in resultados_finais if c['diferenca'] > 0]
+        
+        # Estatísticas gerais
+        cursor.execute("SELECT SUM(valor_real) as total FROM premiados")
+        total_premios_geral = cursor.fetchone()['total']
+        
+        cursor.execute("SELECT SUM(total) as total FROM relatorios_vendas")
+        total_vendas_geral = cursor.fetchone()['total']
+        
+        cursor.execute("SELECT COUNT(DISTINCT nome) as total FROM relatorios_vendas")
+        total_clientes = cursor.fetchone()['total']
+        
+        total_diferenca_positiva = sum(c['diferenca'] for c in clientes_positivos)
+        
+        cursor.close()
+        connection.close()
+        
+        resposta = {
+            'clientes': clientes_positivos,  # Apenas os com diferença positiva
+            'estatisticas': {
+                'total_clientes': total_clientes,
+                'clientes_positivos': len(clientes_positivos),
+                'diferenca_total': total_diferenca_positiva,
+                'total_premios_geral': float(total_premios_geral),
+                'total_vendas_geral': float(total_vendas_geral),
+                'total_edicoes': total_edicoes,
+                'total_datas': total_datas,
+                'primeira_edicao': info_edicoes['primeira_edicao'],
+                'ultima_edicao': info_edicoes['ultima_edicao'],
+                'ultima_atualizacao': datetime.now().strftime("%d/%m/%Y"),
+                'metodologia': 'Análise completa: soma total de prêmios vs soma total de compras por cliente + % participação em edições e datas'
+            }
+        }
+        
+        return resposta
+        
+    except Exception as e:
+        logger.error(f"Erro na análise premiações vs vendas: {e}")
+        return {"error": f"Erro ao processar análise: {str(e)}"}
+
 @app.get("/api/edicoes")
 def listar_edicoes():
     """Consulta a tabela siglas_diarias retornando diaSemana, data_sorteio e siglas dos últimos 14 dias, com verificação de pendências"""
@@ -2171,6 +2301,10 @@ def download_pdf(edicao: int):
 def serve_premiados_consulta():
     return FileResponse(os.path.join(os.path.dirname(__file__), "../static/premiados_consulta.html"))
 
+@app.get("/analise_premiacoes_vendas")
+def serve_analise_premiacoes_vendas():
+    return FileResponse(os.path.join(os.path.dirname(__file__), "../static/analise_premiacoes_vendas.html"))
+
 @app.get("/api/premiados")
 def listar_premiados(
     page: int = Query(1, ge=1, description="Número da página"),
@@ -2690,4 +2824,186 @@ def obter_ultima_atualizacao():
 
     except Exception as e:
         logger.error(f"Erro ao obter última atualização: {e}")
+        raise HTTPException(status_code=500, detail=f"Erro interno: {str(e)}")
+
+@app.get("/api/analise/premiacoes-vs-vendas")
+def analise_premiacoes_vs_vendas():
+    try:
+        connection = pymysql.connect(**DB_CONFIG)
+        cursor = connection.cursor(DictCursor)
+
+        query_principal = """
+        SELECT 
+            p.nome,
+            COALESCE(SUM(p.valor_real), 0) as total_premiacoes,
+            COALESCE(vendas.total_vendas, 0) as total_vendas,
+            (COALESCE(SUM(p.valor_real), 0) - COALESCE(vendas.total_vendas, 0)) as diferenca
+        FROM premiados p
+        LEFT JOIN (
+            SELECT nome, SUM(total) as total_vendas 
+            FROM relatorios_vendas 
+            GROUP BY nome
+        ) vendas ON p.nome = vendas.nome
+        GROUP BY p.nome, vendas.total_vendas
+        HAVING total_premiacoes > COALESCE(vendas.total_vendas, 0) AND total_premiacoes > 0
+        ORDER BY diferenca DESC
+        """
+        
+        cursor.execute(query_principal)
+        clientes_resultado = cursor.fetchall()
+
+        clientes_finais = []
+        for cliente in clientes_resultado:
+            query_telefones = """
+            SELECT DISTINCT telefone 
+            FROM (
+                SELECT telefone FROM premiados WHERE nome = %s AND telefone IS NOT NULL AND telefone != ''
+                UNION
+                SELECT telefone FROM relatorios_vendas WHERE nome = %s AND telefone IS NOT NULL AND telefone != ''
+            ) t
+            WHERE telefone IS NOT NULL AND telefone != ''
+            """
+            cursor.execute(query_telefones, (cliente['nome'], cliente['nome']))
+            telefones_resultado = cursor.fetchall()
+            telefones = [t['telefone'] for t in telefones_resultado]
+
+            clientes_finais.append({
+                'nome': cliente['nome'],
+                'total_premiacoes': float(cliente['total_premiacoes']),
+                'total_vendas': float(cliente['total_vendas']),
+                'diferenca': float(cliente['diferenca']),
+                'telefones': telefones
+            })
+
+        query_total_clientes = """
+        SELECT COUNT(DISTINCT nome) as total FROM (
+            SELECT nome FROM premiados 
+            UNION 
+            SELECT nome FROM relatorios_vendas
+        ) todos_clientes
+        """
+        cursor.execute(query_total_clientes)
+        total_clientes_resultado = cursor.fetchone()
+        total_clientes = total_clientes_resultado['total'] if total_clientes_resultado else 0
+
+        diferenca_total = sum(cliente['diferenca'] for cliente in clientes_finais)
+
+        estatisticas = {
+            'total_clientes': int(total_clientes),
+            'clientes_positivos': len(clientes_finais),
+            'diferenca_total': diferenca_total,
+            'ultima_atualizacao': 'Dados atualizados'
+        }
+
+        cursor.close()
+        connection.close()
+
+        return {
+            'clientes': clientes_finais,
+            'estatisticas': estatisticas
+        }
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro interno: {str(e)}")
+
+@app.get("/api/analise/premiacoes-vs-vendas")
+def analise_premiacoes_vs_vendas():
+    """
+    Analisa clientes onde a soma do valor_real (premiados) é maior que a soma do total (relatorios_vendas)
+    """
+    try:
+        connection = pymysql.connect(**DB_CONFIG)
+        cursor = connection.cursor(DictCursor)
+
+        # Query principal: buscar clientes onde premiações > vendas
+        query_principal = """
+        SELECT 
+            p.nome,
+            COALESCE(SUM(p.valor_real), 0) as total_premiacoes,
+            COALESCE(vendas.total_vendas, 0) as total_vendas,
+            (COALESCE(SUM(p.valor_real), 0) - COALESCE(vendas.total_vendas, 0)) as diferenca
+        FROM premiados p
+        LEFT JOIN (
+            SELECT nome, SUM(total) as total_vendas 
+            FROM relatorios_vendas 
+            GROUP BY nome
+        ) vendas ON p.nome = vendas.nome
+        GROUP BY p.nome, vendas.total_vendas
+        HAVING total_premiacoes > COALESCE(vendas.total_vendas, 0) AND total_premiacoes > 0
+        ORDER BY diferenca DESC
+        """
+        
+        cursor.execute(query_principal)
+        clientes_resultado = cursor.fetchall()
+
+        # Para cada cliente, buscar telefones
+        clientes_finais = []
+        for cliente in clientes_resultado:
+            # Buscar telefones do cliente nas duas tabelas
+            query_telefones = """
+            SELECT DISTINCT telefone 
+            FROM (
+                SELECT telefone FROM premiados WHERE nome = %s AND telefone IS NOT NULL AND telefone != ''
+                UNION
+                SELECT telefone FROM relatorios_vendas WHERE nome = %s AND telefone IS NOT NULL AND telefone != ''
+            ) t
+            WHERE telefone IS NOT NULL AND telefone != ''
+            """
+            cursor.execute(query_telefones, (cliente['nome'], cliente['nome']))
+            telefones_resultado = cursor.fetchall()
+            telefones = [t['telefone'] for t in telefones_resultado]
+
+            clientes_finais.append({
+                'nome': cliente['nome'],
+                'total_premiacoes': float(cliente['total_premiacoes']),
+                'total_vendas': float(cliente['total_vendas']),
+                'diferenca': float(cliente['diferenca']),
+                'telefones': telefones
+            })
+
+        # Estatísticas gerais - consulta simplificada
+        query_total_clientes = """
+        SELECT COUNT(DISTINCT nome) as total FROM (
+            SELECT nome FROM premiados 
+            UNION 
+            SELECT nome FROM relatorios_vendas
+        ) todos_clientes
+        """
+        cursor.execute(query_total_clientes)
+        total_clientes_resultado = cursor.fetchone()
+        total_clientes = total_clientes_resultado['total'] if total_clientes_resultado else 0
+
+        # Última atualização dos dados
+        query_ultima_atualizacao = """
+        SELECT MAX(data) as ultima_data 
+        FROM relatorios_importados 
+        WHERE data IS NOT NULL
+        """
+        cursor.execute(query_ultima_atualizacao)
+        ultima_atualizacao_resultado = cursor.fetchone()
+        
+        ultima_atualizacao = None
+        if ultima_atualizacao_resultado and ultima_atualizacao_resultado['ultima_data']:
+            ultima_atualizacao = ultima_atualizacao_resultado['ultima_data'].strftime('%d/%m/%Y')
+
+        # Calcular diferença total dos clientes positivos
+        diferenca_total = sum(cliente['diferenca'] for cliente in clientes_finais)
+
+        estatisticas = {
+            'total_clientes': int(total_clientes),
+            'clientes_positivos': len(clientes_finais),
+            'diferenca_total': diferenca_total,
+            'ultima_atualizacao': ultima_atualizacao
+        }
+
+        cursor.close()
+        connection.close()
+
+        return {
+            'clientes': clientes_finais,
+            'estatisticas': estatisticas
+        }
+
+    except Exception as e:
+        logger.error(f"Erro na análise premiações vs vendas: {e}")
         raise HTTPException(status_code=500, detail=f"Erro interno: {str(e)}")
