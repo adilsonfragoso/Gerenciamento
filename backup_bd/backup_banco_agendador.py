@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # backup_banco_agendador.py
 """
-Agendador para execução automática de backups diários às 03:13
+Agendador para execução automática de backups diários às 03:20
 Executa o script backup_banco_de_dados.py todos os dias no horário configurado.
 """
 
@@ -48,16 +48,16 @@ def executar_backup():
 def main():
     """Função principal do agendador"""
     backup_logger.log_agendador("INFO", "Iniciando agendador de backup...")
-    backup_logger.log_agendador("INFO", "Backup programado para execução diária às 03:13")
+    backup_logger.log_agendador("INFO", "Backup programado para execução diária às 03:20")
     
     print("Agendador de backup iniciado...")
-    print("Backup programado para execução diária às 03:13")
+    print("Backup programado para execução diária às 03:20")
     print("Logs salvos em:")
     print(f"   - scripts/andamento/logs/logs_geral_agendador.log")
     print(f"   - logs/backup_banco_de_dados.log")
     
-    # Agenda a execução diária às 03:13
-    schedule.every().day.at("03:13").do(executar_backup)
+    # Agenda a execução diária às 03:20
+    schedule.every().day.at("03:20").do(executar_backup)
     
     # Opcional: executar backup imediatamente para teste (descomente se necessário)
     # backup_logger.log_agendador("INFO", "Executando backup de teste...")

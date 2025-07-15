@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # backup_banco_tarefa_windows.py
 """
-Configura uma tarefa agendada no Windows para execução diária de backup às 03:00
+Configura uma tarefa agendada no Windows para execução diária de backup às 03:20
 Usa o Agendador de Tarefas do Windows (schtasks)
 """
 
@@ -32,7 +32,7 @@ def criar_tarefa_agendada():
         "/tn", nome_tarefa,
         "/tr", f'"{python_exe}" "{backup_script}"',
         "/sc", "daily",
-        "/st", "03:00",
+        "/st", "03:20",
         "/sd", "01/01/2025",  # Data de início
         "/ru", "SYSTEM",  # Executa como sistema para não precisar de usuário logado
         "/rl", "HIGHEST",  # Nível mais alto de privilégios
@@ -51,7 +51,7 @@ def criar_tarefa_agendada():
         
         if resultado.returncode == 0:
             print("✅  Tarefa agendada criada com sucesso!")
-            print(f"⏰  Execução programada para todos os dias às 03:00")
+            print(f"⏰  Execução programada para todos os dias às 03:20")
             print(f"📝  Nome da tarefa: {nome_tarefa}")
             
             # Mostra informações da tarefa
