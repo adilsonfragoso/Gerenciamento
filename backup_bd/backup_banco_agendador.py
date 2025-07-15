@@ -16,13 +16,13 @@ from backup_banco_log import backup_logger
 def executar_backup():
     """Executa o script de backup e registra o resultado"""
     try:
-        backup_logger.log_agendador("INFO", "🕐 Iniciando backup agendado...")
+        backup_logger.log_agendador("INFO", "Iniciando backup agendado...")
         
         # Executa o script de backup
         script_path = Path(__file__).parent / "backup_banco_de_dados.py"
         
         if not script_path.exists():
-            backup_logger.log_agendador("ERROR", f"❌ Script de backup não encontrado: {script_path}")
+            backup_logger.log_agendador("ERROR", f"Script de backup não encontrado: {script_path}")
             return
         
         # Executa o backup
@@ -34,25 +34,25 @@ def executar_backup():
         )
         
         if resultado.returncode == 0:
-            backup_logger.log_agendador("INFO", "✅ Backup executado com sucesso!")
+            backup_logger.log_agendador("INFO", "Backup executado com sucesso!")
             if resultado.stdout.strip():
                 backup_logger.log_backup("INFO", f"Saída: {resultado.stdout}")
         else:
-            backup_logger.log_agendador("ERROR", f"❌ Erro na execução do backup (código {resultado.returncode})")
+            backup_logger.log_agendador("ERROR", f"Erro na execução do backup (código {resultado.returncode})")
             if resultado.stderr.strip():
                 backup_logger.log_agendador("ERROR", f"Erro: {resultado.stderr}")
             
     except Exception as e:
-        backup_logger.log_agendador("ERROR", f"❌ Exceção durante execução do backup: {e}")
+        backup_logger.log_agendador("ERROR", f"Exceção durante execução do backup: {e}")
 
 def main():
     """Função principal do agendador"""
-    backup_logger.log_agendador("INFO", "🚀 Iniciando agendador de backup...")
-    backup_logger.log_agendador("INFO", "⏰ Backup programado para execução diária às 03:00")
+    backup_logger.log_agendador("INFO", "Iniciando agendador de backup...")
+    backup_logger.log_agendador("INFO", "Backup programado para execução diária às 03:00")
     
-    print("🚀 Agendador de backup iniciado...")
-    print("⏰ Backup programado para execução diária às 03:00")
-    print("📋 Logs salvos em:")
+    print("Agendador de backup iniciado...")
+    print("Backup programado para execução diária às 03:00")
+    print("Logs salvos em:")
     print(f"   - scripts/andamento/logs/logs_geral_agendador.log")
     print(f"   - logs/backup_banco_de_dados.log")
     
@@ -60,11 +60,11 @@ def main():
     schedule.every().day.at("03:00").do(executar_backup)
     
     # Opcional: executar backup imediatamente para teste (descomente se necessário)
-    # backup_logger.log_agendador("INFO", "🧪 Executando backup de teste...")
+    # backup_logger.log_agendador("INFO", "Executando backup de teste...")
     # executar_backup()
     
-    backup_logger.log_agendador("INFO", "📅 Agendador ativo. Aguardando próxima execução...")
-    print("📅 Agendador ativo. Use Ctrl+C para parar.")
+    backup_logger.log_agendador("INFO", "Agendador ativo. Aguardando próxima execução...")
+    print("Agendador ativo. Use Ctrl+C para parar.")
     
     try:
         while True:
@@ -72,11 +72,11 @@ def main():
             time.sleep(60)  # Verifica a cada minuto
             
     except KeyboardInterrupt:
-        backup_logger.log_agendador("INFO", "🛑 Agendador interrompido pelo usuário")
-        print("\n🛑 Agendador interrompido pelo usuário")
+        backup_logger.log_agendador("INFO", "Agendador interrompido pelo usuário")
+        print("\nAgendador interrompido pelo usuário")
     except Exception as e:
-        backup_logger.log_agendador("ERROR", f"❌ Erro no agendador: {e}")
-        print(f"❌ Erro no agendador: {e}")
+        backup_logger.log_agendador("ERROR", f"Erro no agendador: {e}")
+        print(f"Erro no agendador: {e}")
 
 if __name__ == "__main__":
     main()
