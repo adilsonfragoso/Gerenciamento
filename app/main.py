@@ -201,7 +201,11 @@ def serve_analise_dinamica():
 def get_analise_premiacoes_vendas():
     """API endpoint para análise completa: clientes que compraram vs prêmios totais + participação"""
     try:
-        connection = pymysql.connect(**DB_CONFIG)
+        # Força charset utf8mb4 na conexão para evitar problemas de codificação
+        db_config_updated = DB_CONFIG.copy()
+        db_config_updated['charset'] = 'utf8mb4'
+        db_config_updated['use_unicode'] = True
+        connection = pymysql.connect(**db_config_updated)
         cursor = connection.cursor(DictCursor)
         
         # Primeiro, obter informações das edições e datas
@@ -1693,6 +1697,7 @@ def excluir_siglas_diarias(dados: ExcluirSiglasRequest):
     """
     try:
         connection = pymysql.connect(**DB_CONFIG)
+
         cursor = connection.cursor(DictCursor)
         
         # Primeiro, verificar se o registro existe e obter informações
@@ -2665,8 +2670,16 @@ def obter_estatisticas_pessoa(nome: str):
     Obtém estatísticas detalhadas de uma pessoa específica
     """
     try:
-        connection = pymysql.connect(**DB_CONFIG)
-        cursor = connection.cursor(DictCursor)
+        connection = pymysql.connect(
+            host=DB_CONFIG['host'],
+            user=DB_CONFIG['user'],
+            password=DB_CONFIG['password'],
+            database=DB_CONFIG['database'],
+            charset=DB_CONFIG.get('charset', 'utf8mb4'),
+            use_unicode=True,
+            cursorclass=DictCursor
+        )
+        cursor = connection.cursor()
         
         # Estatísticas gerais da pessoa
         query_stats = """
