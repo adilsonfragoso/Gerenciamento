@@ -147,7 +147,7 @@
 
         .stats-dashboard {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
             margin-bottom: 25px;
         }
@@ -199,6 +199,10 @@
 
         .stat-card.sales-count {
             --card-color: linear-gradient(135deg, #26de81, #20bf6b);
+        }
+
+        .stat-card.editions-participated {
+            --card-color: linear-gradient(135deg, #fd9644, #f7b731);
         }
 
         .stat-icon {
@@ -426,6 +430,12 @@
                     <div class="stat-number" id="quantidadeVendas">0</div>
                     <div class="stat-label">Número de<br>Vendas</div>
                 </div>
+
+                <div class="stat-card editions-participated">
+                    <div class="stat-icon">🎲</div>
+                    <div class="stat-number" id="edicoesParticipadas">0</div>
+                    <div class="stat-label">Edições que<br>Participou</div>
+                </div>
             </div>
 
         </div>
@@ -637,6 +647,7 @@
                 📊 ${data.total_premiacoes} premiações registradas
                 ${data.telefones.length > 0 ? `📞 ${data.telefones.join(', ')}` : ''}
                 ${data.vendas_info.quantidade_vendas > 0 ? `🛒 ${data.vendas_info.quantidade_vendas} vendas realizadas` : ''}
+                ${data.vendas_info.edicoes_participadas > 0 ? `🎲 Participou de ${data.vendas_info.edicoes_participadas} edições diferentes` : ''}
             `;
 
             // Cards de estatísticas
@@ -658,6 +669,16 @@
                 
             document.getElementById('quantidadeVendas').textContent =
                 data.vendas_info.quantidade_vendas.toString();
+                
+            // Novo campo de edições participadas
+            document.getElementById('edicoesParticipadas').textContent =
+                data.vendas_info.edicoes_participadas.toString();
+                
+            // Adicionar tooltip com lista de edições se houver
+            const cardEdicoes = document.getElementById('edicoesParticipadas').closest('.stat-card');
+            if (data.vendas_info.edicoes_lista && data.vendas_info.edicoes_lista.length > 0) {
+                cardEdicoes.title = `Edições: ${data.vendas_info.edicoes_lista.join(', ')}`;
+            }
         }
 
         // Carregar última atualização geral (independente de usuário)

@@ -2586,6 +2586,7 @@ def obter_estatisticas_pessoa(nome: str):
         telefones_lista = stats['telefones'].split(',') if stats['telefones'] else []
         total_vendas = 0
         quantidade_vendas = 0
+        edicoes_participadas = set()  # Para contar edições únicas
         
         if telefones_lista:
             # Para cada telefone encontrado, buscar na tabela relatorios_vendas
@@ -2594,7 +2595,8 @@ def obter_estatisticas_pessoa(nome: str):
                 query_vendas = """
                 SELECT 
                     COUNT(*) as quantidade_vendas,
-                    SUM(CAST(total AS DECIMAL(10,2))) as total_vendas
+                    SUM(CAST(total AS DECIMAL(10,2))) as total_vendas,
+                    COUNT(DISTINCT edicao) as edicoes_distintas
                 FROM relatorios_vendas 
                 WHERE nome = %s AND telefone = %s
                 """
@@ -2605,6 +2607,21 @@ def obter_estatisticas_pessoa(nome: str):
                 if vendas_resultado and vendas_resultado['total_vendas']:
                     total_vendas += float(vendas_resultado['total_vendas'])
                     quantidade_vendas += vendas_resultado['quantidade_vendas']
+                
+                # Buscar as edições específicas para este nome e telefone
+                query_edicoes = """
+                SELECT DISTINCT edicao 
+                FROM relatorios_vendas 
+                WHERE nome = %s AND telefone = %s AND edicao IS NOT NULL
+                """
+                
+                cursor.execute(query_edicoes, (nome, telefone))
+                edicoes_resultado = cursor.fetchall()
+                
+                # Adicionar edições ao set (evita duplicatas entre telefones)
+                for edicao_row in edicoes_resultado:
+                    if edicao_row and edicao_row['edicao']:
+                        edicoes_participadas.add(edicao_row['edicao'])
         
         cursor.close()
         connection.close()
@@ -2621,7 +2638,9 @@ def obter_estatisticas_pessoa(nome: str):
             "por_extracao": por_extracao,
             "vendas_info": {
                 "total_vendas": total_vendas,
-                "quantidade_vendas": quantidade_vendas
+                "quantidade_vendas": quantidade_vendas,
+                "edicoes_participadas": len(edicoes_participadas),
+                "edicoes_lista": sorted(list(edicoes_participadas))
             }
         }
         
