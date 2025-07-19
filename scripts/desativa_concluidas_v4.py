@@ -9,15 +9,34 @@ from time import sleep
 import time  # Para usar time.sleep()
 import subprocess  # Necessário para usar a flag que oculta a janela
 
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.chrome.options import Options  # Para configurar o navegador
+from selenium.webdriver.chrome.service import Service  # Para controlar o ChromeDriver
+from time import sleep
+import time  # Para usar time.sleep()
+import subprocess  # Necessário para usar a flag que oculta a janela
+import os
+from dotenv import load_dotenv
+
+# Carregar variáveis de ambiente
+load_dotenv()
+
 # CONFIGURAÇÕES
 URL_PAGINA_INICIAL = "https://litoraldasorte.com"
-URL_LOGIN = "https://painel.litoraldasorte.com"
-LOGIN = 'desativa'
-SENHA = 'Define@4536#8521'
+URL_LOGIN = os.getenv('LOGIN_URL', "https://painel.litoraldasorte.com")
+LOGIN = os.getenv('DESATIVA_EMAIL', 'desativa')
+SENHA = os.getenv('DESATIVA_PASSWORD')
 INTERVALO_MINUTOS = 60  # Tempo em minutos entre execuções
 
+if not SENHA:
+    raise ValueError("❌ Credenciais de desativação não encontradas no .env")
+
 # Caminho absoluto para o ChromeDriver
-CHROMEDRIVER_PATH = r"D:\Documentos\Workspace\chromedriver.exe"
+CHROMEDRIVER_PATH = os.getenv('CHROME_DRIVER_PATH', r"D:\Documentos\Workspace\chromedriver.exe")
 # Flag para impedir que a janela de console seja exibida (Windows)
 CREATE_NO_WINDOW = subprocess.CREATE_NO_WINDOW  # ou use 0x08000000 se necessário
 
