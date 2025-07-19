@@ -1,9 +1,55 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+🚨 ARQUIVO CRÍTICO - NÃO REMOVER NEM MOVER DE LOCALIZAÇÃO
+
 Script para verificar o andamento das rifas através dos links cadastrados
 Atualiza a coluna 'andamento' na tabela extracoes_cadastro
 Versão atualizada com controle de status_rifa
+
+⚠️ DEPENDÊNCIAS CRÍTICAS - ESTE ARQUIVO É USADO POR:
+
+1. 📊 SISTEMA AGENDADOR PRINCIPAL (scripts/andamento/agendador_verificacao_rifas.py):
+   - Linha 45: from verificar_andamento_rifas import main as verificar_rifas
+   - Usado em 4 locais diferentes no agendador (linhas 480, 490, 493, 556)
+   - É o CORAÇÃO do sistema de monitoramento automático
+
+2. 🌐 API DASHBOARD WEB (app/main.py):
+   - Linha 1944: script_path = os.path.join("scripts", "verificar_andamento_rifas.py")
+   - Endpoint: POST /api/scripts/verificar-andamento-rifas
+   - Permite execução manual via interface web
+
+3. 📋 DOCUMENTAÇÕES E SISTEMAS:
+   - Referenciado em múltiplos READMEs e documentações
+   - Scripts de migração fazem referência a este arquivo
+   - Sistema de sincronização em tempo real depende dele
+
+🔒 LOCALIZAÇÃO OBRIGATÓRIA: scripts/verificar_andamento_rifas.py
+   - NÃO pode estar em subpastas (como scripts/andamento/)
+   - Os imports esperam encontrar na pasta scripts/ principal
+
+⚡ FUNCIONALIDADES CRÍTICAS:
+   - Verificação automática de percentuais de rifas
+   - Atualização de status no banco de dados (ativo/concluído/error)
+   - Notificação do dashboard para atualizações
+   - Execução automática de envio de PDFs para rifas 100%
+   - Sistema Selenium para extração de dados das páginas web
+
+🔧 COMO USAR:
+   - Diretamente: python scripts/verificar_andamento_rifas.py
+   - Via agendador: Executado automaticamente nos ciclos
+   - Via API: Chamado pelo endpoint do dashboard
+   - Modo foco: verificar_rifas([id_especifico]) - apenas uma rifa
+   - Modo normal: verificar_rifas() - todas as rifas ativas
+
+❌ SE REMOVER/MOVER ESTE ARQUIVO:
+   - Sistema agendador para de funcionar completamente
+   - API web retorna erro 404 para verificação manual
+   - Dashboard não consegue atualizar status das rifas
+   - Monitoramento automático é interrompido
+   - Rifas não são marcadas como concluídas automaticamente
+
+📅 Última atualização: 15/07/2025
 """
 
 import sys
@@ -204,6 +250,10 @@ def buscar_links_para_verificar(ids_especificos=None):
         # Buscar apenas registros com status_rifa = 'ativo'
         if ids_especificos:
             # Modo foco: buscar apenas IDs específicos
+            if not isinstance(ids_especificos, (list, tuple)) or len(ids_especificos) == 0:
+                logger.error(f"IDs específicos inválidos: {ids_especificos}")
+                return []
+            
             placeholders = ','.join(['%s'] * len(ids_especificos))
             query = f"""
             SELECT id, edicao, sigla_oficial, link, andamento, status_rifa
@@ -215,7 +265,8 @@ def buscar_links_para_verificar(ids_especificos=None):
             AND status_rifa = 'ativo'
             ORDER BY edicao DESC
             """
-            cursor.execute(query, ids_especificos)
+            logger.info(f"🔍 Executando query modo foco para IDs: {ids_especificos}")
+            cursor.execute(query, tuple(ids_especificos))
         else:
             # Modo normal: buscar todas as rifas ativas
             query = """
